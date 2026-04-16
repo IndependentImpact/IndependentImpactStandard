@@ -1,371 +1,164 @@
-@prefix aiao: <https://w3id.org/aiao/> .
-@prefix data: <https://jellyfiiish.xyz/ns/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix hed: <https://independentimpact.org/ns/hedera/> .
-@prefix impact: <https://w3id.org/impactont/> .
 @prefix indimp: <https://independentimpact.org/ns/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix time: <http://www.w3.org/2006/time#> .
-@prefix vcdm: <https://www.w3.org/ns/credentials/v2/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-indimp: a owl:Ontology ;
-    rdfs:label "Independent Impact Ontology"@en ;
-    rdfs:comment "Ontology for the Independent Impact Platform"@en ;
-    dcterms:title "Independent Impact Ontology"@en ;
-    dcterms:description "Ontology for the Independent Impact Platform"@en .
+indimp:adverse a skos:Concept ;
+    skos:definition "Impact that has an adverse environmental effect." ;
+    skos:inScheme indimp:BeneficialOrAdverse ;
+    skos:prefLabel "Adverse" ;
+    skos:topConceptOf indimp:BeneficialOrAdverse .
 
-indimp:AgentActivityWorkflowRelation a owl:Class ;
-    rdfs:label "AgentActivityWorkflowRelation"@en ;
-    rdfs:subClassOf aiao:AgentActivityRelation ;
-    skos:definition "Relates an agent to an activity in the context of a specific workflow."@en .
+indimp:beneficial a skos:Concept ;
+    skos:definition "Impact that has a beneficial environmental effect." ;
+    skos:inScheme indimp:BeneficialOrAdverse ;
+    skos:prefLabel "Beneficial" ;
+    skos:topConceptOf indimp:BeneficialOrAdverse .
 
-indimp:AgentLicense a owl:Class ;
-    rdfs:label "AgentLicense"@en ;
-    rdfs:subClassOf vcdm:VerifiableCredential ;
-    skos:definition "A license that allows a platform user to perform specialised actions on the Independent Impact platform."@en .
+indimp:eddsa-signature a skos:Concept ;
+    skos:definition "Authenticity proven via an EdDSA digital signature." ;
+    skos:inScheme indimp:AuthProof ;
+    skos:prefLabel "EdDSA signature" ;
+    skos:topConceptOf indimp:AuthProof .
 
-indimp:CreditingPeriod a owl:Class ;
-    rdfs:label "CreditingPeriod"@en ;
-    rdfs:subClassOf time:Interval ;
-    skos:definition "A crediting period for a monitored impact."@en .
+indimp:equipment a skos:Concept ;
+    skos:definition "Technology or measure that is specific equipment." ;
+    skos:inScheme indimp:TechMeasType ;
+    skos:prefLabel "Equipment" ;
+    skos:topConceptOf indimp:TechMeasType .
 
-indimp:DocumentSchema a owl:Class ;
-    rdfs:label "DocumentSchema"@en ;
-    rdfs:subClassOf dcterms:Resource,
-        aiao:Control ;
-    skos:definition "A specification for the structure and data types of a document."@en .
+indimp:facility a skos:Concept ;
+    skos:definition "Technology or measure that is categorized as a facility." ;
+    skos:inScheme indimp:TechMeasType ;
+    skos:prefLabel "Facility" ;
+    skos:topConceptOf indimp:TechMeasType .
 
-indimp:EntityXhederaTopicLink a owl:Class ;
-    rdfs:label "EntityXhederaTopicLink"@en ;
-    rdfs:subClassOf owl:Thing ;
-    skos:definition "Links an Independent Impact entity (user, project, methodology, etc.) to a Hedera topic."@en .
+indimp:intentional a skos:Concept ;
+    skos:definition "Impact that was deliberately intended." ;
+    skos:inScheme indimp:ImpactIntentionality ;
+    skos:prefLabel "Intentional" ;
+    skos:topConceptOf indimp:ImpactIntentionality .
 
-indimp:Methodology a owl:Class ;
-    rdfs:label "Methodology"@en ;
-    rdfs:subClassOf aiao:Control ;
-    skos:definition "'A system of methods used in a particular area of study or activity.' (Oxford Languages)"@en .
+indimp:mr-verifier a skos:Concept ;
+    skos:definition "License scope permitting verification of monitoring reports." ;
+    skos:inScheme indimp:LicenseScope ;
+    skos:prefLabel "MR verifier" ;
+    skos:topConceptOf indimp:LicenseScope .
 
-indimp:PlatformUser a owl:Class ;
-    rdfs:label "PlatformUser"@en ;
-    rdfs:subClassOf owl:Thing ;
-    skos:definition "An actor on the Independent Impact platform."@en .
+indimp:no a skos:Concept ;
+    skos:definition "Impact will not be monitored." ;
+    skos:inScheme indimp:MonitoringStatus ;
+    skos:prefLabel "No" ;
+    skos:topConceptOf indimp:MonitoringStatus .
 
-indimp:PlatformUserXhederaAccountLink a owl:Class ;
-    rdfs:label "PlatformUserXhederaAccountLink"@en ;
-    rdfs:subClassOf owl:Thing ;
-    skos:definition "Links an Independent Impact platform user to a Hedera account."@en .
+indimp:none a skos:Concept ;
+    skos:definition "No authenticity proof is provided." ;
+    skos:inScheme indimp:AuthProof ;
+    skos:prefLabel "None" ;
+    skos:topConceptOf indimp:AuthProof .
 
-indimp:TechnologyOrMeasure a owl:Class ;
-    rdfs:label "TechnologyOrMeasure"@en ;
-    rdfs:subClassOf aiao:Instrument ;
-    skos:definition "A measure or a type of technology that will be implemented or employed by a project or an activity to achieve its purpose."@en .
+indimp:other a skos:Concept ;
+    skos:definition "Technology or measure subtype not captured by the other categories." ;
+    skos:inScheme indimp:TechMeasType ;
+    skos:prefLabel "Other" ;
+    skos:topConceptOf indimp:TechMeasType .
 
-indimp:Workflow a owl:Class ;
-    rdfs:label "Workflow"@en ;
-    rdfs:subClassOf aiao:Control ;
-    skos:definition "A set of actions, processes or procedures that must be executed or performed to achieve a specific outcome."@en .
+indimp:pdd-validator a skos:Concept ;
+    skos:definition "License scope permitting validation of project design documents." ;
+    skos:inScheme indimp:LicenseScope ;
+    skos:prefLabel "PDD validator" ;
+    skos:topConceptOf indimp:LicenseScope .
 
-indimp:WorkflowDocumentSubmission a owl:Class ;
-    rdfs:label "WorkflowDocumentSubmission"@en ;
-    rdfs:subClassOf owl:Thing ;
-    skos:definition "Records the submission of a document to a specific step of a specific workflow for a specific workflow subject."@en .
+indimp:project-developer a skos:Concept ;
+    skos:definition "License scope permitting project development activities." ;
+    skos:inScheme indimp:LicenseScope ;
+    skos:prefLabel "Project developer" ;
+    skos:topConceptOf indimp:LicenseScope .
 
-indimp:WorkflowStep a owl:Class ;
-    rdfs:label "WorkflowStep"@en ;
-    rdfs:subClassOf aiao:Control ;
-    skos:definition "A single action, process or procedure of a workflow."@en .
+indimp:rsa-signature a skos:Concept ;
+    skos:definition "Authenticity proven via an RSA digital signature." ;
+    skos:inScheme indimp:AuthProof ;
+    skos:prefLabel "RSA signature" ;
+    skos:topConceptOf indimp:AuthProof .
 
-indimp:additionalInfo a owl:DatatypeProperty ;
-    rdfs:label "additionalInfo"@en ;
-    rdfs:domain owl:Thing ;
-    rdfs:range xsd:string ;
-    skos:definition "Any additional information about a thing."@en .
+indimp:standard-registry a skos:Concept ;
+    skos:definition "Platform user that acts as a standard registry." ;
+    skos:inScheme indimp:UserType ;
+    skos:prefLabel "Standard registry" ;
+    skos:topConceptOf indimp:UserType .
 
-indimp:additionalityJustification a owl:DatatypeProperty ;
-    rdfs:label "additionalityJustification"@en ;
-    rdfs:domain impact:Impact ;
-    rdfs:range xsd:string ;
-    skos:definition "A justification for why an impact is considered additional."@en .
+indimp:system a skos:Concept ;
+    skos:definition "Technology or measure that operates as a system." ;
+    skos:inScheme indimp:TechMeasType ;
+    skos:prefLabel "System" ;
+    skos:topConceptOf indimp:TechMeasType .
 
-indimp:authProof a owl:DatatypeProperty ;
-    rdfs:label "authProof"@en ;
-    rdfs:domain data:Document ;
-    rdfs:range xsd:string ;
-    skos:definition "The mechanism by which the authenticity of a document can be proven."@en .
+indimp:unintentional a skos:Concept ;
+    skos:definition "Impact that occurred without being deliberately intended." ;
+    skos:inScheme indimp:ImpactIntentionality ;
+    skos:prefLabel "Unintentional" ;
+    skos:topConceptOf indimp:ImpactIntentionality .
 
-indimp:beneficialOrAdverse a owl:DatatypeProperty ;
-    rdfs:label "beneficialOrAdverse"@en ;
-    rdfs:domain impact:Impact ;
-    rdfs:range xsd:string ;
-    skos:definition "Indicates whether an impact of a project or an activity (whether intended or unintended) was an environmentally beneficial or environmentally adverse impact."@en .
+indimp:user a skos:Concept ;
+    skos:definition "General platform user." ;
+    skos:inScheme indimp:UserType ;
+    skos:prefLabel "User" ;
+    skos:topConceptOf indimp:UserType .
 
-indimp:createdBy a owl:ObjectProperty ;
-    rdfs:label "createdBy"@en ;
-    rdfs:domain aiao:Project ;
-    rdfs:range indimp:PlatformUser ;
-    skos:definition "The Independent Impact platform user who created the project."@en .
+indimp:vc a skos:Concept ;
+    skos:definition "Authenticity proven via a verifiable credential." ;
+    skos:inScheme indimp:AuthProof ;
+    skos:prefLabel "Verifiable credential" ;
+    skos:topConceptOf indimp:AuthProof .
 
-indimp:creditingPeriod a owl:ObjectProperty ;
-    rdfs:label "creditingPeriod"@en ;
-    rdfs:domain impact:Impact ;
-    rdfs:range indimp:CreditingPeriod ;
-    skos:definition "A crediting period for an impact. Must cover at least one monitoring period."@en .
+indimp:yes a skos:Concept ;
+    skos:definition "Impact will be monitored." ;
+    skos:inScheme indimp:MonitoringStatus ;
+    skos:prefLabel "Yes" ;
+    skos:topConceptOf indimp:MonitoringStatus .
 
-indimp:creditingPeriodIsRenewable a owl:DatatypeProperty ;
-    rdfs:label "creditingPeriodIsRenewable"@en ;
-    rdfs:domain indimp:CreditingPeriod ;
-    rdfs:range xsd:boolean ;
-    skos:definition "Indicates whether a crediting period is renewable or not."@en .
+indimp:BeneficialOrAdverse a skos:ConceptScheme ;
+    skos:definition "Controlled vocabulary indicating whether an impact is beneficial or adverse." ;
+    skos:hasTopConcept indimp:adverse,
+        indimp:beneficial ;
+    skos:prefLabel "Impact benefit classification" .
 
-indimp:currentAgeInYears a owl:DatatypeProperty ;
-    rdfs:label "currentAgeInYears"@en ;
-    rdfs:domain owl:Thing ;
-    rdfs:range xsd:decimal ;
-    skos:definition "The age of a thing, given in years, at the time of reporting."@en .
+indimp:ImpactIntentionality a skos:ConceptScheme ;
+    skos:definition "Controlled vocabulary indicating whether an impact was intentional or unintentional." ;
+    skos:hasTopConcept indimp:intentional,
+        indimp:unintentional ;
+    skos:prefLabel "Impact intentionality" .
 
-indimp:dateCreated a owl:DatatypeProperty ;
-    rdfs:label "dateCreated"@en ;
-    rdfs:domain aiao:Project ;
-    rdfs:range xsd:dateTime ;
-    skos:definition "The timestamp at which a project was created on the Independent Impact platform."@en .
+indimp:MonitoringStatus a skos:ConceptScheme ;
+    skos:definition "Controlled vocabulary indicating whether an impact will be monitored." ;
+    skos:hasTopConcept indimp:no,
+        indimp:yes ;
+    skos:prefLabel "Impact monitoring status" .
 
-indimp:dateRegistered a owl:DatatypeProperty ;
-    rdfs:label "dateRegistered"@en ;
-    rdfs:domain indimp:PlatformUser ;
-    rdfs:range xsd:dateTime ;
-    skos:definition "The timestamp at which a user account was created on the Independent Impact platform."@en .
+indimp:UserType a skos:ConceptScheme ;
+    skos:definition "Controlled vocabulary of Independent Impact platform user types." ;
+    skos:hasTopConcept indimp:standard-registry,
+        indimp:user ;
+    skos:prefLabel "Independent Impact user types" .
 
-indimp:didDocument a owl:ObjectProperty ;
-    rdfs:label "didDocument"@en ;
-    rdfs:domain indimp:PlatformUser ;
-    rdfs:range data:Document ;
-    skos:definition "The document providing a platform user's DID and its associated properties."@en .
+indimp:LicenseScope a skos:ConceptScheme ;
+    skos:definition "Controlled vocabulary of scopes for Independent Impact Agent Licenses." ;
+    skos:hasTopConcept indimp:mr-verifier,
+        indimp:pdd-validator,
+        indimp:project-developer ;
+    skos:prefLabel "Independent Impact license scopes" .
 
-indimp:documentAuthor a owl:AnnotationProperty ;
-    rdfs:label "author"@en ;
-    rdfs:domain data:Document ;
-    rdfs:range [ owl:unionOf ( indimp:PlatformUser aiao:Agent rdfs:Literal ) ] ;
-    skos:definition "Identifies an entity responsible for the creation of the content of a document."@en .
+indimp:AuthProof a skos:ConceptScheme ;
+    skos:definition "Controlled vocabulary describing how document authenticity is proven." ;
+    skos:hasTopConcept indimp:eddsa-signature,
+        indimp:none,
+        indimp:rsa-signature,
+        indimp:vc ;
+    skos:prefLabel "Document authenticity proof mechanisms" .
 
-indimp:documentSchema a owl:ObjectProperty ;
-    rdfs:label "documentSchema"@en ;
-    rdfs:domain data:Document ;
-    rdfs:range indimp:DocumentSchema ;
-    skos:definition "A schema specifying the format and structure that a document must adhere to."@en .
+indimp:TechMeasType a skos:ConceptScheme ;
+    skos:definition "Controlled vocabulary for subtypes of technologies or measures used in projects or activities." ;
+    skos:hasTopConcept indimp:equipment,
+        indimp:facility,
+        indimp:other,
+        indimp:system ;
+    skos:prefLabel "Technology or measure subtypes" .
 
-indimp:entityXhederaTopicLinkDescription a owl:DatatypeProperty ;
-    rdfs:label "description"@en ;
-    rdfs:domain indimp:EntityXhederaTopicLink ;
-    rdfs:range xsd:string ;
-    skos:definition "A description of the link between an entity and a Hedera topic, e.g., 'DID'."@en .
-
-indimp:estimatedLifespanInYears a owl:DatatypeProperty ;
-    rdfs:label "estimatedLifespanInYears"@en ;
-    rdfs:domain owl:Thing ;
-    rdfs:range xsd:decimal ;
-    skos:definition "The estimated lifespan of a thing, given in years."@en .
-
-indimp:hasAgentLicense a owl:ObjectProperty ;
-    rdfs:label "hasAgentLicense"@en ;
-    rdfs:domain indimp:PlatformUser ;
-    rdfs:range indimp:AgentLicense ;
-    skos:definition "An Independent Impact Agent License held by a platform user."@en .
-
-indimp:hasVerifiableCredential a owl:ObjectProperty ;
-    rdfs:label "hasVerifiableCredential"@en ;
-    rdfs:domain [ owl:unionOf ( indimp:PlatformUser aiao:Activity aiao:Project ) ] ;
-    rdfs:range vcdm:VerifiableCredential ;
-    skos:definition "A verifiable credential document held by an entity (e.g., by a user or an activity)."@en .
-
-indimp:hasWorkflowStep a owl:ObjectProperty ;
-    rdfs:label "Workflow"@en ;
-    rdfs:domain indimp:Workflow ;
-    rdfs:range indimp:WorkflowStep ;
-    skos:definition "A specific step of a workflow."@en .
-
-indimp:hasWorkflowSubmission a owl:ObjectProperty ;
-    rdfs:label "hasWorkflowSubmission"@en ;
-    rdfs:comment "Provides details about a workflow submission for the document in question." ;
-    rdfs:domain data:Document ;
-    rdfs:range indimp:WorkflowDocumentSubmission .
-
-indimp:hederaAccount a owl:ObjectProperty ;
-    rdfs:label "hederaAccount"@en ;
-    rdfs:domain indimp:PlatformUserXhederaAccountLink ;
-    rdfs:range hed:HederaAccount ;
-    skos:definition "A Hedera account."@en .
-
-indimp:hederaTopic a owl:ObjectProperty ;
-    rdfs:label "hederaTopic"@en ;
-    rdfs:domain indimp:EntityXhederaTopicLink ;
-    rdfs:range hed:HederaTopic ;
-    skos:definition "A Hedera topic."@en .
-
-indimp:impactIntentionality a owl:DatatypeProperty ;
-    rdfs:label "intentionality"@en ;
-    rdfs:comment "An unintentional impact (whether beneficial or adverse) is typically referred to as 'leakage'." ;
-    rdfs:domain impact:Impact ;
-    rdfs:range xsd:string ;
-    skos:definition "Indicates whether an of a project or activity was an intentional or an unintentional impact."@en .
-
-indimp:isEncrypted a owl:DatatypeProperty ;
-    rdfs:label "isEncrypted"@en ;
-    rdfs:domain dcterms:Resource ;
-    rdfs:range xsd:boolean ;
-    skos:definition "Indicates whether the content of a resource is encrypted."@en .
-
-indimp:isLinkedToHederaAccount a owl:ObjectProperty ;
-    rdfs:label "isLinkedToHederaAccount"@en ;
-    rdfs:comment "Links an Independent Impact platform user to a Hedera account." ;
-    rdfs:domain indimp:PlatformUser ;
-    rdfs:range indimp:PlatformUserXhederaAccountLink .
-
-indimp:isLinkedToHederaTopic a owl:ObjectProperty ;
-    rdfs:label "isLinkedToHederaTopic"@en ;
-    rdfs:comment "Links an Independent Impact entity to a Hedera topic." ;
-    rdfs:domain indimp:PlatformUser ;
-    rdfs:range indimp:EntityXhederaTopicLink .
-
-indimp:isReviewOf a owl:ObjectProperty ;
-    rdfs:label "isReviewOf"@en ;
-    rdfs:comment "Identifies a document as a review of another document." ;
-    rdfs:domain data:Document ;
-    rdfs:range data:Document .
-
-indimp:licenseNumber a owl:DatatypeProperty ;
-    rdfs:label "licenseNumber"@en ;
-    rdfs:domain indimp:AgentLicense ;
-    rdfs:range xsd:string ;
-    skos:definition "A unique string identifier for an Independent Impact Agent License."@en .
-
-indimp:licenseScope a owl:DatatypeProperty ;
-    rdfs:label "licenseScope"@en ;
-    rdfs:domain indimp:AgentLicense ;
-    rdfs:range xsd:string ;
-    skos:definition "The label of the set of actions that the holder of the license is allowed to perform on the Independent Impact platform."@en .
-
-indimp:locationShapefile a owl:ObjectProperty ;
-    rdfs:label "locationShapefile"@en ;
-    rdfs:domain [ owl:unionOf ( aiao:Activity aiao:Project ) ] ;
-    rdfs:range dcterms:Resource ;
-    skos:definition "The shapefile for a physical location of a project or an activity."@en .
-
-indimp:monitored a owl:DatatypeProperty ;
-    rdfs:label "monitored"@en ;
-    rdfs:domain impact:Impact ;
-    rdfs:range xsd:string ;
-    skos:definition "Indicates whether an impact of a project or an activity will be monitored or not."@en .
-
-indimp:monitoringPeriod a owl:ObjectProperty ;
-    rdfs:label "monitoringPeriod"@en ;
-    rdfs:domain impact:Impact ;
-    rdfs:range time:Interval ;
-    skos:definition "A monitoring period for an impact."@en .
-
-indimp:monitoringReport a owl:ObjectProperty ;
-    rdfs:label "monitoringReport"@en ;
-    rdfs:domain [ owl:unionOf ( aiao:Activity aiao:Project ) ] ;
-    rdfs:range data:Document ;
-    skos:definition "A monitoring report for a project or an activity."@en .
-
-indimp:notMonitoredJustification a owl:DatatypeProperty ;
-    rdfs:label "notMonitoredJustification"@en ;
-    rdfs:domain impact:Impact ;
-    rdfs:range xsd:string ;
-    skos:definition "Provides a justification for why an impact of a project or activity will not be monitored."@en .
-
-indimp:platformUserXhederaAccountLinkDescription a owl:DatatypeProperty ;
-    rdfs:label "description"@en ;
-    rdfs:domain indimp:PlatformUserXhederaAccountLink ;
-    rdfs:range xsd:string ;
-    skos:definition "A description of the link between a platform user and a Hedera account, e.g., 'PRIMARY_ACCOUNT'."@en .
-
-indimp:projectHistory a owl:DatatypeProperty ;
-    rdfs:label "projectHistory"@en ;
-    rdfs:domain aiao:Project ;
-    rdfs:range xsd:string ;
-    skos:definition "The history of the project and its activities."@en .
-
-indimp:purpose a owl:ObjectProperty ;
-    rdfs:label "purpose"@en ;
-    rdfs:domain [ owl:unionOf ( aiao:Activity aiao:Project ) ] ;
-    rdfs:range aiao:Control ;
-    skos:definition "The purpose of a project or an activity."@en .
-
-indimp:resourceHederaMessageId a owl:ObjectProperty ;
-    rdfs:label "hederaMessageId"@en ;
-    rdfs:domain dcterms:Resource ;
-    rdfs:range hed:HederaMessageId ;
-    skos:definition "The ID of the Hedera consensus message that recorded the moment of publication, listing or receipt (by the II platform) of the resource in question."@en .
-
-indimp:resourceIpfsUri a owl:DatatypeProperty ;
-    rdfs:label "ipfsUri"@en ;
-    rdfs:comment "If no value is provided for this property, the content of the resource should be provided via the data:resourceContent property, or the location of the content should be provided via the data:resourceContentLocation property." ;
-    rdfs:domain dcterms:Resource ;
-    rdfs:range xsd:string ;
-    skos:definition "The IPFS URI, if any, of the resource in question."@en .
-
-indimp:techMeasType a owl:DatatypeProperty ;
-    rdfs:label "techMeasType"@en ;
-    rdfs:domain indimp:TechnologyOrMeasure ;
-    rdfs:range xsd:string ;
-    skos:definition "The subtype of a technology or measure to be implemented or employed by a project or an activity."@en .
-
-indimp:technologyOrMeasure a owl:ObjectProperty ;
-    rdfs:label "technologyOrMeasure"@en ;
-    rdfs:domain [ owl:unionOf ( aiao:Activity aiao:Project ) ] ;
-    rdfs:range indimp:TechnologyOrMeasure ;
-    skos:definition "The technology or measures to be implemented or employed by a project or an activity."@en .
-
-indimp:title a owl:DatatypeProperty ;
-    rdfs:label "title"@en ;
-    rdfs:domain [ owl:unionOf ( aiao:Activity aiao:Project ) ] ;
-    rdfs:range xsd:string ;
-    skos:definition "A human-friendly title for an activity or project."@en .
-
-indimp:unitOfMeasure a owl:DatatypeProperty ;
-    rdfs:label "unitOfMeasure"@en ;
-    rdfs:domain impact:Indicator ;
-    rdfs:range xsd:string ;
-    skos:definition "A unit of measure."@en .
-
-indimp:userType a owl:DatatypeProperty ;
-    rdfs:label "userType"@en ;
-    rdfs:domain indimp:PlatformUser ;
-    rdfs:range xsd:string ;
-    skos:definition "The Independent Impact platform user type."@en .
-
-indimp:workflow a owl:ObjectProperty ;
-    rdfs:label "workflow"@en ;
-    rdfs:domain [ owl:unionOf ( indimp:WorkflowDocumentSubmission indimp:AgentActivityWorkflowRelation ) ] ;
-    rdfs:range indimp:Workflow ;
-    skos:definition "The workflow to which a document was submitted, or in the context of which an agent-activity relation exists."@en .
-
-indimp:workflowDocumentSubmissionHederaMessageId a owl:ObjectProperty ;
-    rdfs:label "hederaMessageId"@en ;
-    rdfs:domain indimp:WorkflowDocumentSubmission ;
-    rdfs:range hed:HederaMessageId ;
-    skos:definition "The ID of the Hedera consensus message that recorded the moment that a document was submitted to a specific workflow."@en .
-
-indimp:workflowDocumentSubmittedBy a owl:ObjectProperty ;
-    rdfs:label "submittedBy"@en ;
-    rdfs:domain indimp:WorkflowDocumentSubmission ;
-    rdfs:range indimp:PlatformUser ;
-    skos:definition "The platform user who submitted the document."@en .
-
-indimp:workflowStep a owl:ObjectProperty ;
-    rdfs:label "workflowStep"@en ;
-    rdfs:domain indimp:WorkflowDocumentSubmission ;
-    rdfs:range indimp:WorkflowStep ;
-    skos:definition "The workflow step to which the document was submitted."@en .
-
-indimp:workflowSubject a owl:ObjectProperty ;
-    rdfs:label "workflowSubject"@en ;
-    rdfs:domain indimp:WorkflowDocumentSubmission ;
-    rdfs:range owl:Thing ;
-    skos:definition "The subject of the workflow in respect of which or whom the document was submitted."@en .
