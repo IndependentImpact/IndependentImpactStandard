@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impact benefit classification</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8f9fa;
+      color: #212529;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+     
+    #toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1rem;
+      background: #ffffff;
+      border-bottom: 1px solid #dee2e6;
+      flex-shrink: 0;
+    }
+
+    #toolbar h1 {
+      font-size: 1rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 30rem;
+    }
+
+    #search, #search-edges {
+      flex: 1;
+      max-width: 14rem;
+      padding: 0.25rem 0.5rem;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      color: #212529;
+      background: #ffffff;
+    }
+
+    #search:focus, #search-edges:focus {
+      outline: 2px solid #0d6efd;
+      outline-offset: 1px;
+    }
+
+     
+    #gravity-control {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      white-space: nowrap;
+      font-size: 0.8125rem;
+      color: #495057;
+    }
+
+     
+    #unpin-all {
+      padding: 0.25rem 0.625rem;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      font-size: 0.8125rem;
+      background: #ffffff;
+      color: #495057;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    #unpin-all:hover { background: #e9ecef; }
+
+    #gravity-slider {
+      width: 6rem;
+      accent-color: #0d6efd;
+      cursor: pointer;
+    }
+
+    #gravity-value {
+      min-width: 2.5rem;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+     
+    #graph-container {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #graph {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+     
+    .link {
+      fill: none;
+      stroke: #868e96;
+      stroke-opacity: 0.6;
+      stroke-width: 1.5px;
+    }
+
+    .link.faded { stroke-opacity: 0.08; }
+
+     
+    .node { cursor: pointer; }
+
+    .node path {
+      stroke-width: 1.5px;
+      transition: stroke-width 0.1s;
+    }
+
+    .node.faded path   { opacity: 0.15; }
+    .node.faded .node-label { opacity: 0.15; }
+
+    .node.highlighted path { stroke-width: 3px; }
+
+     
+    .node.pinned path { stroke-dasharray: 4 2; }
+
+    .node-label {
+      font-size: 11px;
+      fill: #343a40;
+      pointer-events: none;
+      text-anchor: middle;
+    }
+
+     
+    .link-label {
+      font-size: 10px;
+      fill: #636c72;
+      pointer-events: none;
+      text-anchor: middle;
+    }
+
+    .link-label.faded { opacity: 0.08; }
+
+     
+    .link.link-highlighted {
+      stroke: #0d6efd;
+      stroke-opacity: 0.9;
+      stroke-width: 2.5px;
+    }
+
+    .link-label.link-highlighted {
+      fill: #0d6efd;
+      font-weight: 700;
+    }
+
+     
+    .node.type-hidden { display: none; }
+    .link.type-hidden, .link-label.type-hidden { display: none; }
+
+     
+    label.legend-item {
+      cursor: pointer;
+      border-radius: 3px;
+      padding: 1px 2px;
+    }
+
+    label.legend-item:hover { background: rgba(0, 0, 0, 0.05); }
+
+    .legend-item input[type="checkbox"] {
+      cursor: pointer;
+      accent-color: #0d6efd;
+      flex-shrink: 0;
+    }
+
+     
+    #legend {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+    }
+
+    #legend h2 {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: #212529;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .legend-swatch {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .legend-swatch.circle  { border-radius: 50%; }
+    .legend-swatch.diamond { transform: rotate(45deg); width: 12px; height: 12px; }
+    .legend-swatch.triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+    .legend-swatch.outline { background: transparent; border: 2px solid; border-radius: 3px; }
+
+    #namespace-list {
+      margin-top: 0.25rem;
+      max-height: 10rem;
+      overflow: auto;
+      padding-right: 0.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .namespace-item { display: flex; align-items: baseline; gap: 0.35rem; }
+    .namespace-prefix { font-weight: 700; min-width: 3rem; color: #212529; }
+    .namespace-iri { font-size: 0.75rem; color: #495057; word-break: break-all; }
+    .namespace-count { font-size: 0.75rem; color: #6c757d; }
+
+     
+    #tooltip {
+      position: fixed;
+      background: rgba(33, 37, 41, 0.92);
+      color: #f8f9fa;
+      padding: 0.375rem 0.625rem;
+      border-radius: 4px;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.1s;
+      max-width: 24rem;
+      word-break: break-all;
+      z-index: 100;
+    }
+
+    #tooltip.visible { opacity: 1; }
+
+    #tooltip dt { font-weight: 700; display: inline; }
+    #tooltip dt::after { content: ": "; }
+    #tooltip dd { display: inline; margin: 0; }
+    #tooltip p  { margin: 0; }
+  </style>
+</head>
+<body>
+  <div id="toolbar">
+    <h1>Impact benefit classification</h1>
+    <input
+      id="search"
+      type="search"
+      placeholder="Search nodes…"
+      aria-label="Search nodes by label"
+    />
+    <input
+      id="search-edges"
+      type="search"
+      placeholder="Search properties…"
+      aria-label="Search properties by label"
+    />
+    <div id="gravity-control">
+      <label for="gravity-slider">Gravity</label>
+      <input
+        id="gravity-slider"
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.1"
+        aria-label="Gravity strength"
+      />
+      <span id="gravity-value" aria-live="polite">0.1</span>
+    </div>
+    <button id="unpin-all" aria-label="Unpin all nodes" title="Release all manually pinned nodes">Unpin all</button>
+  </div>
+
+  <div id="graph-container">
+    <svg
+      id="graph"
+      role="img"
+      aria-label="Force-directed ontology graph"
+    ></svg>
+
+    <nav id="legend" aria-label="Graph legend">
+      <h2>Legend</h2>
+      <label class="legend-item">
+        <input type="checkbox" class="type-filter" data-type="class" checked aria-label="Show Class nodes" />
+        <span class="legend-swatch circle" style="background:#1f77b4;" aria-hidden="true"></span>
+        <span>Class</span>
+      </label>
+      <label class="legend-item">
+        <input type="checkbox" class="type-filter" data-type="union" checked aria-label="Show Union nodes" />
+        <span class="legend-swatch triangle" style="background:#0c8599;" aria-hidden="true"></span>
+        <span>Union</span>
+      </label>
+      <label class="legend-item">
+        <input type="checkbox" class="type-filter" data-type="property" checked aria-label="Show Property nodes" />
+        <span class="legend-swatch diamond" style="background:#9e5200;" aria-hidden="true"></span>
+        <span>Property</span>
+      </label>
+      <label class="legend-item">
+        <input type="checkbox" class="type-filter" data-type="instance" checked aria-label="Show Instance nodes" />
+        <span class="legend-swatch" style="background:#2ca02c;" aria-hidden="true"></span>
+        <span>Instance</span>
+      </label>
+      <label class="legend-item">
+        <input type="checkbox" class="type-filter" data-type="literal" checked aria-label="Show Literal nodes" />
+        <span class="legend-swatch" style="background:#d62728;" aria-hidden="true"></span>
+        <span>Literal</span>
+      </label>
+      <h2>Origin</h2>
+      <div class="legend-item">
+        <span class="legend-swatch outline" style="border-color:#0b7285;" aria-hidden="true"></span>
+        <span>Local</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-swatch outline" style="border-color:#868e96;" aria-hidden="true"></span>
+        <span>Imported</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-swatch outline" style="border-color:#495057;" aria-hidden="true"></span>
+        <span>Internal</span>
+      </div>
+      <h2>Namespaces</h2>
+      <div id="namespace-list" aria-label="Namespace prefixes"></div>
+    </nav>
+  </div>
+
+  <div id="tooltip" role="tooltip"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script>
+  (function () {
+    'use strict';
+
+     
+    const graphData = {
+  "nodes": [
+    {
+      "id": "https://independentimpact.org/ns/AuthProof",
+      "label": "Document authenticity proof mechanisms",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/BeneficialOrAdverse",
+      "label": "Impact benefit classification",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/ImpactIntentionality",
+      "label": "Impact intentionality",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/LicenseScope",
+      "label": "Independent Impact license scopes",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/MonitoringStatus",
+      "label": "Impact monitoring status",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/TechMeasType",
+      "label": "Technology or measure subtypes",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/UserType",
+      "label": "Independent Impact user types",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/adverse",
+      "label": "Adverse",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/beneficial",
+      "label": "Beneficial",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/eddsa-signature",
+      "label": "EdDSA signature",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/equipment",
+      "label": "Equipment",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/facility",
+      "label": "Facility",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/intentional",
+      "label": "Intentional",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/mr-verifier",
+      "label": "MR verifier",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/no",
+      "label": "No",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/none",
+      "label": "None",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/other",
+      "label": "Other",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/pdd-validator",
+      "label": "PDD validator",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/project-developer",
+      "label": "Project developer",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/rsa-signature",
+      "label": "RSA signature",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/standard-registry",
+      "label": "Standard registry",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/system",
+      "label": "System",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/unintentional",
+      "label": "Unintentional",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/user",
+      "label": "User",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/vc",
+      "label": "Verifiable credential",
+      "type": "class",
+      "group": "ns"
+    },
+    {
+      "id": "https://independentimpact.org/ns/yes",
+      "label": "Yes",
+      "type": "class",
+      "group": "ns"
+    }
+  ],
+  "links": [
+    {
+      "source": "https://independentimpact.org/ns/adverse",
+      "target": "https://independentimpact.org/ns/BeneficialOrAdverse",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/adverse",
+      "target": "https://independentimpact.org/ns/BeneficialOrAdverse",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/beneficial",
+      "target": "https://independentimpact.org/ns/BeneficialOrAdverse",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/beneficial",
+      "target": "https://independentimpact.org/ns/BeneficialOrAdverse",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/eddsa-signature",
+      "target": "https://independentimpact.org/ns/AuthProof",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/eddsa-signature",
+      "target": "https://independentimpact.org/ns/AuthProof",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/equipment",
+      "target": "https://independentimpact.org/ns/TechMeasType",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/equipment",
+      "target": "https://independentimpact.org/ns/TechMeasType",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/facility",
+      "target": "https://independentimpact.org/ns/TechMeasType",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/facility",
+      "target": "https://independentimpact.org/ns/TechMeasType",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/intentional",
+      "target": "https://independentimpact.org/ns/ImpactIntentionality",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/intentional",
+      "target": "https://independentimpact.org/ns/ImpactIntentionality",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/mr-verifier",
+      "target": "https://independentimpact.org/ns/LicenseScope",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/mr-verifier",
+      "target": "https://independentimpact.org/ns/LicenseScope",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/no",
+      "target": "https://independentimpact.org/ns/MonitoringStatus",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/no",
+      "target": "https://independentimpact.org/ns/MonitoringStatus",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/none",
+      "target": "https://independentimpact.org/ns/AuthProof",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/none",
+      "target": "https://independentimpact.org/ns/AuthProof",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/other",
+      "target": "https://independentimpact.org/ns/TechMeasType",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/other",
+      "target": "https://independentimpact.org/ns/TechMeasType",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/pdd-validator",
+      "target": "https://independentimpact.org/ns/LicenseScope",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/pdd-validator",
+      "target": "https://independentimpact.org/ns/LicenseScope",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/project-developer",
+      "target": "https://independentimpact.org/ns/LicenseScope",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/project-developer",
+      "target": "https://independentimpact.org/ns/LicenseScope",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/rsa-signature",
+      "target": "https://independentimpact.org/ns/AuthProof",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/rsa-signature",
+      "target": "https://independentimpact.org/ns/AuthProof",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/standard-registry",
+      "target": "https://independentimpact.org/ns/UserType",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/standard-registry",
+      "target": "https://independentimpact.org/ns/UserType",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/system",
+      "target": "https://independentimpact.org/ns/TechMeasType",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/system",
+      "target": "https://independentimpact.org/ns/TechMeasType",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/unintentional",
+      "target": "https://independentimpact.org/ns/ImpactIntentionality",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/unintentional",
+      "target": "https://independentimpact.org/ns/ImpactIntentionality",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/user",
+      "target": "https://independentimpact.org/ns/UserType",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/user",
+      "target": "https://independentimpact.org/ns/UserType",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/vc",
+      "target": "https://independentimpact.org/ns/AuthProof",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/vc",
+      "target": "https://independentimpact.org/ns/AuthProof",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/yes",
+      "target": "https://independentimpact.org/ns/MonitoringStatus",
+      "label": "inScheme"
+    },
+    {
+      "source": "https://independentimpact.org/ns/yes",
+      "target": "https://independentimpact.org/ns/MonitoringStatus",
+      "label": "topConceptOf"
+    },
+    {
+      "source": "https://independentimpact.org/ns/BeneficialOrAdverse",
+      "target": "https://independentimpact.org/ns/adverse",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/BeneficialOrAdverse",
+      "target": "https://independentimpact.org/ns/beneficial",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/ImpactIntentionality",
+      "target": "https://independentimpact.org/ns/intentional",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/ImpactIntentionality",
+      "target": "https://independentimpact.org/ns/unintentional",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/MonitoringStatus",
+      "target": "https://independentimpact.org/ns/no",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/MonitoringStatus",
+      "target": "https://independentimpact.org/ns/yes",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/UserType",
+      "target": "https://independentimpact.org/ns/standard-registry",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/UserType",
+      "target": "https://independentimpact.org/ns/user",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/LicenseScope",
+      "target": "https://independentimpact.org/ns/mr-verifier",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/LicenseScope",
+      "target": "https://independentimpact.org/ns/pdd-validator",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/LicenseScope",
+      "target": "https://independentimpact.org/ns/project-developer",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/AuthProof",
+      "target": "https://independentimpact.org/ns/eddsa-signature",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/AuthProof",
+      "target": "https://independentimpact.org/ns/none",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/AuthProof",
+      "target": "https://independentimpact.org/ns/rsa-signature",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/AuthProof",
+      "target": "https://independentimpact.org/ns/vc",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/TechMeasType",
+      "target": "https://independentimpact.org/ns/equipment",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/TechMeasType",
+      "target": "https://independentimpact.org/ns/facility",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/TechMeasType",
+      "target": "https://independentimpact.org/ns/other",
+      "label": "hasTopConcept"
+    },
+    {
+      "source": "https://independentimpact.org/ns/TechMeasType",
+      "target": "https://independentimpact.org/ns/system",
+      "label": "hasTopConcept"
+    }
+  ],
+  "metadata": {
+    "title": "Impact benefit classification",
+    "baseIRI": "https://independentimpact.org/ns/BeneficialOrAdverse"
+  }
+}
+;
+
+     
+    const CFG = {
+      linkDistance:     80 ,
+      chargeStrength:   -300 ,
+      collideRadius:    20 ,
+      gravityStrength:  0.1 ,
+    };
+
+     
+    const TYPE_COLOR = {
+      class:    '#1f77b4',
+      property: '#9e5200',
+      union:    '#0c8599',
+      instance: '#2ca02c',
+      literal:  '#d62728',
+    };
+
+    const TYPE_SYMBOL = {
+      class:    d3.symbolCircle,
+      property: d3.symbolDiamond,
+      union:    d3.symbolTriangle,
+      instance: d3.symbolSquare,
+      literal:  d3.symbolSquare,
+    };
+
+    const ORIGIN_COLOR = {
+      local:    '#0b7285',
+      imported: '#868e96',
+      internal: '#495057',
+    };
+
+    const ORIGIN_LABEL = {
+      local: 'Local',
+      imported: 'Imported',
+      internal: 'Internal',
+    };
+
+    const NODE_SIZE = 120; 
+
+     
+    const graphContainer = document.getElementById('graph-container');
+    const svg = d3.select('#graph');
+
+    function getDims() {
+      const r = graphContainer.getBoundingClientRect();
+      return { width: r.width || 800, height: r.height || 600 };
+    }
+
+    let { width, height } = getDims();
+
+    const root = svg.append('g').attr('class', 'root');
+
+    const zoom = d3.zoom()
+      .scaleExtent([0.05, 20])
+      .on('zoom', (event) => root.attr('transform', event.transform));
+
+    svg.call(zoom).on('dblclick.zoom', null);
+
+     
+    svg.append('defs').append('marker')
+      .attr('id', 'arrowhead')
+      .attr('viewBox', '0 -4 10 8')
+      .attr('refX', 16)
+      .attr('refY', 0)
+      .attr('markerWidth', 8)
+      .attr('markerHeight', 8)
+      .attr('orient', 'auto')
+      .append('path')
+        .attr('d', 'M0,-4L10,0L0,4')
+        .attr('fill', '#868e96');
+
+     
+    const nodes = (graphData.nodes || []).map((d) => Object.assign({}, d));
+    const links = (graphData.links || []).map((d) => Object.assign({}, d));
+    const baseIRI = (graphData.metadata && graphData.metadata.baseIRI) || '';
+
+    function namespaceOf(iri) {
+      if (!iri) return '';
+      const hash = iri.lastIndexOf('#');
+      if (hash >= 0) return iri.slice(0, hash + 1);
+      const slash = iri.lastIndexOf('/');
+      if (slash >= 0) return iri.slice(0, slash + 1);
+      return '';
+    }
+
+    function originForNode(d) {
+      if (d.type === 'union') return 'internal';
+      if (baseIRI && d.id && d.id.startsWith(baseIRI)) return 'local';
+      return 'imported';
+    }
+
+    nodes.forEach((n) => {
+      n._origin = originForNode(n);
+      n._namespace = namespaceOf(n.id);
+    });
+
+    (function renderNamespaces() {
+      const list = document.getElementById('namespace-list');
+      if (!list) return;
+      const map = new Map();
+      nodes.forEach((n) => {
+        if (!n._namespace || n.type === 'union') return;
+        const key = n._namespace;
+        const entry = map.get(key) || { ns: n._namespace, prefix: n.group || '', count: 0 };
+        entry.count += 1;
+        map.set(key, entry);
+      });
+      const entries = Array.from(map.values()).sort((a, b) => a.ns.localeCompare(b.ns));
+      list.innerHTML = '';
+      entries.forEach((entry) => {
+        const item = document.createElement('div');
+        item.className = 'namespace-item';
+        if (entry.prefix) {
+          const prefix = document.createElement('span');
+          prefix.className = 'namespace-prefix';
+          prefix.textContent = entry.prefix + ':';
+          item.appendChild(prefix);
+        }
+        const iri = document.createElement('span');
+        iri.className = 'namespace-iri';
+        iri.textContent = entry.ns;
+        item.appendChild(iri);
+
+        const count = document.createElement('span');
+        count.className = 'namespace-count';
+        count.textContent = '(' + entry.count + ')';
+        item.appendChild(count);
+
+        list.appendChild(item);
+      });
+    }());
+
+     
+    
+    
+    (function () {
+      
+      
+      const CURVE_STEP = 40; 
+      
+      
+      const SEP = '\x00';
+      const counts  = Object.create(null);
+      const idxCtrs = Object.create(null);
+
+      links.forEach((d) => {
+        const k = d.source + SEP + d.target;
+        counts[k] = (counts[k] || 0) + 1;
+      });
+
+      links.forEach((d) => {
+        const k = d.source + SEP + d.target;
+        if (idxCtrs[k] === undefined) idxCtrs[k] = 0;
+        const n = counts[k];
+        const i = idxCtrs[k]++;
+        
+        d._curvature = (i - (n - 1) / 2) * CURVE_STEP;
+        d._loopIdx   = i; 
+      });
+    }());
+
+     
+    const linkGroup = root.append('g').attr('class', 'links');
+    const nodeGroup = root.append('g').attr('class', 'nodes');
+
+    const linkSel = linkGroup.selectAll('.link')
+      .data(links)
+      .join('path')
+        .attr('class', 'link')
+        .attr('marker-end', 'url(#arrowhead)');
+
+    const linkLabelSel = linkGroup.selectAll('.link-label')
+      .data(links.filter((d) => d.label))
+      .join('text')
+        .attr('class', 'link-label')
+        .text((d) => d.label);
+
+     
+    const symbolGen = d3.symbol().size(NODE_SIZE);
+
+    const nodeSel = nodeGroup.selectAll('.node')
+      .data(nodes)
+      .join('g')
+        .attr('class', 'node')
+        .attr('aria-label', (d) => `${d.label || d.id} (${d.type})`)
+        .call(
+          d3.drag()
+            .on('start', dragStarted)
+            .on('drag',  dragged)
+            .on('end',   dragEnded)
+        );
+
+    nodeSel.append('path')
+      .attr('d', (d) => symbolGen.type(TYPE_SYMBOL[d.type] || d3.symbolCircle)())
+      .attr('fill',   (d) => TYPE_COLOR[d.type] || '#999999')
+      .attr('stroke', (d) => ORIGIN_COLOR[d._origin] || d3.color(TYPE_COLOR[d.type] || '#999999').darker(0.6));
+
+    nodeSel.append('text')
+      .attr('class', 'node-label')
+      .attr('dy', 14)
+      .text((d) => d.label || d.id);
+
+     
+    const simulation = d3.forceSimulation(nodes)
+      .force('link',    d3.forceLink(links).id((d) => d.id).distance(CFG.linkDistance))
+      .force('charge',  d3.forceManyBody().strength(CFG.chargeStrength))
+      .force('center',  d3.forceCenter(width / 2, height / 2))
+      .force('collide', d3.forceCollide(CFG.collideRadius))
+      .force('gravityX', d3.forceX(width / 2).strength(CFG.gravityStrength))
+      .force('gravityY', d3.forceY(height / 2).strength(CFG.gravityStrength))
+      .on('tick', ticked);
+
+     
+
+    
+    
+    
+    
+    
+    
+    
+    const LOOP_BASE_RADIUS      = 24; 
+    const LOOP_RADIUS_INCREMENT = 16; 
+
+    function linkPath(d) {
+      const sx = d.source.x, sy = d.source.y;
+      const tx = d.target.x, ty = d.target.y;
+
+      if (d.source === d.target) {
+        
+        const r = LOOP_BASE_RADIUS + d._loopIdx * LOOP_RADIUS_INCREMENT;
+        return `M ${sx},${sy} C ${sx + r},${sy - r} ${sx + r * 2},${sy} ${sx},${sy}`;
+      }
+
+      if (d._curvature === 0) {
+        return `M ${sx},${sy} L ${tx},${ty}`;
+      }
+
+      
+      const dx = tx - sx, dy = ty - sy;
+      const len = Math.hypot(dx, dy) || 1;
+      const cpx = (sx + tx) / 2 - (dy / len) * d._curvature;
+      const cpy = (sy + ty) / 2 + (dx / len) * d._curvature;
+      return `M ${sx},${sy} Q ${cpx},${cpy} ${tx},${ty}`;
+    }
+
+    
+    
+    function linkMidpoint(d) {
+      const sx = d.source.x, sy = d.source.y;
+      const tx = d.target.x, ty = d.target.y;
+
+      if (d.source === d.target) {
+        const r = LOOP_BASE_RADIUS + d._loopIdx * LOOP_RADIUS_INCREMENT;
+        return { x: sx + r, y: sy - r };
+      }
+
+      if (d._curvature === 0) {
+        return { x: (sx + tx) / 2, y: (sy + ty) / 2 };
+      }
+
+      const dx = tx - sx, dy = ty - sy;
+      const len = Math.hypot(dx, dy) || 1;
+      const cpx = (sx + tx) / 2 - (dy / len) * d._curvature;
+      const cpy = (sy + ty) / 2 + (dx / len) * d._curvature;
+      
+      return { x: (sx + 2 * cpx + tx) / 4, y: (sy + 2 * cpy + ty) / 4 };
+    }
+
+    function ticked() {
+      linkSel.attr('d', linkPath);
+
+      linkLabelSel
+        .attr('x', (d) => linkMidpoint(d).x)
+        .attr('y', (d) => linkMidpoint(d).y);
+
+      nodeSel.attr('transform', (d) => `translate(${d.x},${d.y})`);
+    }
+
+     
+    function dragStarted(event, d) {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x;
+      d.fy = d.y;
+    }
+
+    function dragged(event, d) {
+      d.fx = event.x;
+      d.fy = event.y;
+    }
+
+    function dragEnded(event, d) {
+      if (!event.active) simulation.alphaTarget(0);
+      
+      d.fx = d.x;
+      d.fy = d.y;
+      d3.select(this).classed('pinned', true);
+    }
+
+     
+    nodeSel.on('dblclick', function (event, d) {
+      event.stopPropagation();
+      d.fx = null;
+      d.fy = null;
+      d3.select(this).classed('pinned', false);
+      simulation.alpha(0.1).restart();
+    });
+
+     
+    document.getElementById('unpin-all').addEventListener('click', function () {
+      nodes.forEach((d) => { d.fx = null; d.fy = null; });
+      nodeSel.classed('pinned', false);
+      simulation.alpha(0.3).restart();
+    });
+
+     
+    const tooltipEl = document.getElementById('tooltip');
+
+    nodeSel
+      .on('mouseover', (event, d) => {
+        const originLabel = ORIGIN_LABEL[d._origin] || 'Imported';
+        tooltipEl.innerHTML =
+          '<p><dt>Label</dt><dd>' + escHtml(d.label || '') + '</dd></p>' +
+          '<p><dt>Type</dt><dd>'  + escHtml(d.type  || '') + '</dd></p>' +
+          '<p><dt>Origin</dt><dd>' + escHtml(originLabel) + '</dd></p>' +
+          (d._namespace ? '<p><dt>Namespace</dt><dd>' + escHtml(d._namespace) + '</dd></p>' : '') +
+          (d.group && d.type !== 'union' ? '<p><dt>Prefix</dt><dd>' + escHtml(d.group) + '</dd></p>' : '') +
+          '<p><dt>IRI</dt><dd>'   + escHtml(d.id    || '') + '</dd></p>';
+        tooltipEl.classList.add('visible');
+        moveTooltip(event);
+      })
+      .on('mousemove', moveTooltip)
+      .on('mouseleave', () => tooltipEl.classList.remove('visible'));
+
+    function moveTooltip(event) {
+      tooltipEl.style.left = (event.clientX + 14) + 'px';
+      tooltipEl.style.top  = (event.clientY + 14) + 'px';
+    }
+
+    function escHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+     
+    const nodeById = new Map(nodes.map((n) => [n.id, n]));
+
+     
+    const visibleTypes = new Set(['class', 'union', 'property', 'instance', 'literal']);
+
+     
+    function applyFilters() {
+      const nodeQ = document.getElementById('search').value.trim().toLowerCase();
+      const edgeQ = document.getElementById('search-edges').value.trim().toLowerCase();
+
+      const hasNodeQ = nodeQ.length > 0;
+      const hasEdgeQ = edgeQ.length > 0;
+      const hasAnySearch = hasNodeQ || hasEdgeQ;
+
+      
+      const nodeMatchedIDs = hasNodeQ
+        ? new Set(nodes.filter((d) => (d.label || d.id).toLowerCase().includes(nodeQ)).map((d) => d.id))
+        : null;
+
+      
+      const edgeMatchedSet = hasEdgeQ
+        ? new Set(links.filter((d) => d.label && d.label.toLowerCase().includes(edgeQ)))
+        : null;
+
+      
+      const edgeConnectedIDs = edgeMatchedSet
+        ? new Set(Array.from(edgeMatchedSet).flatMap((d) => [
+            typeof d.source === 'object' ? d.source.id : d.source,
+            typeof d.target === 'object' ? d.target.id : d.target,
+          ]))
+        : null;
+
+      
+      function linkEndpointsHidden(d) {
+        const sid = typeof d.source === 'object' ? d.source.id : d.source;
+        const tid = typeof d.target === 'object' ? d.target.id : d.target;
+        const src = nodeById.get(sid);
+        const tgt = nodeById.get(tid);
+        return (src && !visibleTypes.has(src.type)) || (tgt && !visibleTypes.has(tgt.type));
+      }
+
+      
+      
+      function nodeIsSearchMatched(d) {
+        if (nodeMatchedIDs && nodeMatchedIDs.has(d.id)) return true;
+        if (edgeConnectedIDs && edgeConnectedIDs.has(d.id)) return true;
+        return false;
+      }
+
+      
+      
+      function linkIsSearchMatched(d) {
+        if (edgeMatchedSet && edgeMatchedSet.has(d)) return true;
+        if (nodeMatchedIDs) {
+          const sid = typeof d.source === 'object' ? d.source.id : d.source;
+          const tid = typeof d.target === 'object' ? d.target.id : d.target;
+          if (nodeMatchedIDs.has(sid) || nodeMatchedIDs.has(tid)) return true;
+        }
+        return false;
+      }
+
+      
+      nodeSel
+        .classed('type-hidden',  (d) => !visibleTypes.has(d.type))
+        .classed('highlighted',  (d) => visibleTypes.has(d.type) && hasAnySearch && nodeIsSearchMatched(d))
+        .classed('faded',        (d) => visibleTypes.has(d.type) && hasAnySearch && !nodeIsSearchMatched(d));
+
+      
+      linkSel
+        .classed('type-hidden',      (d) => linkEndpointsHidden(d))
+        .classed('link-highlighted', (d) => !linkEndpointsHidden(d) && hasEdgeQ && edgeMatchedSet.has(d))
+        .classed('faded',            (d) => !linkEndpointsHidden(d) && hasAnySearch && !linkIsSearchMatched(d));
+
+      
+      linkLabelSel
+        .classed('type-hidden',      (d) => linkEndpointsHidden(d))
+        .classed('link-highlighted', (d) => !linkEndpointsHidden(d) && hasEdgeQ && edgeMatchedSet.has(d))
+        .classed('faded',            (d) => !linkEndpointsHidden(d) && hasAnySearch && !linkIsSearchMatched(d));
+    }
+
+     
+    document.getElementById('search').addEventListener('input', applyFilters);
+    document.getElementById('search-edges').addEventListener('input', applyFilters);
+
+    document.querySelectorAll('.type-filter').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        if (this.checked) {
+          visibleTypes.add(this.dataset.type);
+        } else {
+          visibleTypes.delete(this.dataset.type);
+        }
+        applyFilters();
+      });
+    });
+
+     
+    (function () {
+      const slider = document.getElementById('gravity-slider');
+      const display = document.getElementById('gravity-value');
+      slider.addEventListener('input', function () {
+        const g = parseFloat(this.value);
+        display.textContent = g.toFixed(2);
+        simulation.force('gravityX', d3.forceX(width / 2).strength(g));
+        simulation.force('gravityY', d3.forceY(height / 2).strength(g));
+        simulation.alpha(0.3).restart();
+      });
+    }());
+
+     
+    if (typeof ResizeObserver !== 'undefined') {
+      new ResizeObserver(function () {
+        const dims = getDims();
+        width  = dims.width;
+        height = dims.height;
+        const g = parseFloat(document.getElementById('gravity-slider').value);
+        simulation.force('center', d3.forceCenter(width / 2, height / 2));
+        simulation.force('gravityX', d3.forceX(width / 2).strength(g));
+        simulation.force('gravityY', d3.forceY(height / 2).strength(g));
+        simulation.alpha(0.3).restart();
+      }).observe(graphContainer);
+    }
+
+  }());
+  </script>
+</body>
+</html>
