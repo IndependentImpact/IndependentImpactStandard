@@ -1,8 +1,8 @@
-@prefix aiao: <https://w3id.org/aiao/> .
+@prefix aiao: <http://w3id.org/aiao#> .
 @prefix data: <https://jellyfiiish.xyz/ns/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix hed: <https://independentimpact.org/ns/hedera/> .
-@prefix impact: <https://w3id.org/impactont/> .
+@prefix impactont: <http://w3id.org/impactont#> .
 @prefix indimp: <https://independentimpact.org/ns/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -88,7 +88,7 @@ indimp:additionalInfo a owl:DatatypeProperty ;
 
 indimp:additionalityJustification a owl:DatatypeProperty ;
     rdfs:label "additionalityJustification"@en ;
-    rdfs:domain impact:Impact ;
+    rdfs:domain impactont:Impact ;
     rdfs:range xsd:string ;
     skos:definition "A justification for why an impact is considered additional."@en .
 
@@ -100,7 +100,7 @@ indimp:authProof a owl:DatatypeProperty ;
 
 indimp:beneficialOrAdverse a owl:DatatypeProperty ;
     rdfs:label "beneficialOrAdverse"@en ;
-    rdfs:domain impact:Impact ;
+    rdfs:domain impactont:Impact ;
     rdfs:range xsd:string ;
     skos:definition "Indicates whether an impact of a project or an activity (whether intended or unintended) was an environmentally beneficial or environmentally adverse impact."@en .
 
@@ -112,7 +112,7 @@ indimp:createdBy a owl:ObjectProperty ;
 
 indimp:creditingPeriod a owl:ObjectProperty ;
     rdfs:label "creditingPeriod"@en ;
-    rdfs:domain impact:Impact ;
+    rdfs:domain impactont:Impact ;
     rdfs:range indimp:CreditingPeriod ;
     skos:definition "A crediting period for an impact. Must cover at least one monitoring period."@en .
 
@@ -209,7 +209,7 @@ indimp:hederaTopic a owl:ObjectProperty ;
 indimp:impactIntentionality a owl:DatatypeProperty ;
     rdfs:label "intentionality"@en ;
     rdfs:comment "An unintentional impact (whether beneficial or adverse) is typically referred to as 'leakage'." ;
-    rdfs:domain impact:Impact ;
+    rdfs:domain impactont:Impact ;
     rdfs:range xsd:string ;
     skos:definition "Indicates whether an of a project or activity was an intentional or an unintentional impact."@en .
 
@@ -257,13 +257,13 @@ indimp:locationShapefile a owl:ObjectProperty ;
 
 indimp:monitored a owl:DatatypeProperty ;
     rdfs:label "monitored"@en ;
-    rdfs:domain impact:Impact ;
+    rdfs:domain impactont:Impact ;
     rdfs:range xsd:string ;
     skos:definition "Indicates whether an impact of a project or an activity will be monitored or not."@en .
 
 indimp:monitoringPeriod a owl:ObjectProperty ;
     rdfs:label "monitoringPeriod"@en ;
-    rdfs:domain impact:Impact ;
+    rdfs:domain impactont:Impact ;
     rdfs:range time:Interval ;
     skos:definition "A monitoring period for an impact."@en .
 
@@ -275,7 +275,7 @@ indimp:monitoringReport a owl:ObjectProperty ;
 
 indimp:notMonitoredJustification a owl:DatatypeProperty ;
     rdfs:label "notMonitoredJustification"@en ;
-    rdfs:domain impact:Impact ;
+    rdfs:domain impactont:Impact ;
     rdfs:range xsd:string ;
     skos:definition "Provides a justification for why an impact of a project or activity will not be monitored."@en .
 
@@ -330,7 +330,7 @@ indimp:title a owl:DatatypeProperty ;
 
 indimp:unitOfMeasure a owl:DatatypeProperty ;
     rdfs:label "unitOfMeasure"@en ;
-    rdfs:domain impact:Indicator ;
+    rdfs:domain impactont:Indicator ;
     rdfs:range xsd:string ;
     skos:definition "A unit of measure."@en .
 

@@ -1,6 +1,6 @@
 @prefix data: <https://jellyfiiish.xyz/ns/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix impact: <https://w3id.org/impactont/> .
+@prefix impactont: <http://w3id.org/impactont#> .
 @prefix indimp: <https://independentimpact.org/ns/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -29,7 +29,7 @@ indimp:beneficialOrAdverseShape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path indimp:beneficialOrAdverse ] ;
-    sh:targetClass impact:Impact .
+    sh:targetClass impactont:Impact .
 
 indimp:impactIntentionalityShape a sh:NodeShape ;
     sh:property [ sh:class skos:Concept ;
@@ -37,7 +37,7 @@ indimp:impactIntentionalityShape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path indimp:impactIntentionality ] ;
-    sh:targetClass impact:Impact .
+    sh:targetClass impactont:Impact .
 
 indimp:licenseScopeShape a sh:NodeShape ;
     sh:property [ sh:class skos:Concept ;
@@ -53,7 +53,7 @@ indimp:monitoredShape a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:path indimp:monitored ] ;
-    sh:targetClass impact:Impact .
+    sh:targetClass impactont:Impact .
 
 indimp:resourceIpfsUriShape a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
@@ -78,4 +78,3 @@ indimp:userTypeShape a sh:NodeShape ;
             sh:minCount 1 ;
             sh:path indimp:userType ] ;
     sh:targetClass indimp:PlatformUser .
-
