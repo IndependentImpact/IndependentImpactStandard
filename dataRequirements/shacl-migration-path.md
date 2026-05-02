@@ -233,7 +233,7 @@ Current RDF output:
 - `@id` -> `indimp:activities/{id_subject}`
 - `@type` -> `aiao:Project`
 - `indimp:title`
-- `indimp:purpose`
+- `aiao:hasObjective`
 - `indimp:locationShapefile`
 - `indimp:technologyOrMeasure`
 - `indimp:projectHistory`
@@ -253,7 +253,7 @@ Target SHACL shape:
 - `ProjectDesignShape`, target class `aiao:Project`.
 - Require a stable IRI for the project subject.
 - Require exactly one title.
-- Require at least one objective or purpose.
+- Require at least one objective (`aiao:hasObjective`).
 - Allow one or more location resources, each with an IPFS URI or equivalent
   resource content/location.
 - Require one or more technologies or measures if the workflow depends on
@@ -266,10 +266,10 @@ Target SHACL shape:
   source. This will need a local concept scheme or property for public funding
   status if it should not reuse the generic yes/no monitoring concept.
 
-Open modeling question: prefer AIAO's `aiao:hasObjective` for project purpose,
-with `aiao:Objective` as the value. The local `indimp:purpose` property can be
-kept as a compatibility bridge, but new shapes should not duplicate both unless
-the ontology explicitly declares the relationship.
+Use `aiao:hasObjective` for project purpose, with `aiao:Objective` as the
+value. The local `indimp:purpose` property has been removed in favour of this
+AIAO predicate in line with the semantic web principle of reusing existing
+vocabulary rather than duplicating it.
 
 Open modeling question: project parties probably need a local class such as
 `indimp:ProjectParty` or should be represented as `aiao:AgentActivityRelation`

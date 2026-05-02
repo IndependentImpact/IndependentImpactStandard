@@ -12,8 +12,8 @@ sPDDxA_1x0x0_toFluree <- function(lsData) {
     '@type' = "aiao:Project",
     
     'indimp:title' = lsData$title_project,
-    'indimp:purpose' = list(
-      '@type' = "aiao:Control",
+    'aiao:hasObjective' = list(
+      '@type' = "aiao:Objective",
       'schema:description' = lsData$purpose_project),
     'indimp:locationShapefile' = lapply(
       X = lsData$location_project, 
