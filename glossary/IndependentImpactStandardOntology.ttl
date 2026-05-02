@@ -291,12 +291,6 @@ indimp:projectHistory a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     skos:definition "The history of the project and its activities."@en .
 
-indimp:purpose a owl:ObjectProperty ;
-    rdfs:label "purpose"@en ;
-    rdfs:domain [ owl:unionOf ( aiao:Activity aiao:Project ) ] ;
-    rdfs:range aiao:Control ;
-    skos:definition "The purpose of a project or an activity."@en .
-
 indimp:resourceHederaMessageId a owl:ObjectProperty ;
     rdfs:label "hederaMessageId"@en ;
     rdfs:domain dcterms:Resource ;
