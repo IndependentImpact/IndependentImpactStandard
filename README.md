@@ -8,6 +8,12 @@ On the [Nova Impact Accounting Standard](https://nova.org.za/novaimpactaccountin
 * The **data requirements** for all actions (defined in the glossary) that can be performed in terms of the standard, as SHACL constraints. Think of this as a set of templates. If it is required that actions be performed in a specific sequence, this is enforced by making a reference to the resulting artefact of a preceding step a requirement in a subsequent step. These can be tested and compiled to UIs of various formats and for various platforms using [shape2flutter](https://github.com/IndependentImpact/shape2flutter). 
 * The **reputation requirement** for all actions that can be performed in terms of the standard, as SHACL constraints. The reputation requirements refer to either an existing `skos:ConceptScheme` with skills and knowledge domains, or one must accompany the standard. 
 
+## Semantic Web Artefact Hierarchy
+
+For a full description of the hierarchy of semantic web artefacts — which files depend on which, the order they are defined, a complete index of all artefact files with their prerequisites and dependents, and the deduplication status of the corpus — see:
+
+**[SemanticWebArtefactHierarchy.md](SemanticWebArtefactHierarchy.md)**
+
 ## Major directories
 
 The repository is organised into a small number of top-level directories. Start
