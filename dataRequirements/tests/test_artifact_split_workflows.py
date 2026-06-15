@@ -135,6 +135,7 @@ class ArtifactSplitWorkflowTests(unittest.TestCase):
 
     def test_split_ui_bundle_files_exist(self):
         expected = {
+            "common-ui-shapes.ttl",
             "pdd-design-ui-shapes.ttl",
             "monitoring-report-ui-shapes.ttl",
             "validation-report-ui-shapes.ttl",

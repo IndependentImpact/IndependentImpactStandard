@@ -6,6 +6,7 @@ from rdflib import Graph, Namespace, URIRef
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SHAPES_FILE = REPO_ROOT / "dataRequirements/shape2flutter/monitoring-report-ui-shapes.ttl"
+COMMON_SHAPES_FILE = REPO_ROOT / "dataRequirements/shape2flutter/common-ui-shapes.ttl"
 BUILD_SCRIPT = REPO_ROOT / "dataRequirements/shape2flutter/build-monitoring-report.sh"
 
 IND = Namespace("http://independentimpact.org/indicator-owl/")
@@ -19,6 +20,7 @@ class MonitoringReportUiShapeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.graph = Graph()
+        cls.graph.parse(COMMON_SHAPES_FILE)
         cls.graph.parse(SHAPES_FILE)
 
     def _property_paths(self, shape: URIRef):

@@ -9,6 +9,7 @@ OUT_BASE="${NIAS_TMP_DIR:-/tmp}"
 OUT_BASE="${OUT_BASE%/}"
 OUT_ROOT="${OUT_ROOT:-$OUT_BASE/nias-shape2flutter/pdd-design}"
 SHAPES_FILE="$ROOT_DIR/dataRequirements/shape2flutter/pdd-design-ui-shapes.ttl"
+COMMON_SHAPES="$ROOT_DIR/dataRequirements/shape2flutter/common-ui-shapes.ttl"
 SCHEMA_DIR="$OUT_ROOT/schema"
 FLUTTER_DIR="$OUT_ROOT/flutter"
 
@@ -16,18 +17,22 @@ ALLOWED_PREFIXES="https://nova.org.za/novaimpactaccountingstandard/,https://nova
 
 mkdir -p "$SCHEMA_DIR" "$FLUTTER_DIR"
 
+# Merge common shapes with bundle-specific shapes into a single self-contained file
+MERGED_FILE="$OUT_ROOT/pdd-design-merged-ui-shapes.ttl"
+cat "$COMMON_SHAPES" "$SHAPES_FILE" > "$MERGED_FILE"
+
 "$SHAPE2FLUTTER_BIN" lint \
   -allow-path-prefixes "$ALLOWED_PREFIXES" \
-  "$SHAPES_FILE"
+  "$MERGED_FILE"
 
 "$SHAPE2FLUTTER_BIN" emit-jsonld \
   -format jsonld \
   -o "$SCHEMA_DIR/forms.jsonld" \
-  "$SHAPES_FILE"
+  "$MERGED_FILE"
 
 "$SHAPE2FLUTTER_BIN" build \
   -outdir "$FLUTTER_DIR" \
-  "$SHAPES_FILE"
+  "$MERGED_FILE"
 
 printf 'shape2flutter PDD Design output:\n'
 printf '  schema: %s\n' "$SCHEMA_DIR/forms.jsonld"
