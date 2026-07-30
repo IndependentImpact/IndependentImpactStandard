@@ -14,11 +14,11 @@ SCRIPT = (
 )
 VALIDATION_WRAPPER = (
     REPO_ROOT
-    / "dataRequirements/shape2flutter/validation_report/tool/export_validation_report_markdown.py"
+    / "dataRequirements/shape2form/validation_report/tool/export_validation_report_markdown.py"
 )
 VERIFICATION_WRAPPER = (
     REPO_ROOT
-    / "dataRequirements/shape2flutter/verification_report/tool/export_verification_report_markdown.py"
+    / "dataRequirements/shape2form/verification_report/tool/export_verification_report_markdown.py"
 )
 FIXTURES = REPO_ROOT / "dataRequirements/document-rendering/fixtures"
 VALIDATION_EVIDENCE = FIXTURES / "validation-report-evidence.jsonld"

@@ -9,7 +9,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = (
     REPO_ROOT
-    / "dataRequirements/shape2flutter/monitoring_report/tool/export_monitoring_report_markdown.py"
+    / "dataRequirements/shape2form/monitoring_report/tool/export_monitoring_report_markdown.py"
 )
 
 DCTERMS = "http://purl.org/dc/terms/"

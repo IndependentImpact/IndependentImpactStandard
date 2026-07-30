@@ -12,7 +12,7 @@ resources, and SHACL shapes. It must not create a second data model.
 Status: Phase 6 specification package.
 
 This package is ready for implementation work after the PDD SHACL and
-shape2flutter workflow checks have passed. It is not yet a deployer script. The
+shape2form workflow checks have passed. It is not yet a deployer script. The
 first deployer should consume the files documented here and emit Fluree
 transactions without changing canonical IRIs.
 
@@ -74,7 +74,7 @@ Canonical source artifacts:
 - `dataRequirements/*.ttl`
 - `dataRequirements/releases/`
 
-Generated Flutter forms and shape2flutter UI adapter shapes are not ledger
+Generated Flutter forms and shape2form UI adapter shapes are not ledger
 schema. They are UI projections of the canonical SHACL.
 
 ## Implementation Checks

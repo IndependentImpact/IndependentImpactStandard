@@ -34,7 +34,7 @@ or production deployment.
 | `sh:qualifiedMinCount`, `sh:qualifiedValueShape` | `fluree-rewrite` | Monitoring claim evidence and attestation requirements in `report-shapes.ttl`. | Rewrite to explicit properties or enforce in service layer. |
 | `sh:sparql` | `service-enforced` | Monitored impact branch rule in `impact-declaration-shapes.ttl`. | Keep pySHACL for canonical validation and mirror rule in the workflow service. |
 | Cross-document ledger lookup | `service-enforced` | PDD-CIR approval gate and future certificate issuance gates. | Use query or policy logic, not ordinary document-local SHACL. |
-| `ui:` annotations | `advisory` | shape2flutter adapter shapes only. | Do not load as canonical ledger schema unless UI metadata becomes a ledger artifact. |
+| `ui:` annotations | `advisory` | shape2form adapter shapes only. | Do not load as canonical ledger schema unless UI metadata becomes a ledger artifact. |
 
 ## PDD Workflow Shape Assessment
 
@@ -53,7 +53,7 @@ or production deployment.
 ## Runtime Gate Rules
 
 The PDD-CIR approval gate from
-`dataRequirements/shape2flutter/pdd-workflow-gate.md` is classified as
+`dataRequirements/shape2form/pdd-workflow-gate.md` is classified as
 `service-enforced`.
 
 The reason is structural: `nias-o:DocumentReference` values carry a message ID

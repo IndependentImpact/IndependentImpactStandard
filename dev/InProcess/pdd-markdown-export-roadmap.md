@@ -13,7 +13,7 @@ The canonical data requirements remain the SHACL shapes in `dataRequirements/`.
 ## Location
 
 This document lives in `dataRequirements/document-rendering/` because PDD
-Markdown/PDF/website generation is not specific to `shape2flutter`, Fluree,
+Markdown/PDF/website generation is not specific to `shape2form`, Fluree,
 IPFS, Hedera, or any single UI. It consumes the semantic standard, a rendering
 profile, and filled-in PDD data.
 
@@ -27,9 +27,9 @@ Related implementation inputs are currently:
 - `dataRequirements/review-shapes.ttl`
 - `dataRequirements/document-shapes.ttl`
 - `dataRequirements/common-shapes.ttl`
-- `dataRequirements/shape2flutter/pdd-workflow-ui-shapes.ttl`
+- `dataRequirements/shape2form/pdd-workflow-ui-shapes.ttl`
 - `dataRequirements/fixtures/pdd-workflow/*.ttl`
-- `dataRequirements/shape2flutter/pdd_workflow_shell/`
+- `dataRequirements/shape2form/pdd_workflow_shell/`
 - `dev/Completed/pdd-markdown-export-phase1-assessment.md`
 
 ## Conceptual Model
@@ -507,13 +507,13 @@ Tasks:
 
 - Add a local shell action or command that exports the current PDD workflow
   payload to Markdown.
-- Keep export logic outside generated shape2flutter Dart files.
+- Keep export logic outside generated shape2form Dart files.
 - Allow the user to export draft Markdown before final validation.
 - Allow final export only after the workflow gates and SHACL validation pass.
 - Confirmed Phase 6 output compilation remains complete via
   `dataRequirements/tests/test_pdd_output_compilation.py`.
 - Added
-  `dataRequirements/shape2flutter/pdd_workflow_shell/tool/export_pdd_workflow_markdown.py`
+  `dataRequirements/shape2form/pdd_workflow_shell/tool/export_pdd_workflow_markdown.py`
   to map shell PDD-A/B/C payload handoff into renderer JSON-LD input and invoke
   `render_pdd_markdown.py`.
 - Added final-mode workflow gate checks in the shell export tool for approved
@@ -537,7 +537,7 @@ Status: completed on 2026-05-26.
 Tasks:
 
 - Added an explicit PDD Markdown rendering regression step to
-  `dataRequirements/shape2flutter/check-pdd-workflow.sh`.
+  `dataRequirements/shape2form/check-pdd-workflow.sh`.
 - Kept the rendering regression suite in `dataRequirements/tests/test_pdd_*.py`,
   covering profile parsing, blank template generation, filled rendering,
   validation-aware modes, workflow-shell export handoff, and PDF/HTML

@@ -5,13 +5,13 @@ from rdflib import Graph, Namespace, URIRef
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-SHAPES_FILE = REPO_ROOT / "dataRequirements/shape2flutter/monitoring-report-ui-shapes.ttl"
-COMMON_SHAPES_FILE = REPO_ROOT / "dataRequirements/shape2flutter/common-ui-shapes.ttl"
-BUILD_SCRIPT = REPO_ROOT / "dataRequirements/shape2flutter/build-monitoring-report.sh"
+SHAPES_FILE = REPO_ROOT / "dataRequirements/shape2form/monitoring-report-ui-shapes.ttl"
+COMMON_SHAPES_FILE = REPO_ROOT / "dataRequirements/shape2form/common-ui-shapes.ttl"
+BUILD_SCRIPT = REPO_ROOT / "dataRequirements/shape2form/build-monitoring-report.sh"
 
 IND = Namespace("http://independentimpact.org/indicator-owl/")
 NIAS = Namespace("https://nova.org.za/novaimpactaccountingstandard/")
-NIAS_UI = Namespace("https://nova.org.za/novaimpactaccountingstandard/shape2flutter/")
+NIAS_UI = Namespace("https://nova.org.za/novaimpactaccountingstandard/shape2form/")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 TIME = Namespace("http://www.w3.org/2006/time#")
 
@@ -66,8 +66,8 @@ class MonitoringReportUiShapeTests(unittest.TestCase):
         script = BUILD_SCRIPT.read_text(encoding="utf-8")
 
         self.assertIn("monitoring-report-ui-shapes.ttl", script)
-        self.assertIn("nias-shape2flutter/monitoring-report", script)
-        self.assertIn("shape2flutter monitoring report output", script)
+        self.assertIn("nias-shape2form/monitoring-report", script)
+        self.assertIn("shape2form monitoring report output", script)
 
 
 if __name__ == "__main__":

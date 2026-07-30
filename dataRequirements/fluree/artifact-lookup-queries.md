@@ -243,4 +243,4 @@ then accept the gate only if each query returns at least one distinct approved
 review and the selected three review documents are not the same artifact.
 
 The returned normalized gate record should match
-`dataRequirements/shape2flutter/pdd-workflow-gate.md`.
+`dataRequirements/shape2form/pdd-workflow-gate.md`.

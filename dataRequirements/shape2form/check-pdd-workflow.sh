@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+. "$ROOT_DIR/dataRequirements/shape2form/load-env.sh"
+load_nias_env "$ROOT_DIR"
+SHAPE2FORM_BIN="${SHAPE2FORM_BIN:-/Users/christiaanpauw/shape2form/shape2form}"
+OUT_BASE="${NIAS_TMP_DIR:-/tmp}"
+OUT_BASE="${OUT_BASE%/}"
+OUT_ROOT="${OUT_ROOT:-$OUT_BASE/nias-shape2form/pdd-workflow}"
+PDD_DESIGN_OUT_ROOT="${PDD_DESIGN_OUT_ROOT:-$OUT_BASE/nias-shape2form/pdd-design}"
+PYTHON_BIN="${PYTHON3_BIN:-python3}"
+RUN_WORKFLOW_SHELL_CHECK="${RUN_WORKFLOW_SHELL_CHECK:-true}"
+
+log_step() {
+  printf '\n==> %s\n' "$1"
+}
+
+log_step "Validate Turtle artifacts"
+riot --validate \
+  "$ROOT_DIR"/glossary/*.ttl \
+  "$ROOT_DIR"/indicators/*.ttl \
+  "$ROOT_DIR"/knowledgeDomains/*.ttl \
+  "$ROOT_DIR"/methodologies/*.ttl \
+  "$ROOT_DIR"/dataRequirements/*.ttl \
+  "$ROOT_DIR"/dataRequirements/releases/1.0.0/*.ttl \
+  "$ROOT_DIR"/dataRequirements/shape2form/*.ttl \
+  "$ROOT_DIR"/dataRequirements/fixtures/pdd-workflow/*.ttl
+
+log_step "Run SHACL and workflow gate tests"
+"$PYTHON_BIN" -m unittest discover -s "$ROOT_DIR/dataRequirements/tests" -q
+
+log_step "Run PDD Markdown rendering regression tests"
+"$PYTHON_BIN" -m unittest discover \
+  -s "$ROOT_DIR/dataRequirements/tests" \
+  -p "test_pdd_*.py" \
+  -q
+
+log_step "Build PDD Design shape2form artifacts"
+SHAPE2FORM_BIN="$SHAPE2FORM_BIN" \
+OUT_ROOT="$PDD_DESIGN_OUT_ROOT" \
+  "$ROOT_DIR/dataRequirements/shape2form/build-pdd-design.sh"
+
+log_step "Compile PDD Design shape2form preview without serving"
+"$SHAPE2FORM_BIN" preview \
+  --schema-dir "$PDD_DESIGN_OUT_ROOT/schema" \
+  --build-dir "$PDD_DESIGN_OUT_ROOT/flutter" \
+  --preview-dir "$PDD_DESIGN_OUT_ROOT/preview" \
+  --serve=false \
+  --no-browser
+
+log_step "Build combined PDD workflow shape2form artifacts"
+SHAPE2FORM_BIN="$SHAPE2FORM_BIN" \
+OUT_ROOT="$OUT_ROOT" \
+  "$ROOT_DIR/dataRequirements/shape2form/build-pdd-workflow.sh"
+
+log_step "Compile combined PDD workflow shape2form preview without serving"
+"$SHAPE2FORM_BIN" preview \
+  --schema-dir "$OUT_ROOT/schema" \
+  --build-dir "$OUT_ROOT/flutter" \
+  --preview-dir "$OUT_ROOT/preview" \
+  --serve=false \
+  --no-browser
+
+if [ "$RUN_WORKFLOW_SHELL_CHECK" != "false" ]; then
+  log_step "Run PDD workflow shell checks"
+  SHAPE2FORM_BIN="$SHAPE2FORM_BIN" \
+  OUT_ROOT="$OUT_ROOT" \
+    "$ROOT_DIR/dataRequirements/shape2form/pdd_workflow_shell/tool/check_pdd_workflow_shell.sh"
+else
+  log_step "Skip PDD workflow shell checks"
+fi
+
+log_step "PDD local workflow regression complete"

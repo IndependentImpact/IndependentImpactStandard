@@ -211,7 +211,7 @@ The workflow-shell bridge converts submitted PDD-A, PDD-B, and PDD-C payloads to
 the renderer input model:
 
 ```bash
-python3 dataRequirements/shape2flutter/pdd_workflow_shell/tool/export_pdd_workflow_markdown.py \
+python3 dataRequirements/shape2form/pdd_workflow_shell/tool/export_pdd_workflow_markdown.py \
   --pdd-a-json /tmp/pdd-a.json \
   --pdd-b-json /tmp/pdd-b.json \
   --pdd-c-json /tmp/pdd-c.json \
@@ -222,7 +222,7 @@ python3 dataRequirements/shape2flutter/pdd_workflow_shell/tool/export_pdd_workfl
 For final export, request any desired deterministic targets:
 
 ```bash
-python3 dataRequirements/shape2flutter/pdd_workflow_shell/tool/export_pdd_workflow_markdown.py \
+python3 dataRequirements/shape2form/pdd_workflow_shell/tool/export_pdd_workflow_markdown.py \
   --pdd-a-json /tmp/pdd-a.json \
   --pdd-b-json /tmp/pdd-b.json \
   --pdd-c-json /tmp/pdd-c.json \
@@ -287,12 +287,12 @@ Use `--report-type verification` with
 for the corresponding Verification Report.
 
 When starting from generated validation or verification review forms, use the
-shape2flutter handoff adapter first. It wraps the generated form payloads into
+shape2form handoff adapter first. It wraps the generated form payloads into
 canonical review-package JSON-LD, writes the optional package handoff file, and
 then invokes this renderer:
 
 ```bash
-python3 dataRequirements/shape2flutter/validation_report/tool/export_validation_report_markdown.py \
+python3 dataRequirements/shape2form/validation_report/tool/export_validation_report_markdown.py \
   --review-json /tmp/validation-review-form.json \
   --evidence-jsonld /tmp/reviewed-artifacts.jsonld \
   --document-author https://nova.org.za/novaimpactaccountingstandard/users/validator-1 \
@@ -303,7 +303,7 @@ python3 dataRequirements/shape2flutter/validation_report/tool/export_validation_
   --output-target markdown
 ```
 
-Use `dataRequirements/shape2flutter/verification_report/tool/export_verification_report_markdown.py`
+Use `dataRequirements/shape2form/verification_report/tool/export_verification_report_markdown.py`
 for the corresponding Verification Report.
 
 Validation and Verification Report bodies render review decisions, anchor review
@@ -366,11 +366,11 @@ python3 tooling/document-rendering/render_monitoring_report_markdown.py \
   --render-mode draft
 ```
 
-When starting from generated Monitoring Report forms, use the shape2flutter
+When starting from generated Monitoring Report forms, use the shape2form
 handoff adapter:
 
 ```bash
-python3 dataRequirements/shape2flutter/monitoring_report/tool/export_monitoring_report_markdown.py \
+python3 dataRequirements/shape2form/monitoring_report/tool/export_monitoring_report_markdown.py \
   --monitoring-json /tmp/monitoring-report-form.json \
   --aligned-pdd https://nova.org.za/novaimpactaccountingstandard/pdd-versions/pdd-v1 \
   --document-author https://nova.org.za/novaimpactaccountingstandard/users/monitoring-party-1 \
@@ -401,7 +401,7 @@ anchors instead of legacy field identifiers.
 Run the full local workflow regression command:
 
 ```bash
-dataRequirements/shape2flutter/check-pdd-workflow.sh
+dataRequirements/shape2form/check-pdd-workflow.sh
 ```
 
 That command validates Turtle syntax, runs the repository Python tests, reruns

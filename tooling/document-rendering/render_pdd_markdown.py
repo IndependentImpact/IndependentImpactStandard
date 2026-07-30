@@ -23,7 +23,7 @@ DEFAULT_PROFILE = (
     REPO_ROOT / "dataRequirements/document-rendering/pdd-rendering-profile.md"
 )
 DEFAULT_UI_SHAPES = (
-    REPO_ROOT / "dataRequirements/shape2flutter/pdd-workflow-ui-shapes.ttl"
+    REPO_ROOT / "dataRequirements/shape2form/pdd-workflow-ui-shapes.ttl"
 )
 DEFAULT_VALIDATION_SHAPES = [
     REPO_ROOT / "dataRequirements/common-shapes.ttl",
@@ -43,7 +43,7 @@ DEFAULT_PDD_ANCHOR_DEFINITIONS = (
 DEFAULT_PANDOC_PDF_ENGINE = "xelatex"
 
 SH = Namespace("http://www.w3.org/ns/shacl#")
-UI = Namespace("https://shape2flutter.dev/vocab/ui#")
+UI = Namespace("https://shape2form.dev/vocab/ui#")
 RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 DCTERMS = Namespace("http://purl.org/dc/terms/")
 SCHEMA = Namespace("https://schema.org/")

@@ -62,6 +62,6 @@ different renderer, payload filename, or default output target set.
    - `default_output_targets` to the expected default outputs.
    - `renderer_args` when the renderer needs fixed selector flags.
 3. Update the relevant exporter script (for example under
-   `dataRequirements/shape2flutter/.../tool/`) to point to the new config path.
+   `dataRequirements/shape2form/.../tool/`) to point to the new config path.
 4. Add or update tests in `dataRequirements/tests/test_workflow_export_engine.py`
    (and exporter-specific tests) to cover the new config behavior.

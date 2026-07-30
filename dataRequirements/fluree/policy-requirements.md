@@ -53,7 +53,7 @@ is finalized.
 ## PDD-CIR Gate Requirement
 
 The PDD-CIR gate is defined in
-`dataRequirements/shape2flutter/pdd-workflow-gate.md`.
+`dataRequirements/shape2form/pdd-workflow-gate.md`.
 
 Before a PDD-CIR transaction is accepted, the service or policy layer must
 prove:

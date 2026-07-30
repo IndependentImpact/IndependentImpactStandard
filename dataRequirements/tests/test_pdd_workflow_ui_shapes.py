@@ -5,11 +5,11 @@ from rdflib import Graph, Namespace
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-SHAPES_FILE = REPO_ROOT / "dataRequirements/shape2flutter/pdd-workflow-ui-shapes.ttl"
+SHAPES_FILE = REPO_ROOT / "dataRequirements/shape2form/pdd-workflow-ui-shapes.ttl"
 
 CLAIM = Namespace("http://w3id.org/claimont#")
 NIAS = Namespace("https://nova.org.za/novaimpactaccountingstandard/")
-NIAS_UI = Namespace("https://nova.org.za/novaimpactaccountingstandard/shape2flutter/")
+NIAS_UI = Namespace("https://nova.org.za/novaimpactaccountingstandard/shape2form/")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 
 
