@@ -1,7 +1,7 @@
 # PDD Workflow Transaction Templates
 
 These templates define the JSON-LD shape the Flutter workflow shell should send
-to Fluree after the generated shape2flutter forms produce payload data.
+to Fluree after the generated shape2form forms produce payload data.
 
 The templates are not a second data model. They use canonical NIAS predicates
 and the document schema IRIs already defined in the SHACL assets.
@@ -195,7 +195,7 @@ Expected SHACL coverage:
 Gate prerequisite:
 
 - The approved review set from
-  `dataRequirements/shape2flutter/pdd-workflow-gate.md` must be resolved before
+  `dataRequirements/shape2form/pdd-workflow-gate.md` must be resolved before
   creating this transaction.
 
 ```json

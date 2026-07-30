@@ -45,6 +45,6 @@ JSON-LD conversion as an optimization step.
 - Load `common-shapes.ttl`, document references, and document shapes before
   workflow-specific shapes.
 - Keep transaction batches traceable to the source file and position above.
-- Do not load generated shape2flutter artifacts into the ledger as standard
+- Do not load generated shape2form artifacts into the ledger as standard
   artifacts unless a later deployment task explicitly adds UI metadata.
 - Do not store credentials, hosted ledger names, or private endpoints here.

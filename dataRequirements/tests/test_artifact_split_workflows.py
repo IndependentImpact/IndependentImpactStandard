@@ -7,17 +7,17 @@ from rdflib.namespace import RDF
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-WORKFLOWS = REPO_ROOT / "dataRequirements/shape2flutter/workflows"
-SHAPE2FLUTTER_ROOT = REPO_ROOT / "dataRequirements/shape2flutter"
+WORKFLOWS = REPO_ROOT / "dataRequirements/shape2form/workflows"
+SHAPE2FORM_ROOT = REPO_ROOT / "dataRequirements/shape2form"
 
 NIAS = Namespace("https://nova.org.za/novaimpactaccountingstandard/")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 
 PRIMARY_WORKFLOW_BUNDLES = {
-    "pdd-design.yaml": "dataRequirements/shape2flutter/pdd-design-ui-shapes.ttl",
-    "validation-report.yaml": "dataRequirements/shape2flutter/validation-report-ui-shapes.ttl",
-    "monitoring-report.yaml": "dataRequirements/shape2flutter/monitoring-report-ui-shapes.ttl",
-    "verification-report.yaml": "dataRequirements/shape2flutter/verification-report-ui-shapes.ttl",
+    "pdd-design.yaml": "dataRequirements/shape2form/pdd-design-ui-shapes.ttl",
+    "validation-report.yaml": "dataRequirements/shape2form/validation-report-ui-shapes.ttl",
+    "monitoring-report.yaml": "dataRequirements/shape2form/monitoring-report-ui-shapes.ttl",
+    "verification-report.yaml": "dataRequirements/shape2form/verification-report-ui-shapes.ttl",
 }
 
 
@@ -144,10 +144,10 @@ class ArtifactSplitWorkflowTests(unittest.TestCase):
 
         for filename in expected:
             with self.subTest(filename=filename):
-                self.assertTrue((SHAPE2FLUTTER_ROOT / filename).exists())
+                self.assertTrue((SHAPE2FORM_ROOT / filename).exists())
 
     def test_pdd_design_ui_bundle_contains_only_pdd_capture_forms(self):
-        bundle = (SHAPE2FLUTTER_ROOT / "pdd-design-ui-shapes.ttl").read_text(
+        bundle = (SHAPE2FORM_ROOT / "pdd-design-ui-shapes.ttl").read_text(
             encoding="utf-8"
         )
 
@@ -171,7 +171,7 @@ class ArtifactSplitWorkflowTests(unittest.TestCase):
                 self.assertNotIn(excluded_shape, bundle)
 
     def test_pdd_design_build_script_uses_pdd_design_bundle(self):
-        design_script = (SHAPE2FLUTTER_ROOT / "build-pdd-design.sh").read_text(
+        design_script = (SHAPE2FORM_ROOT / "build-pdd-design.sh").read_text(
             encoding="utf-8"
         )
 
@@ -181,10 +181,10 @@ class ArtifactSplitWorkflowTests(unittest.TestCase):
 
     def test_validation_and_verification_build_scripts_use_split_bundles(self):
         validation_script = (
-            SHAPE2FLUTTER_ROOT / "build-validation-report.sh"
+            SHAPE2FORM_ROOT / "build-validation-report.sh"
         ).read_text(encoding="utf-8")
         verification_script = (
-            SHAPE2FLUTTER_ROOT / "build-verification-report.sh"
+            SHAPE2FORM_ROOT / "build-verification-report.sh"
         ).read_text(encoding="utf-8")
 
         self.assertIn("validation-report-ui-shapes.ttl", validation_script)
@@ -250,7 +250,7 @@ class ArtifactSplitWorkflowTests(unittest.TestCase):
                 self.assertGreater(len(graph), 0)
 
     def test_validation_report_ui_shape_language_is_pdd_specific(self):
-        bundle = (SHAPE2FLUTTER_ROOT / "validation-report-ui-shapes.ttl").read_text(
+        bundle = (SHAPE2FORM_ROOT / "validation-report-ui-shapes.ttl").read_text(
             encoding="utf-8"
         )
 
@@ -278,7 +278,7 @@ class ArtifactSplitWorkflowTests(unittest.TestCase):
         self.assertNotIn("Monitoring Report version being verified", bundle)
 
     def test_verification_report_ui_shape_language_is_monitoring_specific(self):
-        bundle = (SHAPE2FLUTTER_ROOT / "verification-report-ui-shapes.ttl").read_text(
+        bundle = (SHAPE2FORM_ROOT / "verification-report-ui-shapes.ttl").read_text(
             encoding="utf-8"
         )
 

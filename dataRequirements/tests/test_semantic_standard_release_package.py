@@ -28,6 +28,8 @@ REQUIRED_ARTIFACT_ROLES = {
     "requirement-shapes",
     "requirement-standard",
     "shacl-shapes",
+    # The frozen 1.0.0 release manifest predates the shape2form rename;
+    # these constants describe that release's declared content verbatim.
     "shape2flutter-workflow",
     "ui-adapter-shapes",
 }

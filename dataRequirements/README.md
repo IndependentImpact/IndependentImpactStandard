@@ -12,7 +12,7 @@ for the Nova Impact Accounting Standard.
   standard, mappings, rendering, and workflow gates.
 - `mappings/`, `fixtures/`, and `releases/` with supporting proof data, release
   packaging, and requirement traceability assets.
-- `document-rendering/`, `shape2flutter/`, `fluree/`, and `adapters/` with
+- `document-rendering/`, `shape2form/`, `fluree/`, and `adapters/` with
   downstream operational projections of the canonical model.
 
 ## When to work here
@@ -21,7 +21,7 @@ for the Nova Impact Accounting Standard.
   release-packaged semantic assets.
 - Start with the nested READMEs before changing operational projections:
   - [`document-rendering/`](document-rendering/README.md)
-  - [`shape2flutter/`](shape2flutter/README.md)
+  - [`shape2form/`](shape2form/README.md)
   - [`fluree/`](fluree/README.md)
   - [`adapters/`](adapters/README.md)
 

@@ -43,7 +43,7 @@ The implementation order is:
 1. Finish canonical SHACL coverage.
 2. Add representative valid and invalid fixtures.
 3. Confirm local validation with `riot`, pySHACL, and existing test tooling.
-4. Generate UI-facing shapes where needed for `shape2flutter`.
+4. Generate UI-facing shapes where needed for `shape2form`.
 5. Define the Fluree ledger deployment package.
 6. Implement the workflow shell against the Fluree transaction templates.
 
@@ -227,7 +227,7 @@ These queries should return stable option records:
 ```
 
 The query records can later drive dynamic dropdowns in Flutter or
-`shape2flutter` if dynamic option sources are supported.
+`shape2form` if dynamic option sources are supported.
 
 ## Workflow Transaction Templates
 

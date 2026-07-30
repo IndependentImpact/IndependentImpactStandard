@@ -51,8 +51,8 @@ Layer 3a  VVS Requirement Shapes       dataRequirements/vvs-requirement-shapes.t
    │                                   dataRequirements/mappings/{vvs-requirement-anchor-map,
    │                                                              vvs-deprecation-map}.ttl
    │
-Layer 4   UI Projection Shapes         dataRequirements/shape2flutter/common-ui-shapes.ttl  (base)
-           (shape2flutter bundles)     dataRequirements/shape2flutter/{pdd-design,
+Layer 4   UI Projection Shapes         dataRequirements/shape2form/common-ui-shapes.ttl  (base)
+           (shape2form bundles)     dataRequirements/shape2form/{pdd-design,
                                        pdd-workflow, monitoring-report,
                                        validation-report, verification-report}-ui-shapes.ttl
 ```
@@ -180,21 +180,21 @@ The Validation, Verification and Certification Standard (VVS) requirement catalo
 
 ### Layer 4 — UI Projection Shapes
 
-`sh:NodeShape` definitions used by the `shape2flutter` tool to generate Flutter UI forms and JSON-LD schemas. These shapes are **projections** of the Layer 3 shapes; they do not redefine classes or properties.
+`sh:NodeShape` definitions used by the `shape2form` tool to generate Flutter UI forms and JSON-LD schemas. These shapes are **projections** of the Layer 3 shapes; they do not redefine classes or properties.
 
 **Shared base (new — deduplication result):**
 
-- `dataRequirements/shape2flutter/common-ui-shapes.ttl` — 17 UI node shapes that are identical across all workflow bundles. Every bundle imports this file at build time (via file merge in the build scripts).
+- `dataRequirements/shape2form/common-ui-shapes.ttl` — 17 UI node shapes that are identical across all workflow bundles. Every bundle imports this file at build time (via file merge in the build scripts).
 
 **Workflow-specific bundles** (each is a self-contained UI bundle for one workflow context):
 
 | File | Workflow | Context-specific shapes |
 |---|---|---|
-| `dataRequirements/shape2flutter/pdd-design-ui-shapes.ttl` | PDD Design capture tool | `PddSectionA/B/CUiShape`, `PddSectionA/BReportContentUiShape` |
-| `dataRequirements/shape2flutter/pdd-workflow-ui-shapes.ttl` | PDD workflow shell (create + validate) | `PddSectionA/B/CUiShape`, `DocumentFieldReviewUiShape`, `GlobalQualitativeDocumentReviewUiShape` |
-| `dataRequirements/shape2flutter/monitoring-report-ui-shapes.ttl` | Monitoring Report capture | `MonitoringReportUiShape`, `ReviewTargetUiShape`, `MonitoringReportSectionContentUiShape` |
-| `dataRequirements/shape2flutter/validation-report-ui-shapes.ttl` | Validation Report workflow | `ValidationReportSectionUiShape`, `DocumentFieldReviewUiShape`, `GlobalQualitativeDocumentReviewUiShape`, `ReviewTargetUiShape` |
-| `dataRequirements/shape2flutter/verification-report-ui-shapes.ttl` | Verification Report workflow | `VerificationReportSectionUiShape`, `VerifiedImpactCertificateIssuanceRequestReviewShape`, `ReviewTargetUiShape` |
+| `dataRequirements/shape2form/pdd-design-ui-shapes.ttl` | PDD Design capture tool | `PddSectionA/B/CUiShape`, `PddSectionA/BReportContentUiShape` |
+| `dataRequirements/shape2form/pdd-workflow-ui-shapes.ttl` | PDD workflow shell (create + validate) | `PddSectionA/B/CUiShape`, `DocumentFieldReviewUiShape`, `GlobalQualitativeDocumentReviewUiShape` |
+| `dataRequirements/shape2form/monitoring-report-ui-shapes.ttl` | Monitoring Report capture | `MonitoringReportUiShape`, `ReviewTargetUiShape`, `MonitoringReportSectionContentUiShape` |
+| `dataRequirements/shape2form/validation-report-ui-shapes.ttl` | Validation Report workflow | `ValidationReportSectionUiShape`, `DocumentFieldReviewUiShape`, `GlobalQualitativeDocumentReviewUiShape`, `ReviewTargetUiShape` |
+| `dataRequirements/shape2form/verification-report-ui-shapes.ttl` | Verification Report workflow | `VerificationReportSectionUiShape`, `VerifiedImpactCertificateIssuanceRequestReviewShape`, `ReviewTargetUiShape` |
 
 ---
 
@@ -334,12 +334,12 @@ NovaImpactAccountingStandardOntology.ttl  (Layer 1)
 
 | File | Type | Function | Prerequisites | Dependents |
 |---|---|---|---|---|
-| `dataRequirements/shape2flutter/common-ui-shapes.ttl` | SHACL NodeShapes (UI) | 17 shared UI shapes used identically across all workflow bundles | Layer 3 shapes | All 5 workflow bundles (merged at build time) |
-| `dataRequirements/shape2flutter/pdd-design-ui-shapes.ttl` | SHACL NodeShapes (UI) | PDD capture forms for the standalone PDD design tool | `common-ui-shapes.ttl`, `project-design-shapes.ttl` | `build-pdd-design.sh` output |
-| `dataRequirements/shape2flutter/pdd-workflow-ui-shapes.ttl` | SHACL NodeShapes (UI) | PDD workflow shell forms (PDD creation + validation review) | `common-ui-shapes.ttl`, `project-design-shapes.ttl`, `review-shapes.ttl` | `build-pdd-workflow.sh` output |
-| `dataRequirements/shape2flutter/monitoring-report-ui-shapes.ttl` | SHACL NodeShapes (UI) | Monitoring Report capture forms | `common-ui-shapes.ttl`, `monitoring-report-shapes.ttl` | `build-monitoring-report.sh` output |
-| `dataRequirements/shape2flutter/validation-report-ui-shapes.ttl` | SHACL NodeShapes (UI) | Validation Report workflow forms | `common-ui-shapes.ttl`, `review-shapes.ttl`, `pdd-certificate-shapes.ttl` | `build-validation-report.sh` output |
-| `dataRequirements/shape2flutter/verification-report-ui-shapes.ttl` | SHACL NodeShapes (UI) | Verification Report workflow forms | `common-ui-shapes.ttl`, `review-shapes.ttl`, `certificate-shapes.ttl` | `build-verification-report.sh` output |
+| `dataRequirements/shape2form/common-ui-shapes.ttl` | SHACL NodeShapes (UI) | 17 shared UI shapes used identically across all workflow bundles | Layer 3 shapes | All 5 workflow bundles (merged at build time) |
+| `dataRequirements/shape2form/pdd-design-ui-shapes.ttl` | SHACL NodeShapes (UI) | PDD capture forms for the standalone PDD design tool | `common-ui-shapes.ttl`, `project-design-shapes.ttl` | `build-pdd-design.sh` output |
+| `dataRequirements/shape2form/pdd-workflow-ui-shapes.ttl` | SHACL NodeShapes (UI) | PDD workflow shell forms (PDD creation + validation review) | `common-ui-shapes.ttl`, `project-design-shapes.ttl`, `review-shapes.ttl` | `build-pdd-workflow.sh` output |
+| `dataRequirements/shape2form/monitoring-report-ui-shapes.ttl` | SHACL NodeShapes (UI) | Monitoring Report capture forms | `common-ui-shapes.ttl`, `monitoring-report-shapes.ttl` | `build-monitoring-report.sh` output |
+| `dataRequirements/shape2form/validation-report-ui-shapes.ttl` | SHACL NodeShapes (UI) | Validation Report workflow forms | `common-ui-shapes.ttl`, `review-shapes.ttl`, `pdd-certificate-shapes.ttl` | `build-validation-report.sh` output |
+| `dataRequirements/shape2form/verification-report-ui-shapes.ttl` | SHACL NodeShapes (UI) | Verification Report workflow forms | `common-ui-shapes.ttl`, `review-shapes.ttl`, `certificate-shapes.ttl` | `build-verification-report.sh` output |
 
 ---
 
@@ -351,7 +351,7 @@ All 37 core semantic artefact files (`glossary/*.ttl`, `dataRequirements/*.ttl`,
 
 ### UI Projection Shapes (Layer 4)
 
-Prior to this deduplication effort, the 5 workflow UI bundle files collectively contained **17 identical `sh:NodeShape` definitions** duplicated across multiple files. These have been consolidated into `dataRequirements/shape2flutter/common-ui-shapes.ttl` and removed from all 5 bundle files.
+Prior to this deduplication effort, the 5 workflow UI bundle files collectively contained **17 identical `sh:NodeShape` definitions** duplicated across multiple files. These have been consolidated into `dataRequirements/shape2form/common-ui-shapes.ttl` and removed from all 5 bundle files.
 
 The 17 shapes moved to `common-ui-shapes.ttl`:
 
@@ -375,7 +375,7 @@ The 17 shapes moved to `common-ui-shapes.ttl`:
 | `nias-ui:ImpactRequirementUiShape` | pdd-design, pdd-workflow |
 | `nias-ui:ImpactClaimUiShape` | pdd-design, pdd-workflow |
 
-**Build-time merging:** Because `shape2flutter` consumes a single self-contained TTL file, the build scripts (`build-*.sh`) concatenate `common-ui-shapes.ttl` with the bundle-specific file into a temporary merged file before invoking shape2flutter. This means each bundle remains independently deployable.
+**Build-time merging:** Because `shape2form` consumes a single self-contained TTL file, the build scripts (`build-*.sh`) concatenate `common-ui-shapes.ttl` with the bundle-specific file into a temporary merged file before invoking shape2form. This means each bundle remains independently deployable.
 
 ---
 

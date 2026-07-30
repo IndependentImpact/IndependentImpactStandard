@@ -10,7 +10,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = (
     REPO_ROOT
-    / "dataRequirements/shape2flutter/pdd_workflow_shell/tool/export_pdd_workflow_markdown.py"
+    / "dataRequirements/shape2form/pdd_workflow_shell/tool/export_pdd_workflow_markdown.py"
 )
 
 NIAS = "https://nova.org.za/novaimpactaccountingstandard/"
@@ -160,7 +160,7 @@ class PddWorkflowShellExportTests(unittest.TestCase):
             )
 
     def test_final_export_writes_identity_fields_in_metadata_sidecar(self):
-        from dataRequirements.shape2flutter.pdd_workflow_shell.tool.export_pdd_workflow_markdown import (
+        from dataRequirements.shape2form.pdd_workflow_shell.tool.export_pdd_workflow_markdown import (
             build_renderer_payload,
         )
 

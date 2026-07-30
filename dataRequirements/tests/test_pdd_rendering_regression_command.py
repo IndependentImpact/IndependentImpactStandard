@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-CHECK_SCRIPT = REPO_ROOT / "dataRequirements/shape2flutter/check-pdd-workflow.sh"
+CHECK_SCRIPT = REPO_ROOT / "dataRequirements/shape2form/check-pdd-workflow.sh"
 README = REPO_ROOT / "dataRequirements/document-rendering/README.md"
 
 
