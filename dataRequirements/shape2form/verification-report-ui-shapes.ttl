@@ -17,63 +17,55 @@ nias-ui:VerificationReportUiShapes a owl:Ontology ;
 
 nias-ui:ReviewTargetUiShape a sh:NodeShape ;
     sh:targetClass nias-o:ReviewTarget ;
-    sh:property [
+    sh:property nias-ui:ReviewTargetUiShape-reviewedArtifact ;
+    sh:property nias-ui:ReviewTargetUiShape-reviewedAnchor .
+
+nias-ui:ReviewTargetUiShape-reviewedArtifact a sh:PropertyShape ;
         sh:path nias-o:reviewedArtifact ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Reviewed artifact IRI" ;
-        ui:help "IRI of the Monitoring Report version being verified." ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ReviewTargetUiShape-reviewedAnchor a sh:PropertyShape ;
         sh:path nias-o:reviewedAnchor ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Reviewed anchor IRI" ;
-        ui:help "IRI of the specific Monitoring Report or Data Lineage Report anchor being verified. Refer to monitoring-anchor-definitions.ttl and dlr-anchor-definitions.ttl." ;
-        ui:order 2 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:DocumentFieldReviewUiShape a sh:NodeShape ;
     sh:targetClass nias-o:DocumentFieldReview ;
-    sh:property [
+    sh:property nias-ui:DocumentFieldReviewUiShape-reviewTarget ;
+    sh:property nias-ui:DocumentFieldReviewUiShape-fieldTitle ;
+    sh:property nias-ui:DocumentFieldReviewUiShape-fieldPrompt ;
+    sh:property nias-ui:DocumentFieldReviewUiShape-originalResponse ;
+    sh:property nias-ui:DocumentFieldReviewUiShape-reviewerDecision ;
+    sh:property nias-ui:DocumentFieldReviewUiShape-reviewerFeedback .
+
+nias-ui:DocumentFieldReviewUiShape-reviewTarget a sh:PropertyShape ;
         sh:path nias-o:reviewTarget ;
         sh:node nias-ui:ReviewTargetUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Review target" ;
-        ui:widget ui:subform ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DocumentFieldReviewUiShape-fieldTitle a sh:PropertyShape ;
         sh:path nias-o:fieldTitle ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Reviewed item title" ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DocumentFieldReviewUiShape-fieldPrompt a sh:PropertyShape ;
         sh:path nias-o:fieldPrompt ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Review prompt" ;
-        ui:widget ui:textarea ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DocumentFieldReviewUiShape-originalResponse a sh:PropertyShape ;
         sh:path nias-o:originalResponse ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Reviewed content" ;
-        ui:widget ui:textarea ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DocumentFieldReviewUiShape-reviewerDecision a sh:PropertyShape ;
         sh:path nias-o:reviewerDecision ;
         sh:in (
             nias-cs:review-approve
@@ -82,66 +74,48 @@ nias-ui:DocumentFieldReviewUiShape a sh:NodeShape ;
             nias-cs:review-reject
         ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Reviewer decision" ;
-        ui:widget ui:radio ;
-        ui:order 5 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DocumentFieldReviewUiShape-reviewerFeedback a sh:PropertyShape ;
         sh:path nias-o:reviewerFeedback ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Reviewer feedback" ;
-        ui:widget ui:textarea ;
-        ui:order 6 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:VerifiedImpactCertificateIssuanceRequestReviewUiShape a sh:NodeShape ;
     sh:targetClass nias-o:VerifiedImpactCertificateIssuanceRequestReview ;
-    sh:property [
+    sh:property nias-ui:VerifiedImpactCertificateIssuanceRequestReviewUiShape-hasWorkflowSubmission ;
+    sh:property nias-ui:VerifiedImpactCertificateIssuanceRequestReviewUiShape-documentLevelQualitativeJudgement ;
+    sh:property nias-ui:VerifiedImpactCertificateIssuanceRequestReviewUiShape-fieldReview ;
+    sh:property nias-ui:VerifiedImpactCertificateIssuanceRequestReviewUiShape-finalReviewDecision ;
+    sh:property nias-ui:VerifiedImpactCertificateIssuanceRequestReviewUiShape-requestedIssuanceAccountId .
+
+nias-ui:VerifiedImpactCertificateIssuanceRequestReviewUiShape-hasWorkflowSubmission a sh:PropertyShape ;
         sh:path nias-o:hasWorkflowSubmission ;
         sh:node nias-ui:WorkflowDocumentSubmissionUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "1.0 Verification workflow submission context" ;
-        ui:widget ui:subform ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:VerifiedImpactCertificateIssuanceRequestReviewUiShape-documentLevelQualitativeJudgement a sh:PropertyShape ;
         sh:path nias-o:documentLevelQualitativeJudgement ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "1.1 Monitoring Report global qualitative evaluation (verification guiding questions GQ-003, GQ-004, GQ-006, GQ-008)" ;
-        ui:help "Respond to the verification guiding questions: GQ-003 (consistency of implemented activity with purpose), GQ-004 (material changes disclosure), GQ-006 (section-level evidence alignment), GQ-008 (cross-section and linked-artifact coherence). These questions are defined in GuidingReviewQuestions.ttl." ;
-        ui:widget ui:textarea ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:VerifiedImpactCertificateIssuanceRequestReviewUiShape-fieldReview a sh:PropertyShape ;
         sh:path nias-o:fieldReview ;
         sh:node nias-ui:DocumentFieldReviewUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 99 ;
-        ui:label "2.0 Monitoring Report paragraph-level verification findings (per MR/DLR anchor definitions)" ;
-        ui:widget ui:subform ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 99 .
+
+nias-ui:VerifiedImpactCertificateIssuanceRequestReviewUiShape-finalReviewDecision a sh:PropertyShape ;
         sh:path nias-o:finalReviewDecision ;
         sh:in ( nias-cs:review-approve nias-cs:review-reject ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "3.0 Final verification decision (approve or reject the Monitoring Report)" ;
-        ui:widget ui:radio ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:VerifiedImpactCertificateIssuanceRequestReviewUiShape-requestedIssuanceAccountId a sh:PropertyShape ;
         sh:path nias-o:requestedIssuanceAccountId ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Issuance account ID" ;
-        ui:help "Hedera account in shard.realm.num format." ;
-        ui:order 5 ;
-    ] .
+        sh:maxCount 1 .

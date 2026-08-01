@@ -24,313 +24,257 @@ nias-ui:PddDesignUiShapes a owl:Ontology ;
 
 nias-ui:PddSectionAReportContentUiShape a sh:NodeShape ;
     sh:targetClass nias-o:PddSectionAReport ;
-    sh:property [
+    sh:property nias-ui:PddSectionAReportContentUiShape-isMadeBy ;
+    sh:property nias-ui:PddSectionAReportContentUiShape-hasSubject ;
+    sh:property nias-ui:PddSectionAReportContentUiShape-conformsTo .
+
+nias-ui:PddSectionAReportContentUiShape-isMadeBy a sh:PropertyShape ;
         sh:path claimont:isMadeBy ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Reporting agent IRI" ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionAReportContentUiShape-hasSubject a sh:PropertyShape ;
         sh:path claimont:hasSubject ;
         sh:node nias-ui:ProjectDesignUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Project design" ;
-        ui:widget ui:subform ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionAReportContentUiShape-conformsTo a sh:PropertyShape ;
         sh:path dcterms:conformsTo ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Document schema IRI" ;
-        ui:order 3 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:PddSectionBReportContentUiShape a sh:NodeShape ;
     sh:targetClass nias-o:PddSectionBReport ;
-    sh:property [
+    sh:property nias-ui:PddSectionBReportContentUiShape-isMadeBy ;
+    sh:property nias-ui:PddSectionBReportContentUiShape-hasSubject ;
+    sh:property nias-ui:PddSectionBReportContentUiShape-hasDeclaredImpact ;
+    sh:property nias-ui:PddSectionBReportContentUiShape-impactClaim ;
+    sh:property nias-ui:PddSectionBReportContentUiShape-usesMethodology ;
+    sh:property nias-ui:PddSectionBReportContentUiShape-conformsTo .
+
+nias-ui:PddSectionBReportContentUiShape-isMadeBy a sh:PropertyShape ;
         sh:path claimont:isMadeBy ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Reporting agent IRI" ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionBReportContentUiShape-hasSubject a sh:PropertyShape ;
         sh:path claimont:hasSubject ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Project subject IRI" ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionBReportContentUiShape-hasDeclaredImpact a sh:PropertyShape ;
         sh:path nias-o:hasDeclaredImpact ;
         sh:node nias-ui:ImpactRequirementUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 99 ;
-        ui:label "Declared impacts" ;
-        ui:widget ui:subform ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 99 .
+
+nias-ui:PddSectionBReportContentUiShape-impactClaim a sh:PropertyShape ;
         sh:path nias-o:impactClaim ;
         sh:node nias-ui:ImpactClaimUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 99 ;
-        ui:label "Impact claims" ;
-        ui:widget ui:subform ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:maxCount 99 .
+
+nias-ui:PddSectionBReportContentUiShape-usesMethodology a sh:PropertyShape ;
         sh:path nias-o:usesMethodology ;
         sh:datatype xsd:anyURI ;
-        sh:maxCount 99 ;
-        ui:label "Report methodology IRIs" ;
-        ui:widget ui:chips ;
-        ui:order 5 ;
-    ] ;
-    sh:property [
+        sh:maxCount 99 .
+
+nias-ui:PddSectionBReportContentUiShape-conformsTo a sh:PropertyShape ;
         sh:path dcterms:conformsTo ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Document schema IRI" ;
-        ui:order 6 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:PddSectionAUiShape a sh:NodeShape ;
     sh:targetClass data:Document ;
-    sh:property [
+    sh:property nias-ui:PddSectionAUiShape-resourceIpfsUri ;
+    sh:property nias-ui:PddSectionAUiShape-documentSchema ;
+    sh:property nias-ui:PddSectionAUiShape-isEncrypted ;
+    sh:property nias-ui:PddSectionAUiShape-documentAuthor ;
+    sh:property nias-ui:PddSectionAUiShape-authProof ;
+    sh:property nias-ui:PddSectionAUiShape-reportContent ;
+    sh:property nias-ui:PddSectionAUiShape-hasWorkflowSubmission .
+
+nias-ui:PddSectionAUiShape-resourceIpfsUri a sh:PropertyShape ;
         sh:path nias-o:resourceIpfsUri ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Document IPFS URI" ;
-        ui:widget ui:ipfs ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionAUiShape-documentSchema a sh:PropertyShape ;
         sh:path nias-o:documentSchema ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Document schema IRI" ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionAUiShape-isEncrypted a sh:PropertyShape ;
         sh:path nias-o:isEncrypted ;
         sh:datatype xsd:boolean ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Encrypted" ;
-        ui:widget ui:switch ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionAUiShape-documentAuthor a sh:PropertyShape ;
         sh:path nias-o:documentAuthor ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Document author" ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionAUiShape-authProof a sh:PropertyShape ;
         sh:path nias-o:authProof ;
         sh:in ( nias-cs:none nias-cs:eddsa-signature nias-cs:rsa-signature nias-cs:vc ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Authenticity proof" ;
-        ui:widget ui:select ;
-        ui:order 5 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionAUiShape-reportContent a sh:PropertyShape ;
         sh:path nias-o:reportContent ;
         sh:node nias-ui:PddSectionAReportContentUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "PDD Section A content" ;
-        ui:widget ui:subform ;
-        ui:order 6 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionAUiShape-hasWorkflowSubmission a sh:PropertyShape ;
         sh:path nias-o:hasWorkflowSubmission ;
         sh:node nias-ui:WorkflowDocumentSubmissionUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Workflow submission" ;
-        ui:widget ui:subform ;
-        ui:order 7 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:PddSectionBUiShape a sh:NodeShape ;
     sh:targetClass data:Document ;
-    sh:property [
+    sh:property nias-ui:PddSectionBUiShape-resourceIpfsUri ;
+    sh:property nias-ui:PddSectionBUiShape-documentSchema ;
+    sh:property nias-ui:PddSectionBUiShape-isEncrypted ;
+    sh:property nias-ui:PddSectionBUiShape-documentAuthor ;
+    sh:property nias-ui:PddSectionBUiShape-authProof ;
+    sh:property nias-ui:PddSectionBUiShape-reportContent ;
+    sh:property nias-ui:PddSectionBUiShape-hasWorkflowSubmission .
+
+nias-ui:PddSectionBUiShape-resourceIpfsUri a sh:PropertyShape ;
         sh:path nias-o:resourceIpfsUri ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Document IPFS URI" ;
-        ui:widget ui:ipfs ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionBUiShape-documentSchema a sh:PropertyShape ;
         sh:path nias-o:documentSchema ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Document schema IRI" ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionBUiShape-isEncrypted a sh:PropertyShape ;
         sh:path nias-o:isEncrypted ;
         sh:datatype xsd:boolean ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Encrypted" ;
-        ui:widget ui:switch ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionBUiShape-documentAuthor a sh:PropertyShape ;
         sh:path nias-o:documentAuthor ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Document author" ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionBUiShape-authProof a sh:PropertyShape ;
         sh:path nias-o:authProof ;
         sh:in ( nias-cs:none nias-cs:eddsa-signature nias-cs:rsa-signature nias-cs:vc ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Authenticity proof" ;
-        ui:widget ui:select ;
-        ui:order 5 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionBUiShape-reportContent a sh:PropertyShape ;
         sh:path nias-o:reportContent ;
         sh:node nias-ui:PddSectionBReportContentUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "PDD Section B content" ;
-        ui:widget ui:subform ;
-        ui:order 6 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionBUiShape-hasWorkflowSubmission a sh:PropertyShape ;
         sh:path nias-o:hasWorkflowSubmission ;
         sh:node nias-ui:WorkflowDocumentSubmissionUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Workflow submission" ;
-        ui:widget ui:subform ;
-        ui:order 7 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:PddSectionCUiShape a sh:NodeShape ;
     sh:targetClass nias-o:PddSectionCStakeholderEngagement ;
-    sh:property [
+    sh:property nias-ui:PddSectionCUiShape-resourceIpfsUri ;
+    sh:property nias-ui:PddSectionCUiShape-documentSchema ;
+    sh:property nias-ui:PddSectionCUiShape-isEncrypted ;
+    sh:property nias-ui:PddSectionCUiShape-documentAuthor ;
+    sh:property nias-ui:PddSectionCUiShape-authProof ;
+    sh:property nias-ui:PddSectionCUiShape-isMadeBy ;
+    sh:property nias-ui:PddSectionCUiShape-hasSubject ;
+    sh:property nias-ui:PddSectionCUiShape-conformsTo ;
+    sh:property nias-ui:PddSectionCUiShape-hasWorkflowSubmission ;
+    sh:property nias-ui:PddSectionCUiShape-stakeholderEngagementModalities ;
+    sh:property nias-ui:PddSectionCUiShape-stakeholderCommentSummary ;
+    sh:property nias-ui:PddSectionCUiShape-stakeholderCommentConsideration .
+
+nias-ui:PddSectionCUiShape-resourceIpfsUri a sh:PropertyShape ;
         sh:path nias-o:resourceIpfsUri ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Document IPFS URI" ;
-        ui:widget ui:ipfs ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionCUiShape-documentSchema a sh:PropertyShape ;
         sh:path nias-o:documentSchema ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Document schema IRI" ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionCUiShape-isEncrypted a sh:PropertyShape ;
         sh:path nias-o:isEncrypted ;
         sh:datatype xsd:boolean ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Encrypted" ;
-        ui:widget ui:switch ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionCUiShape-documentAuthor a sh:PropertyShape ;
         sh:path nias-o:documentAuthor ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Document author" ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionCUiShape-authProof a sh:PropertyShape ;
         sh:path nias-o:authProof ;
         sh:in ( nias-cs:none nias-cs:eddsa-signature nias-cs:rsa-signature nias-cs:vc ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Authenticity proof" ;
-        ui:widget ui:select ;
-        ui:order 5 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionCUiShape-isMadeBy a sh:PropertyShape ;
         sh:path claimont:isMadeBy ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Reporting agent IRI" ;
-        ui:order 6 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionCUiShape-hasSubject a sh:PropertyShape ;
         sh:path claimont:hasSubject ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Project subject IRI" ;
-        ui:order 7 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionCUiShape-conformsTo a sh:PropertyShape ;
         sh:path dcterms:conformsTo ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Report schema IRI" ;
-        ui:order 8 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionCUiShape-hasWorkflowSubmission a sh:PropertyShape ;
         sh:path nias-o:hasWorkflowSubmission ;
         sh:node nias-ui:WorkflowDocumentSubmissionUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Workflow submission" ;
-        ui:widget ui:subform ;
-        ui:order 9 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionCUiShape-stakeholderEngagementModalities a sh:PropertyShape ;
         sh:path nias-o:stakeholderEngagementModalities ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Stakeholder engagement modalities" ;
-        ui:widget ui:textarea ;
-        ui:order 10 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionCUiShape-stakeholderCommentSummary a sh:PropertyShape ;
         sh:path nias-o:stakeholderCommentSummary ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "Stakeholder comment summary" ;
-        ui:widget ui:textarea ;
-        ui:order 11 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:PddSectionCUiShape-stakeholderCommentConsideration a sh:PropertyShape ;
         sh:path nias-o:stakeholderCommentConsideration ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "Stakeholder comment consideration" ;
-        ui:widget ui:textarea ;
-        ui:order 12 ;
-    ] .
+        sh:maxCount 1 .

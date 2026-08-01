@@ -10,6 +10,8 @@ OUT_BASE="${OUT_BASE%/}"
 OUT_ROOT="${OUT_ROOT:-$OUT_BASE/nias-shape2form/verification-report}"
 SHAPES_FILE="$ROOT_DIR/dataRequirements/shape2form/verification-report-ui-shapes.ttl"
 COMMON_SHAPES="$ROOT_DIR/dataRequirements/shape2form/common-ui-shapes.ttl"
+COMMON_ANNOTATIONS="$ROOT_DIR/dataRequirements/shape2form/common-annotations.ttl"
+SHAPES_ANNOTATIONS="${SHAPES_FILE%-ui-shapes.ttl}-annotations.ttl"
 SCHEMA_DIR="$OUT_ROOT/schema"
 FLUTTER_DIR="$OUT_ROOT/flutter"
 
@@ -17,9 +19,11 @@ ALLOWED_PREFIXES="https://nova.org.za/novaimpactaccountingstandard/,https://nova
 
 mkdir -p "$SCHEMA_DIR" "$FLUTTER_DIR"
 
-# Merge common shapes with bundle-specific shapes into a single self-contained file
+# Merge structure bundles with their machine-generated annotation siblings
+# (ADR-003: presentation lives beside the pure-structure bundles) into a
+# single self-contained file
 MERGED_FILE="$OUT_ROOT/verification-report-merged-ui-shapes.ttl"
-cat "$COMMON_SHAPES" "$SHAPES_FILE" > "$MERGED_FILE"
+cat "$COMMON_SHAPES" "$COMMON_ANNOTATIONS" "$SHAPES_FILE" "$SHAPES_ANNOTATIONS" > "$MERGED_FILE"
 
 "$SHAPE2FORM_BIN" lint \
   -allow-path-prefixes "$ALLOWED_PREFIXES" \

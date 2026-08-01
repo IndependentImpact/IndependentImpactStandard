@@ -1,0 +1,67 @@
+{
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentFieldReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/fieldPrompt": {
+    "label": "Review prompt",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentFieldReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/fieldTitle": {
+    "label": "Reviewed item title",
+    "order": 2
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentFieldReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/originalResponse": {
+    "label": "Reviewed content",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentFieldReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/reviewTarget": {
+    "label": "Review target",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentFieldReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/reviewerDecision": {
+    "label": "Reviewer decision",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#radio"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentFieldReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/reviewerFeedback": {
+    "label": "Reviewer feedback",
+    "order": 6,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ReviewTargetUiShape|https://nova.org.za/novaimpactaccountingstandard/reviewedAnchor": {
+    "label": "Reviewed anchor IRI",
+    "help": "IRI of the specific Monitoring Report or Data Lineage Report anchor being verified. Refer to monitoring-anchor-definitions.ttl and dlr-anchor-definitions.ttl.",
+    "order": 2
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ReviewTargetUiShape|https://nova.org.za/novaimpactaccountingstandard/reviewedArtifact": {
+    "label": "Reviewed artifact IRI",
+    "help": "IRI of the Monitoring Report version being verified.",
+    "order": 1
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/VerifiedImpactCertificateIssuanceRequestReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/documentLevelQualitativeJudgement": {
+    "label": "1.1 Monitoring Report global qualitative evaluation (verification guiding questions GQ-003, GQ-004, GQ-006, GQ-008)",
+    "help": "Respond to the verification guiding questions: GQ-003 (consistency of implemented activity with purpose), GQ-004 (material changes disclosure), GQ-006 (section-level evidence alignment), GQ-008 (cross-section and linked-artifact coherence). These questions are defined in GuidingReviewQuestions.ttl.",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/VerifiedImpactCertificateIssuanceRequestReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/fieldReview": {
+    "label": "2.0 Monitoring Report paragraph-level verification findings (per MR/DLR anchor definitions)",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/VerifiedImpactCertificateIssuanceRequestReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/finalReviewDecision": {
+    "label": "3.0 Final verification decision (approve or reject the Monitoring Report)",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#radio"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/VerifiedImpactCertificateIssuanceRequestReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/hasWorkflowSubmission": {
+    "label": "1.0 Verification workflow submission context",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/VerifiedImpactCertificateIssuanceRequestReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/requestedIssuanceAccountId": {
+    "label": "Issuance account ID",
+    "help": "Hedera account in shard.realm.num format.",
+    "order": 5
+  }
+}

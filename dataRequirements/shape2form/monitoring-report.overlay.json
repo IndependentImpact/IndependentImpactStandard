@@ -1,0 +1,87 @@
+{
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DatasetUiShape|http://purl.org/dc/terms/title": {
+    "label": "Dataset name",
+    "order": 1
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DatasetUiShape|https://nova.org.za/novaimpactaccountingstandard/dataLineageReview": {
+    "label": "Approved data lineage review",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DatasetUiShape|https://nova.org.za/novaimpactaccountingstandard/finalDatasetArtifact": {
+    "label": "Final dataset artifact",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/IndicatorObservationUiShape|http://independentimpact.org/indicator-owl/hasUnit": {
+    "label": "Unit",
+    "help": "Use a QUDT unit IRI.",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#text"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/IndicatorObservationUiShape|http://independentimpact.org/indicator-owl/obsValue": {
+    "label": "Observed value",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#number"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/IndicatorObservationUiShape|http://independentimpact.org/indicator-owl/observesIndicator": {
+    "label": "Observed indicator",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#text"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/IndicatorObservationUiShape|http://independentimpact.org/indicator-owl/timePeriod": {
+    "label": "Observation period",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/MonitoringReportUiShape|https://nova.org.za/novaimpactaccountingstandard/alignedWithPDD": {
+    "label": "Validated PDD version",
+    "help": "IRI for the PDD version this monitoring report is based on.",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#text"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/MonitoringReportUiShape|https://nova.org.za/novaimpactaccountingstandard/calculationCode": {
+    "label": "Calculation code",
+    "order": 7,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/MonitoringReportUiShape|https://nova.org.za/novaimpactaccountingstandard/calculationReport": {
+    "label": "Calculation report",
+    "order": 9,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/MonitoringReportUiShape|https://nova.org.za/novaimpactaccountingstandard/forPeriod": {
+    "label": "Monitoring period",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/MonitoringReportUiShape|https://nova.org.za/novaimpactaccountingstandard/hasWorkflowSubmission": {
+    "label": "Workflow submission",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/MonitoringReportUiShape|https://nova.org.za/novaimpactaccountingstandard/impactResultResource": {
+    "label": "Impact result resource",
+    "order": 8,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/MonitoringReportUiShape|https://nova.org.za/novaimpactaccountingstandard/reportedIndicatorLabel": {
+    "label": "Reported indicator label",
+    "order": 3
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/MonitoringReportUiShape|https://nova.org.za/novaimpactaccountingstandard/reportedObservation": {
+    "label": "Measured impact observation",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/MonitoringReportUiShape|https://nova.org.za/novaimpactaccountingstandard/requestedIssuanceAccountId": {
+    "label": "Issuance account ID",
+    "help": "Hedera account in shard.realm.num format.",
+    "order": 10
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/MonitoringReportUiShape|https://nova.org.za/novaimpactaccountingstandard/usesDataset": {
+    "label": "Datasets",
+    "order": 6,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  }
+}

@@ -1,0 +1,371 @@
+{
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/CreditingPeriodUiShape|http://www.w3.org/2006/time#hasBeginning": {
+    "label": "Crediting period start",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/CreditingPeriodUiShape|http://www.w3.org/2006/time#hasEnd": {
+    "label": "Crediting period end",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/CreditingPeriodUiShape|https://nova.org.za/novaimpactaccountingstandard/creditingPeriodIsRenewable": {
+    "label": "Renewable crediting period",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#switch"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DataParameterRequirementUiShape|http://independentimpact.org/indicator-owl/hasUnit": {
+    "label": "Unit IRI",
+    "help": "Use a QUDT unit IRI.",
+    "order": 4
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DataParameterRequirementUiShape|http://www.w3.org/2000/01/rdf-schema#label": {
+    "label": "Parameter label",
+    "order": 1
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DataParameterRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/dataParameterPurpose": {
+    "label": "Purpose",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DataParameterRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/dataSource": {
+    "label": "Data source",
+    "order": 11,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DataParameterRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/measurementMethodsAndProcedures": {
+    "label": "Measurement methods and procedures",
+    "order": 6,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DataParameterRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/monitoredOrFixed": {
+    "label": "Monitoring status",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#radio"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DataParameterRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/monitoringFrequency": {
+    "label": "Monitoring frequency",
+    "order": 8
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DataParameterRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/parameterAppliedValue": {
+    "label": "Applied value",
+    "order": 10,
+    "widget": "https://shape2form.dev/vocab/ui#number"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DataParameterRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/qaQcProcedures": {
+    "label": "QA/QC procedures",
+    "order": 7,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DataParameterRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/samplingPlan": {
+    "label": "Sampling plan",
+    "order": 9,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DataParameterRequirementUiShape|https://schema.org/description": {
+    "label": "Description",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DateTimeIntervalUiShape|http://www.w3.org/2006/time#hasBeginning": {
+    "label": "Start",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DateTimeIntervalUiShape|http://www.w3.org/2006/time#hasEnd": {
+    "label": "End",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentReferenceUiShape|https://nova.org.za/novaimpactaccountingstandard/documentMessageId": {
+    "label": "Message ID",
+    "order": 1
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentReferenceUiShape|https://nova.org.za/novaimpactaccountingstandard/resourceIpfsUri": {
+    "label": "IPFS URI",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#ipfs"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/HederaTopicMessageUiShape|https://hashgraphontology.xyz/core/hasConsensusTimestamp": {
+    "label": "Consensus timestamp",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#dateTime"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/HederaTopicMessageUiShape|https://hashgraphontology.xyz/core/hasMessageContent": {
+    "label": "Message content",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/HederaTopicMessageUiShape|https://hashgraphontology.xyz/core/hasSequenceNumber": {
+    "label": "Sequence number",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#number"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/HederaTopicMessageUiShape|https://hashgraphontology.xyz/core/inTopic": {
+    "label": "Consensus topic",
+    "help": "IRI for the Hedera consensus topic.",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#text"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactClaimUiShape|http://w3id.org/claimont#hasSubject": {
+    "label": "Project subject IRI",
+    "order": 1
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactClaimUiShape|https://nova.org.za/novaimpactaccountingstandard/usesMethodology": {
+    "label": "Methodology IRIs",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#chips"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|http://w3id.org/impactont#hasProvenance": {
+    "label": "Provenance resources",
+    "order": 9,
+    "widget": "https://shape2form.dev/vocab/ui#chips"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|http://w3id.org/impactont#hasStateA": {
+    "label": "Baseline or counterfactual state",
+    "order": 7,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|http://w3id.org/impactont#hasStateB": {
+    "label": "Project or real state",
+    "order": 8,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/additionalityJustification": {
+    "label": "Additionality justification",
+    "order": 6,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/beneficialOrAdverse": {
+    "label": "Beneficial or adverse",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#radio"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/creditingPeriod": {
+    "label": "Crediting period",
+    "order": 10,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/dataParameterRequirement": {
+    "label": "Data and parameter requirements",
+    "order": 12,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/exAnteImpactEstimate": {
+    "label": "Ex-ante impact estimate",
+    "order": 13,
+    "widget": "https://shape2form.dev/vocab/ui#number"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/impactIntentionality": {
+    "label": "Intentionality",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#radio"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/monitored": {
+    "label": "Monitored",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#switch"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/monitoringPeriod": {
+    "label": "Monitoring periods",
+    "order": 11,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|https://nova.org.za/novaimpactaccountingstandard/notMonitoredJustification": {
+    "label": "Not monitored justification",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|https://schema.org/description": {
+    "label": "Impact description",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/IndicatorValueUiShape|http://independentimpact.org/indicator-owl/hasUnit": {
+    "label": "Unit IRI",
+    "help": "Use a QUDT unit IRI if the value carries its own unit.",
+    "order": 2
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/IndicatorValueUiShape|http://www.w3.org/1999/02/22-rdf-syntax-ns#value": {
+    "label": "Indicator value",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#number"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ObjectiveUiShape|https://schema.org/description": {
+    "label": "Objective",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectDesignUiShape|http://w3id.org/aiao#hasObjective": {
+    "label": "Project purpose",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectDesignUiShape|http://w3id.org/impactont#hasSpatialLocation": {
+    "label": "Project locations",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectDesignUiShape|https://nova.org.za/novaimpactaccountingstandard/debundlingAssessment": {
+    "label": "Debundling assessment",
+    "order": 10,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectDesignUiShape|https://nova.org.za/novaimpactaccountingstandard/eligibilityDescription": {
+    "label": "Eligibility description",
+    "order": 11,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectDesignUiShape|https://nova.org.za/novaimpactaccountingstandard/legalMatters": {
+    "label": "Legal matters",
+    "order": 6,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectDesignUiShape|https://nova.org.za/novaimpactaccountingstandard/projectHistory": {
+    "label": "Project history",
+    "order": 9,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectDesignUiShape|https://nova.org.za/novaimpactaccountingstandard/projectParty": {
+    "label": "Project parties",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectDesignUiShape|https://nova.org.za/novaimpactaccountingstandard/publicFundingSource": {
+    "label": "Public funding sources",
+    "order": 8,
+    "widget": "https://shape2form.dev/vocab/ui#chips"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectDesignUiShape|https://nova.org.za/novaimpactaccountingstandard/publicFundingStatus": {
+    "label": "Public funding",
+    "order": 7,
+    "widget": "https://shape2form.dev/vocab/ui#switch"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectDesignUiShape|https://nova.org.za/novaimpactaccountingstandard/technologyOrMeasure": {
+    "label": "Technologies and measures",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectDesignUiShape|https://nova.org.za/novaimpactaccountingstandard/title": {
+    "label": "Project title",
+    "order": 1
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectPartyUiShape|https://nova.org.za/novaimpactaccountingstandard/additionalInfo": {
+    "label": "Additional information",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectPartyUiShape|https://nova.org.za/novaimpactaccountingstandard/isHostParty": {
+    "label": "Host party",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#switch"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectPartyUiShape|https://nova.org.za/novaimpactaccountingstandard/isParticipantParty": {
+    "label": "Participant party",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#switch"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectPartyUiShape|https://nova.org.za/novaimpactaccountingstandard/partyName": {
+    "label": "Party name",
+    "order": 1
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ProjectPartyUiShape|https://nova.org.za/novaimpactaccountingstandard/publicPrivateClassification": {
+    "label": "Public or private",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#radio"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ResourceArtifactUiShape|https://nova.org.za/novaimpactaccountingstandard/resourceIpfsUri": {
+    "label": "IPFS URI",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#ipfs"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/SpatialLocationUiShape|https://nova.org.za/novaimpactaccountingstandard/resourceIpfsUri": {
+    "label": "Location IPFS URI",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#ipfs"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/StateWithIndicatorValueUiShape|http://w3id.org/impactont#hasIndicatorValue": {
+    "label": "Indicator value",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/StateWithIndicatorValueUiShape|http://w3id.org/impactont#hasModality": {
+    "label": "State modality",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#radio"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/StateWithIndicatorValueUiShape|http://w3id.org/impactont#hasTemporalLocation": {
+    "label": "Temporal location",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/StateWithIndicatorValueUiShape|http://w3id.org/impactont#isDefinedByIndicator": {
+    "label": "Indicator definition IRI",
+    "order": 3
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/TechnologyOrMeasureUiShape|https://nova.org.za/novaimpactaccountingstandard/additionalInfo": {
+    "label": "Additional information",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/TechnologyOrMeasureUiShape|https://nova.org.za/novaimpactaccountingstandard/currentAgeInYears": {
+    "label": "Current age in years",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#number"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/TechnologyOrMeasureUiShape|https://nova.org.za/novaimpactaccountingstandard/estimatedLifespanInYears": {
+    "label": "Estimated lifespan in years",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#number"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/TechnologyOrMeasureUiShape|https://nova.org.za/novaimpactaccountingstandard/techMeasType": {
+    "label": "Type",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#select"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/TechnologyOrMeasureUiShape|https://schema.org/description": {
+    "label": "Description",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/TimeInstantUiShape|http://www.w3.org/2006/time#inXSDDateTimeStamp": {
+    "label": "Date and time",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#dateTime"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/WorkflowDocumentSubmissionUiShape|https://nova.org.za/novaimpactaccountingstandard/submittedDocument": {
+    "label": "Submitted document",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#text"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/WorkflowDocumentSubmissionUiShape|https://nova.org.za/novaimpactaccountingstandard/workflow": {
+    "label": "Workflow",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#text"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/WorkflowDocumentSubmissionUiShape|https://nova.org.za/novaimpactaccountingstandard/workflowDocumentRecipient": {
+    "label": "Recipient",
+    "order": 6,
+    "widget": "https://shape2form.dev/vocab/ui#text"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/WorkflowDocumentSubmissionUiShape|https://nova.org.za/novaimpactaccountingstandard/workflowDocumentSubmittedBy": {
+    "label": "Submitted by",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#text"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/WorkflowDocumentSubmissionUiShape|https://nova.org.za/novaimpactaccountingstandard/workflowStep": {
+    "label": "Workflow step",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#text"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/WorkflowDocumentSubmissionUiShape|https://nova.org.za/novaimpactaccountingstandard/workflowSubject": {
+    "label": "Workflow subject",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#text"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/WorkflowDocumentSubmissionUiShape|https://nova.org.za/novaimpactaccountingstandard/workflowSubmissionConsensusMessage": {
+    "label": "Consensus message",
+    "order": 7,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  }
+}

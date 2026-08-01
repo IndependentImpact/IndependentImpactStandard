@@ -250,7 +250,14 @@ class ArtifactSplitWorkflowTests(unittest.TestCase):
                 self.assertGreater(len(graph), 0)
 
     def test_validation_report_ui_shape_language_is_pdd_specific(self):
+        # Since the annotation split (shape2form ADR-003), presentation
+        # language lives in the machine-generated *-annotations.ttl
+        # sibling; the bundle carries pure structure. The guarded intent
+        # is unchanged: the validation activity presents the shared
+        # review shapes in PDD-validation-specific language.
         bundle = (SHAPE2FORM_ROOT / "validation-report-ui-shapes.ttl").read_text(
+            encoding="utf-8"
+        ) + (SHAPE2FORM_ROOT / "validation-report-annotations.ttl").read_text(
             encoding="utf-8"
         )
 
@@ -278,7 +285,10 @@ class ArtifactSplitWorkflowTests(unittest.TestCase):
         self.assertNotIn("Monitoring Report version being verified", bundle)
 
     def test_verification_report_ui_shape_language_is_monitoring_specific(self):
+        # See the validation test above: language lives in the sibling.
         bundle = (SHAPE2FORM_ROOT / "verification-report-ui-shapes.ttl").read_text(
+            encoding="utf-8"
+        ) + (SHAPE2FORM_ROOT / "verification-report-annotations.ttl").read_text(
             encoding="utf-8"
         )
 

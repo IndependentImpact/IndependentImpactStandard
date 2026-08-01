@@ -16,162 +16,128 @@ nias-ui:MonitoringReportUiShapes a owl:Ontology ;
 
 nias-ui:IndicatorObservationUiShape a sh:NodeShape ;
     sh:targetClass ind:IndicatorObservation ;
-    sh:property [
+    sh:property nias-ui:IndicatorObservationUiShape-observesIndicator ;
+    sh:property nias-ui:IndicatorObservationUiShape-obsValue ;
+    sh:property nias-ui:IndicatorObservationUiShape-hasUnit ;
+    sh:property nias-ui:IndicatorObservationUiShape-timePeriod .
+
+nias-ui:IndicatorObservationUiShape-observesIndicator a sh:PropertyShape ;
         sh:path ind:observesIndicator ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Observed indicator" ;
-        ui:widget ui:text ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:IndicatorObservationUiShape-obsValue a sh:PropertyShape ;
         sh:path ind:obsValue ;
         sh:datatype xsd:decimal ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Observed value" ;
-        ui:widget ui:number ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:IndicatorObservationUiShape-hasUnit a sh:PropertyShape ;
         sh:path ind:hasUnit ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Unit" ;
-        ui:help "Use a QUDT unit IRI." ;
-        ui:widget ui:text ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:IndicatorObservationUiShape-timePeriod a sh:PropertyShape ;
         sh:path ind:timePeriod ;
         sh:node nias-ui:DateTimeIntervalUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Observation period" ;
-        ui:widget ui:subform ;
-        ui:order 4 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:DatasetUiShape a sh:NodeShape ;
     sh:targetClass nias-o:Dataset ;
-    sh:property [
+    sh:property nias-ui:DatasetUiShape-title ;
+    sh:property nias-ui:DatasetUiShape-dataLineageReview ;
+    sh:property nias-ui:DatasetUiShape-finalDatasetArtifact .
+
+nias-ui:DatasetUiShape-title a sh:PropertyShape ;
         sh:path dcterms:title ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Dataset name" ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DatasetUiShape-dataLineageReview a sh:PropertyShape ;
         sh:path nias-o:dataLineageReview ;
         sh:node nias-ui:DocumentReferenceUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Approved data lineage review" ;
-        ui:widget ui:subform ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DatasetUiShape-finalDatasetArtifact a sh:PropertyShape ;
         sh:path nias-o:finalDatasetArtifact ;
         sh:node nias-ui:ResourceArtifactUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Final dataset artifact" ;
-        ui:widget ui:subform ;
-        ui:order 3 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:MonitoringReportUiShape a sh:NodeShape ;
     sh:targetClass nias-o:MonitoringReport ;
-    sh:property [
+    sh:property nias-ui:MonitoringReportUiShape-hasWorkflowSubmission ;
+    sh:property nias-ui:MonitoringReportUiShape-alignedWithPDD ;
+    sh:property nias-ui:MonitoringReportUiShape-reportedIndicatorLabel ;
+    sh:property nias-ui:MonitoringReportUiShape-forPeriod ;
+    sh:property nias-ui:MonitoringReportUiShape-reportedObservation ;
+    sh:property nias-ui:MonitoringReportUiShape-usesDataset ;
+    sh:property nias-ui:MonitoringReportUiShape-calculationCode ;
+    sh:property nias-ui:MonitoringReportUiShape-impactResultResource ;
+    sh:property nias-ui:MonitoringReportUiShape-calculationReport ;
+    sh:property nias-ui:MonitoringReportUiShape-requestedIssuanceAccountId .
+
+nias-ui:MonitoringReportUiShape-hasWorkflowSubmission a sh:PropertyShape ;
         sh:path nias-o:hasWorkflowSubmission ;
         sh:node nias-ui:WorkflowDocumentSubmissionUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Workflow submission" ;
-        ui:widget ui:subform ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:MonitoringReportUiShape-alignedWithPDD a sh:PropertyShape ;
         sh:path nias-o:alignedWithPDD ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Validated PDD version" ;
-        ui:help "IRI for the PDD version this monitoring report is based on." ;
-        ui:widget ui:text ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:MonitoringReportUiShape-reportedIndicatorLabel a sh:PropertyShape ;
         sh:path nias-o:reportedIndicatorLabel ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Reported indicator label" ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:MonitoringReportUiShape-forPeriod a sh:PropertyShape ;
         sh:path nias-o:forPeriod ;
         sh:node nias-ui:DateTimeIntervalUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Monitoring period" ;
-        ui:widget ui:subform ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:MonitoringReportUiShape-reportedObservation a sh:PropertyShape ;
         sh:path nias-o:reportedObservation ;
         sh:node nias-ui:IndicatorObservationUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Measured impact observation" ;
-        ui:widget ui:subform ;
-        ui:order 5 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:MonitoringReportUiShape-usesDataset a sh:PropertyShape ;
         sh:path nias-o:usesDataset ;
         sh:node nias-ui:DatasetUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 99 ;
-        ui:label "Datasets" ;
-        ui:widget ui:subform ;
-        ui:order 6 ;
-    ] ;
-    sh:property [
+        sh:maxCount 99 .
+
+nias-ui:MonitoringReportUiShape-calculationCode a sh:PropertyShape ;
         sh:path nias-o:calculationCode ;
         sh:node nias-ui:ResourceArtifactUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Calculation code" ;
-        ui:widget ui:subform ;
-        ui:order 7 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:MonitoringReportUiShape-impactResultResource a sh:PropertyShape ;
         sh:path nias-o:impactResultResource ;
         sh:node nias-ui:ResourceArtifactUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Impact result resource" ;
-        ui:widget ui:subform ;
-        ui:order 8 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:MonitoringReportUiShape-calculationReport a sh:PropertyShape ;
         sh:path nias-o:calculationReport ;
         sh:node nias-ui:ResourceArtifactUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Calculation report" ;
-        ui:widget ui:subform ;
-        ui:order 9 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:MonitoringReportUiShape-requestedIssuanceAccountId a sh:PropertyShape ;
         sh:path nias-o:requestedIssuanceAccountId ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Issuance account ID" ;
-        ui:help "Hedera account in shard.realm.num format." ;
-        ui:order 10 ;
-    ] .
+        sh:maxCount 1 .
