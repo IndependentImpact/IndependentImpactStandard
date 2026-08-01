@@ -4,8 +4,24 @@ This directory contains UI-facing SHACL views for generating Flutter forms from
 NIAS workflow screen shapes.
 
 The canonical SHACL constraints remain in `dataRequirements/*.ttl`. The
-activity-specific UI shape bundles flatten inherited/composed shapes and add
-`ui:` hints so `shape2form` can generate usable first-pass forms. The
+activity-specific UI shape bundles flatten inherited/composed shapes; since
+the annotation split (shape2form ADR-003) each bundle carries **pure
+structure** — named property shapes, constraints, `sh:description` — and
+compiles alone into a usable, plain form. Presentation lives beside it:
+
+- `<bundle>.overlay.json` — the authoring master. Edit it in the shape2form
+  annotator (`shape2form annotate --overlay <bundle>.overlay.json
+  common-ui-shapes.ttl <bundle>-ui-shapes.ttl`), or by hand.
+- `<bundle>-annotations.ttl` — machine-generated from the overlay
+  (`shape2form generate-annotations`); never hand-edit, regenerate.
+
+Authoring rules for new shapes: **name your property shapes**
+(`nias-ui:ShapeName-pathLocal` — `shape2form lint` nudges strays and
+`shape2form skolemize` migrates); keep `sh:description` on every field (it
+is the form's ⓘ description fallback); put presentation in the overlay,
+not the bundle. Different activities may present shared shapes differently
+— each activity's overlay/sibling pair is its own presentation layer, and
+build units only ever load one activity's pair. The
 `pdd-design-ui-shapes.ttl` file contains developer-side PDD-A/B/C capture
 forms only. The `pdd-workflow-ui-shapes.ttl` file remains available for the
 combined local PDD workflow preview: PDD creation, validation review, and PDD

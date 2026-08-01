@@ -1,0 +1,175 @@
+{
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentFieldReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/fieldPrompt": {
+    "label": "Field prompt",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentFieldReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/fieldTitle": {
+    "label": "Field title",
+    "order": 1
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentFieldReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/originalResponse": {
+    "label": "Original response",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentFieldReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/reviewerDecision": {
+    "label": "Reviewer decision",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#radio"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/DocumentFieldReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/reviewerFeedback": {
+    "label": "Reviewer feedback",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/GlobalQualitativeDocumentReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/documentLevelQualitativeJudgement": {
+    "label": "Document-level qualitative judgement",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/GlobalQualitativeDocumentReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/fieldReview": {
+    "label": "Anchor-level review findings",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/GlobalQualitativeDocumentReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/finalReviewDecision": {
+    "label": "Final global qualitative review decision",
+    "order": 6,
+    "widget": "https://shape2form.dev/vocab/ui#radio"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/GlobalQualitativeDocumentReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/hasWorkflowSubmission": {
+    "label": "Global qualitative review workflow submission",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/GlobalQualitativeDocumentReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/isReviewOf": {
+    "label": "Reviewed artifact document",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#text"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/GlobalQualitativeDocumentReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/sectionQualitativeJudgement": {
+    "label": "Section-level qualitative judgement",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddCertificateIssuanceRequestUiShape|https://nova.org.za/novaimpactaccountingstandard/pddDocumentLevelQualitativeReview": {
+    "label": "Approved document-level qualitative review",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddCertificateIssuanceRequestUiShape|https://nova.org.za/novaimpactaccountingstandard/pddSectionAValidationReview": {
+    "label": "Approved PDD-A validation review",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddCertificateIssuanceRequestUiShape|https://nova.org.za/novaimpactaccountingstandard/pddSectionBValidationReview": {
+    "label": "Approved PDD-B validation review",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddCertificateIssuanceRequestUiShape|https://nova.org.za/novaimpactaccountingstandard/pddSectionCValidationReview": {
+    "label": "Approved PDD-C validation review",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddCertificateIssuanceRequestUiShape|https://nova.org.za/novaimpactaccountingstandard/pddSectionQualitativeReview": {
+    "label": "Approved section-level qualitative review",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddCertificateIssuanceRequestUiShape|https://nova.org.za/novaimpactaccountingstandard/requestedIssuanceAccountId": {
+    "label": "Issuance account ID",
+    "help": "Hedera account in shard.realm.num format.",
+    "order": 6
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAReportContentUiShape|http://w3id.org/claimont#hasSubject": {
+    "label": "Project design",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAReportContentUiShape|http://w3id.org/claimont#isMadeBy": {
+    "label": "Reporting agent IRI",
+    "order": 1
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAUiShape|https://nova.org.za/novaimpactaccountingstandard/reportContent": {
+    "label": "PDD Section A content",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAValidationReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/fieldReview": {
+    "label": "PDD-A field reviews",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAValidationReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/finalReviewDecision": {
+    "label": "Final PDD-A review decision",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#radio"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBReportContentUiShape|https://nova.org.za/novaimpactaccountingstandard/hasDeclaredImpact": {
+    "label": "Declared impacts",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBReportContentUiShape|https://nova.org.za/novaimpactaccountingstandard/impactClaim": {
+    "label": "Impact claims",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBReportContentUiShape|https://nova.org.za/novaimpactaccountingstandard/usesMethodology": {
+    "label": "Report methodology IRIs",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#chips"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBUiShape|https://nova.org.za/novaimpactaccountingstandard/reportContent": {
+    "label": "PDD Section B content",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBValidationReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/fieldReview": {
+    "label": "PDD-B field reviews",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBValidationReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/finalReviewDecision": {
+    "label": "Final PDD-B review decision",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#radio"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|https://nova.org.za/novaimpactaccountingstandard/stakeholderCommentConsideration": {
+    "label": "Stakeholder comment consideration",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|https://nova.org.za/novaimpactaccountingstandard/stakeholderCommentSummary": {
+    "label": "Stakeholder comment summary",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|https://nova.org.za/novaimpactaccountingstandard/stakeholderEngagementModalities": {
+    "label": "Stakeholder engagement modalities",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCValidationReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/fieldReview": {
+    "label": "PDD-C field reviews",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCValidationReviewUiShape|https://nova.org.za/novaimpactaccountingstandard/finalReviewDecision": {
+    "label": "Final PDD-C review decision",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#radio"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ReviewTargetUiShape|https://nova.org.za/novaimpactaccountingstandard/reviewedAnchor": {
+    "label": "Reviewed anchor IRI",
+    "help": "IRI of the concrete artifact anchor being reviewed.",
+    "order": 2
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/ReviewTargetUiShape|https://nova.org.za/novaimpactaccountingstandard/reviewedArtifact": {
+    "label": "Reviewed artifact IRI",
+    "help": "IRI of the exact PDD, monitoring report, or other reviewed artifact version.",
+    "order": 1
+  }
+}

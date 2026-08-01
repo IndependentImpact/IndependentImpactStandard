@@ -1,0 +1,163 @@
+{
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAReportContentUiShape|http://purl.org/dc/terms/conformsTo": {
+    "label": "Document schema IRI",
+    "order": 3
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAReportContentUiShape|http://w3id.org/claimont#hasSubject": {
+    "label": "Project design",
+    "order": 2,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAReportContentUiShape|http://w3id.org/claimont#isMadeBy": {
+    "label": "Reporting agent IRI",
+    "order": 1
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAUiShape|https://nova.org.za/novaimpactaccountingstandard/authProof": {
+    "label": "Authenticity proof",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#select"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAUiShape|https://nova.org.za/novaimpactaccountingstandard/documentAuthor": {
+    "label": "Document author",
+    "order": 4
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAUiShape|https://nova.org.za/novaimpactaccountingstandard/documentSchema": {
+    "label": "Document schema IRI",
+    "order": 2
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAUiShape|https://nova.org.za/novaimpactaccountingstandard/hasWorkflowSubmission": {
+    "label": "Workflow submission",
+    "order": 7,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAUiShape|https://nova.org.za/novaimpactaccountingstandard/isEncrypted": {
+    "label": "Encrypted",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#switch"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAUiShape|https://nova.org.za/novaimpactaccountingstandard/reportContent": {
+    "label": "PDD Section A content",
+    "order": 6,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionAUiShape|https://nova.org.za/novaimpactaccountingstandard/resourceIpfsUri": {
+    "label": "Document IPFS URI",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#ipfs"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBReportContentUiShape|http://purl.org/dc/terms/conformsTo": {
+    "label": "Document schema IRI",
+    "order": 6
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBReportContentUiShape|http://w3id.org/claimont#hasSubject": {
+    "label": "Project subject IRI",
+    "order": 2
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBReportContentUiShape|http://w3id.org/claimont#isMadeBy": {
+    "label": "Reporting agent IRI",
+    "order": 1
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBReportContentUiShape|https://nova.org.za/novaimpactaccountingstandard/hasDeclaredImpact": {
+    "label": "Declared impacts",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBReportContentUiShape|https://nova.org.za/novaimpactaccountingstandard/impactClaim": {
+    "label": "Impact claims",
+    "order": 4,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBReportContentUiShape|https://nova.org.za/novaimpactaccountingstandard/usesMethodology": {
+    "label": "Report methodology IRIs",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#chips"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBUiShape|https://nova.org.za/novaimpactaccountingstandard/authProof": {
+    "label": "Authenticity proof",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#select"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBUiShape|https://nova.org.za/novaimpactaccountingstandard/documentAuthor": {
+    "label": "Document author",
+    "order": 4
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBUiShape|https://nova.org.za/novaimpactaccountingstandard/documentSchema": {
+    "label": "Document schema IRI",
+    "order": 2
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBUiShape|https://nova.org.za/novaimpactaccountingstandard/hasWorkflowSubmission": {
+    "label": "Workflow submission",
+    "order": 7,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBUiShape|https://nova.org.za/novaimpactaccountingstandard/isEncrypted": {
+    "label": "Encrypted",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#switch"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBUiShape|https://nova.org.za/novaimpactaccountingstandard/reportContent": {
+    "label": "PDD Section B content",
+    "order": 6,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBUiShape|https://nova.org.za/novaimpactaccountingstandard/resourceIpfsUri": {
+    "label": "Document IPFS URI",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#ipfs"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|http://purl.org/dc/terms/conformsTo": {
+    "label": "Report schema IRI",
+    "order": 8
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|http://w3id.org/claimont#hasSubject": {
+    "label": "Project subject IRI",
+    "order": 7
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|http://w3id.org/claimont#isMadeBy": {
+    "label": "Reporting agent IRI",
+    "order": 6
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|https://nova.org.za/novaimpactaccountingstandard/authProof": {
+    "label": "Authenticity proof",
+    "order": 5,
+    "widget": "https://shape2form.dev/vocab/ui#select"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|https://nova.org.za/novaimpactaccountingstandard/documentAuthor": {
+    "label": "Document author",
+    "order": 4
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|https://nova.org.za/novaimpactaccountingstandard/documentSchema": {
+    "label": "Document schema IRI",
+    "order": 2
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|https://nova.org.za/novaimpactaccountingstandard/hasWorkflowSubmission": {
+    "label": "Workflow submission",
+    "order": 9,
+    "widget": "https://shape2form.dev/vocab/ui#subform"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|https://nova.org.za/novaimpactaccountingstandard/isEncrypted": {
+    "label": "Encrypted",
+    "order": 3,
+    "widget": "https://shape2form.dev/vocab/ui#switch"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|https://nova.org.za/novaimpactaccountingstandard/resourceIpfsUri": {
+    "label": "Document IPFS URI",
+    "order": 1,
+    "widget": "https://shape2form.dev/vocab/ui#ipfs"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|https://nova.org.za/novaimpactaccountingstandard/stakeholderCommentConsideration": {
+    "label": "Stakeholder comment consideration",
+    "order": 12,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|https://nova.org.za/novaimpactaccountingstandard/stakeholderCommentSummary": {
+    "label": "Stakeholder comment summary",
+    "order": 11,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  },
+  "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionCUiShape|https://nova.org.za/novaimpactaccountingstandard/stakeholderEngagementModalities": {
+    "label": "Stakeholder engagement modalities",
+    "order": 10,
+    "widget": "https://shape2form.dev/vocab/ui#textarea"
+  }
+}

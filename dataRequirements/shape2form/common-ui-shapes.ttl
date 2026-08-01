@@ -26,36 +26,30 @@ nias-ui:CommonUiShapes a owl:Ontology ;
 
 nias-ui:TimeInstantUiShape a sh:NodeShape ;
     sh:targetClass time:Instant ;
-    sh:property [
+    sh:property nias-ui:TimeInstantUiShape-inXSDDateTimeStamp .
+
+nias-ui:TimeInstantUiShape-inXSDDateTimeStamp a sh:PropertyShape ;
         sh:path time:inXSDDateTimeStamp ;
         sh:datatype xsd:dateTimeStamp ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Date and time" ;
-        ui:widget ui:dateTime ;
-        ui:order 1 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:DateTimeIntervalUiShape a sh:NodeShape ;
     sh:targetClass time:Interval ;
-    sh:property [
+    sh:property nias-ui:DateTimeIntervalUiShape-hasBeginning ;
+    sh:property nias-ui:DateTimeIntervalUiShape-hasEnd .
+
+nias-ui:DateTimeIntervalUiShape-hasBeginning a sh:PropertyShape ;
         sh:path time:hasBeginning ;
         sh:node nias-ui:TimeInstantUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Start" ;
-        ui:widget ui:subform ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DateTimeIntervalUiShape-hasEnd a sh:PropertyShape ;
         sh:path time:hasEnd ;
         sh:node nias-ui:TimeInstantUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "End" ;
-        ui:widget ui:subform ;
-        ui:order 2 ;
-    ] .
+        sh:maxCount 1 .
 
 # ---------------------------------------------------------------------------
 # Hedera consensus shapes (all five workflow bundles)
@@ -63,107 +57,84 @@ nias-ui:DateTimeIntervalUiShape a sh:NodeShape ;
 
 nias-ui:HederaTopicMessageUiShape a sh:NodeShape ;
     sh:targetClass hedera:TopicMessage ;
-    sh:property [
+    sh:property nias-ui:HederaTopicMessageUiShape-inTopic ;
+    sh:property nias-ui:HederaTopicMessageUiShape-hasSequenceNumber ;
+    sh:property nias-ui:HederaTopicMessageUiShape-hasConsensusTimestamp ;
+    sh:property nias-ui:HederaTopicMessageUiShape-hasMessageContent .
+
+nias-ui:HederaTopicMessageUiShape-inTopic a sh:PropertyShape ;
         sh:path hedera:inTopic ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Consensus topic" ;
-        ui:help "IRI for the Hedera consensus topic." ;
-        ui:widget ui:text ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:HederaTopicMessageUiShape-hasSequenceNumber a sh:PropertyShape ;
         sh:path hedera:hasSequenceNumber ;
         sh:datatype xsd:integer ;
-        sh:maxCount 1 ;
-        ui:label "Sequence number" ;
-        ui:widget ui:number ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:HederaTopicMessageUiShape-hasConsensusTimestamp a sh:PropertyShape ;
         sh:path hedera:hasConsensusTimestamp ;
         sh:datatype xsd:dateTimeStamp ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Consensus timestamp" ;
-        ui:widget ui:dateTime ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:HederaTopicMessageUiShape-hasMessageContent a sh:PropertyShape ;
         sh:path hedera:hasMessageContent ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "Message content" ;
-        ui:widget ui:textarea ;
-        ui:order 4 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:WorkflowDocumentSubmissionUiShape a sh:NodeShape ;
     sh:targetClass nias-o:WorkflowDocumentSubmission ;
-    sh:property [
+    sh:property nias-ui:WorkflowDocumentSubmissionUiShape-submittedDocument ;
+    sh:property nias-ui:WorkflowDocumentSubmissionUiShape-workflow ;
+    sh:property nias-ui:WorkflowDocumentSubmissionUiShape-workflowStep ;
+    sh:property nias-ui:WorkflowDocumentSubmissionUiShape-workflowSubject ;
+    sh:property nias-ui:WorkflowDocumentSubmissionUiShape-workflowDocumentSubmittedBy ;
+    sh:property nias-ui:WorkflowDocumentSubmissionUiShape-workflowDocumentRecipient ;
+    sh:property nias-ui:WorkflowDocumentSubmissionUiShape-workflowSubmissionConsensusMessage .
+
+nias-ui:WorkflowDocumentSubmissionUiShape-submittedDocument a sh:PropertyShape ;
         sh:path nias-o:submittedDocument ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Submitted document" ;
-        ui:widget ui:text ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:WorkflowDocumentSubmissionUiShape-workflow a sh:PropertyShape ;
         sh:path nias-o:workflow ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Workflow" ;
-        ui:widget ui:text ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:WorkflowDocumentSubmissionUiShape-workflowStep a sh:PropertyShape ;
         sh:path nias-o:workflowStep ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Workflow step" ;
-        ui:widget ui:text ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:WorkflowDocumentSubmissionUiShape-workflowSubject a sh:PropertyShape ;
         sh:path nias-o:workflowSubject ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Workflow subject" ;
-        ui:widget ui:text ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:WorkflowDocumentSubmissionUiShape-workflowDocumentSubmittedBy a sh:PropertyShape ;
         sh:path nias-o:workflowDocumentSubmittedBy ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Submitted by" ;
-        ui:widget ui:text ;
-        ui:order 5 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:WorkflowDocumentSubmissionUiShape-workflowDocumentRecipient a sh:PropertyShape ;
         sh:path nias-o:workflowDocumentRecipient ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Recipient" ;
-        ui:widget ui:text ;
-        ui:order 6 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:WorkflowDocumentSubmissionUiShape-workflowSubmissionConsensusMessage a sh:PropertyShape ;
         sh:path nias-o:workflowSubmissionConsensusMessage ;
         sh:node nias-ui:HederaTopicMessageUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Consensus message" ;
-        ui:widget ui:subform ;
-        ui:order 7 ;
-    ] .
+        sh:maxCount 1 .
 
 # ---------------------------------------------------------------------------
 # Document reference / resource artifact shapes
@@ -172,35 +143,30 @@ nias-ui:WorkflowDocumentSubmissionUiShape a sh:NodeShape ;
 
 nias-ui:DocumentReferenceUiShape a sh:NodeShape ;
     sh:targetClass nias-o:DocumentReference ;
-    sh:property [
+    sh:property nias-ui:DocumentReferenceUiShape-documentMessageId ;
+    sh:property nias-ui:DocumentReferenceUiShape-resourceIpfsUri .
+
+nias-ui:DocumentReferenceUiShape-documentMessageId a sh:PropertyShape ;
         sh:path nias-o:documentMessageId ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Message ID" ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DocumentReferenceUiShape-resourceIpfsUri a sh:PropertyShape ;
         sh:path nias-o:resourceIpfsUri ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "IPFS URI" ;
-        ui:widget ui:ipfs ;
-        ui:order 2 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:ResourceArtifactUiShape a sh:NodeShape ;
     sh:targetClass nias-o:ResourceArtifact ;
-    sh:property [
+    sh:property nias-ui:ResourceArtifactUiShape-resourceIpfsUri .
+
+nias-ui:ResourceArtifactUiShape-resourceIpfsUri a sh:PropertyShape ;
         sh:path nias-o:resourceIpfsUri ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "IPFS URI" ;
-        ui:widget ui:ipfs ;
-        ui:order 1 ;
-    ] .
+        sh:maxCount 1 .
 
 # ---------------------------------------------------------------------------
 # PDD project-design shapes (pdd-design and pdd-workflow bundles)
@@ -208,531 +174,421 @@ nias-ui:ResourceArtifactUiShape a sh:NodeShape ;
 
 nias-ui:ObjectiveUiShape a sh:NodeShape ;
     sh:targetClass aiao:Objective ;
-    sh:property [
+    sh:property nias-ui:ObjectiveUiShape-description .
+
+nias-ui:ObjectiveUiShape-description a sh:PropertyShape ;
         sh:path schema:description ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Objective" ;
-        ui:widget ui:textarea ;
-        ui:order 1 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:SpatialLocationUiShape a sh:NodeShape ;
     sh:targetClass impactont:SpatialLocation ;
-    sh:property [
+    sh:property nias-ui:SpatialLocationUiShape-resourceIpfsUri .
+
+nias-ui:SpatialLocationUiShape-resourceIpfsUri a sh:PropertyShape ;
         sh:path nias-o:resourceIpfsUri ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Location IPFS URI" ;
-        ui:widget ui:ipfs ;
-        ui:order 1 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:TechnologyOrMeasureUiShape a sh:NodeShape ;
     sh:targetClass nias-o:TechnologyOrMeasure ;
-    sh:property [
+    sh:property nias-ui:TechnologyOrMeasureUiShape-techMeasType ;
+    sh:property nias-ui:TechnologyOrMeasureUiShape-description ;
+    sh:property nias-ui:TechnologyOrMeasureUiShape-currentAgeInYears ;
+    sh:property nias-ui:TechnologyOrMeasureUiShape-estimatedLifespanInYears ;
+    sh:property nias-ui:TechnologyOrMeasureUiShape-additionalInfo .
+
+nias-ui:TechnologyOrMeasureUiShape-techMeasType a sh:PropertyShape ;
         sh:path nias-o:techMeasType ;
         sh:in ( nias-cs:facility nias-cs:system nias-cs:equipment nias-cs:other ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Type" ;
-        ui:widget ui:select ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:TechnologyOrMeasureUiShape-description a sh:PropertyShape ;
         sh:path schema:description ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Description" ;
-        ui:widget ui:textarea ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:TechnologyOrMeasureUiShape-currentAgeInYears a sh:PropertyShape ;
         sh:path nias-o:currentAgeInYears ;
         sh:datatype xsd:decimal ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
-        sh:minInclusive 0 ;
-        ui:label "Current age in years" ;
-        ui:widget ui:number ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:minInclusive 0 .
+
+nias-ui:TechnologyOrMeasureUiShape-estimatedLifespanInYears a sh:PropertyShape ;
         sh:path nias-o:estimatedLifespanInYears ;
         sh:datatype xsd:decimal ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
-        sh:minInclusive 0 ;
-        ui:label "Estimated lifespan in years" ;
-        ui:widget ui:number ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:minInclusive 0 .
+
+nias-ui:TechnologyOrMeasureUiShape-additionalInfo a sh:PropertyShape ;
         sh:path nias-o:additionalInfo ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "Additional information" ;
-        ui:widget ui:textarea ;
-        ui:order 5 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:ProjectPartyUiShape a sh:NodeShape ;
     sh:targetClass nias-o:ProjectParty ;
-    sh:property [
+    sh:property nias-ui:ProjectPartyUiShape-partyName ;
+    sh:property nias-ui:ProjectPartyUiShape-isHostParty ;
+    sh:property nias-ui:ProjectPartyUiShape-isParticipantParty ;
+    sh:property nias-ui:ProjectPartyUiShape-publicPrivateClassification ;
+    sh:property nias-ui:ProjectPartyUiShape-additionalInfo .
+
+nias-ui:ProjectPartyUiShape-partyName a sh:PropertyShape ;
         sh:path nias-o:partyName ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Party name" ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ProjectPartyUiShape-isHostParty a sh:PropertyShape ;
         sh:path nias-o:isHostParty ;
         sh:datatype xsd:boolean ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Host party" ;
-        ui:widget ui:switch ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ProjectPartyUiShape-isParticipantParty a sh:PropertyShape ;
         sh:path nias-o:isParticipantParty ;
         sh:datatype xsd:boolean ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Participant party" ;
-        ui:widget ui:switch ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ProjectPartyUiShape-publicPrivateClassification a sh:PropertyShape ;
         sh:path nias-o:publicPrivateClassification ;
         sh:in ( nias-cs:public nias-cs:private ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Public or private" ;
-        ui:widget ui:radio ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ProjectPartyUiShape-additionalInfo a sh:PropertyShape ;
         sh:path nias-o:additionalInfo ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "Additional information" ;
-        ui:widget ui:textarea ;
-        ui:order 5 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:ProjectDesignUiShape a sh:NodeShape ;
     sh:targetClass aiao:Project ;
-    sh:property [
+    sh:property nias-ui:ProjectDesignUiShape-title ;
+    sh:property nias-ui:ProjectDesignUiShape-hasObjective ;
+    sh:property nias-ui:ProjectDesignUiShape-hasSpatialLocation ;
+    sh:property nias-ui:ProjectDesignUiShape-technologyOrMeasure ;
+    sh:property nias-ui:ProjectDesignUiShape-projectParty ;
+    sh:property nias-ui:ProjectDesignUiShape-legalMatters ;
+    sh:property nias-ui:ProjectDesignUiShape-publicFundingStatus ;
+    sh:property nias-ui:ProjectDesignUiShape-publicFundingSource ;
+    sh:property nias-ui:ProjectDesignUiShape-projectHistory ;
+    sh:property nias-ui:ProjectDesignUiShape-debundlingAssessment ;
+    sh:property nias-ui:ProjectDesignUiShape-eligibilityDescription .
+
+nias-ui:ProjectDesignUiShape-title a sh:PropertyShape ;
         sh:path nias-o:title ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Project title" ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ProjectDesignUiShape-hasObjective a sh:PropertyShape ;
         sh:path aiao:hasObjective ;
         sh:node nias-ui:ObjectiveUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Project purpose" ;
-        ui:widget ui:subform ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ProjectDesignUiShape-hasSpatialLocation a sh:PropertyShape ;
         sh:path impactont:hasSpatialLocation ;
         sh:node nias-ui:SpatialLocationUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 99 ;
-        ui:label "Project locations" ;
-        ui:widget ui:subform ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 99 .
+
+nias-ui:ProjectDesignUiShape-technologyOrMeasure a sh:PropertyShape ;
         sh:path nias-o:technologyOrMeasure ;
         sh:node nias-ui:TechnologyOrMeasureUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 99 ;
-        ui:label "Technologies and measures" ;
-        ui:widget ui:subform ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:maxCount 99 .
+
+nias-ui:ProjectDesignUiShape-projectParty a sh:PropertyShape ;
         sh:path nias-o:projectParty ;
         sh:node nias-ui:ProjectPartyUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 99 ;
-        ui:label "Project parties" ;
-        ui:widget ui:subform ;
-        ui:order 5 ;
-    ] ;
-    sh:property [
+        sh:maxCount 99 .
+
+nias-ui:ProjectDesignUiShape-legalMatters a sh:PropertyShape ;
         sh:path nias-o:legalMatters ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Legal matters" ;
-        ui:widget ui:textarea ;
-        ui:order 6 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ProjectDesignUiShape-publicFundingStatus a sh:PropertyShape ;
         sh:path nias-o:publicFundingStatus ;
         sh:datatype xsd:boolean ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Public funding" ;
-        ui:widget ui:switch ;
-        ui:order 7 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ProjectDesignUiShape-publicFundingSource a sh:PropertyShape ;
         sh:path nias-o:publicFundingSource ;
         sh:datatype xsd:string ;
-        sh:maxCount 99 ;
-        ui:label "Public funding sources" ;
-        ui:widget ui:chips ;
-        ui:order 8 ;
-    ] ;
-    sh:property [
+        sh:maxCount 99 .
+
+nias-ui:ProjectDesignUiShape-projectHistory a sh:PropertyShape ;
         sh:path nias-o:projectHistory ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Project history" ;
-        ui:widget ui:textarea ;
-        ui:order 9 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ProjectDesignUiShape-debundlingAssessment a sh:PropertyShape ;
         sh:path nias-o:debundlingAssessment ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Debundling assessment" ;
-        ui:widget ui:textarea ;
-        ui:order 10 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ProjectDesignUiShape-eligibilityDescription a sh:PropertyShape ;
         sh:path nias-o:eligibilityDescription ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "Eligibility description" ;
-        ui:widget ui:textarea ;
-        ui:order 11 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:CreditingPeriodUiShape a sh:NodeShape ;
     sh:targetClass nias-o:CreditingPeriod ;
-    sh:property [
+    sh:property nias-ui:CreditingPeriodUiShape-hasBeginning ;
+    sh:property nias-ui:CreditingPeriodUiShape-hasEnd ;
+    sh:property nias-ui:CreditingPeriodUiShape-creditingPeriodIsRenewable .
+
+nias-ui:CreditingPeriodUiShape-hasBeginning a sh:PropertyShape ;
         sh:path time:hasBeginning ;
         sh:node nias-ui:TimeInstantUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Crediting period start" ;
-        ui:widget ui:subform ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:CreditingPeriodUiShape-hasEnd a sh:PropertyShape ;
         sh:path time:hasEnd ;
         sh:node nias-ui:TimeInstantUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Crediting period end" ;
-        ui:widget ui:subform ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:CreditingPeriodUiShape-creditingPeriodIsRenewable a sh:PropertyShape ;
         sh:path nias-o:creditingPeriodIsRenewable ;
         sh:datatype xsd:boolean ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Renewable crediting period" ;
-        ui:widget ui:switch ;
-        ui:order 3 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:DataParameterRequirementUiShape a sh:NodeShape ;
     sh:targetClass nias-o:DataParameterRequirement ;
-    sh:property [
+    sh:property nias-ui:DataParameterRequirementUiShape-label ;
+    sh:property nias-ui:DataParameterRequirementUiShape-description ;
+    sh:property nias-ui:DataParameterRequirementUiShape-dataParameterPurpose ;
+    sh:property nias-ui:DataParameterRequirementUiShape-hasUnit ;
+    sh:property nias-ui:DataParameterRequirementUiShape-monitoredOrFixed ;
+    sh:property nias-ui:DataParameterRequirementUiShape-measurementMethodsAndProcedures ;
+    sh:property nias-ui:DataParameterRequirementUiShape-qaQcProcedures ;
+    sh:property nias-ui:DataParameterRequirementUiShape-monitoringFrequency ;
+    sh:property nias-ui:DataParameterRequirementUiShape-samplingPlan ;
+    sh:property nias-ui:DataParameterRequirementUiShape-parameterAppliedValue ;
+    sh:property nias-ui:DataParameterRequirementUiShape-dataSource .
+
+nias-ui:DataParameterRequirementUiShape-label a sh:PropertyShape ;
         sh:path rdfs:label ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Parameter label" ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DataParameterRequirementUiShape-description a sh:PropertyShape ;
         sh:path schema:description ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Description" ;
-        ui:widget ui:textarea ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DataParameterRequirementUiShape-dataParameterPurpose a sh:PropertyShape ;
         sh:path nias-o:dataParameterPurpose ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Purpose" ;
-        ui:widget ui:textarea ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DataParameterRequirementUiShape-hasUnit a sh:PropertyShape ;
         sh:path ind:hasUnit ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Unit IRI" ;
-        ui:help "Use a QUDT unit IRI." ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DataParameterRequirementUiShape-monitoredOrFixed a sh:PropertyShape ;
         sh:path nias-o:monitoredOrFixed ;
         sh:in ( nias-cs:monitored nias-cs:fixed-ex-ante ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Monitoring status" ;
-        ui:widget ui:radio ;
-        ui:order 5 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DataParameterRequirementUiShape-measurementMethodsAndProcedures a sh:PropertyShape ;
         sh:path nias-o:measurementMethodsAndProcedures ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "Measurement methods and procedures" ;
-        ui:widget ui:textarea ;
-        ui:order 6 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DataParameterRequirementUiShape-qaQcProcedures a sh:PropertyShape ;
         sh:path nias-o:qaQcProcedures ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "QA/QC procedures" ;
-        ui:widget ui:textarea ;
-        ui:order 7 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DataParameterRequirementUiShape-monitoringFrequency a sh:PropertyShape ;
         sh:path nias-o:monitoringFrequency ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "Monitoring frequency" ;
-        ui:order 8 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DataParameterRequirementUiShape-samplingPlan a sh:PropertyShape ;
         sh:path nias-o:samplingPlan ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "Sampling plan" ;
-        ui:widget ui:textarea ;
-        ui:order 9 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DataParameterRequirementUiShape-parameterAppliedValue a sh:PropertyShape ;
         sh:path nias-o:parameterAppliedValue ;
         sh:datatype xsd:decimal ;
-        sh:maxCount 1 ;
-        ui:label "Applied value" ;
-        ui:widget ui:number ;
-        ui:order 10 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:DataParameterRequirementUiShape-dataSource a sh:PropertyShape ;
         sh:path nias-o:dataSource ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "Data source" ;
-        ui:widget ui:textarea ;
-        ui:order 11 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:IndicatorValueUiShape a sh:NodeShape ;
     sh:targetClass impactont:IndicatorValue ;
-    sh:property [
+    sh:property nias-ui:IndicatorValueUiShape-value ;
+    sh:property nias-ui:IndicatorValueUiShape-hasUnit .
+
+nias-ui:IndicatorValueUiShape-value a sh:PropertyShape ;
         sh:path rdf:value ;
         sh:datatype xsd:decimal ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Indicator value" ;
-        ui:widget ui:number ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:IndicatorValueUiShape-hasUnit a sh:PropertyShape ;
         sh:path ind:hasUnit ;
         sh:datatype xsd:anyURI ;
-        sh:maxCount 1 ;
-        ui:label "Unit IRI" ;
-        ui:help "Use a QUDT unit IRI if the value carries its own unit." ;
-        ui:order 2 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:StateWithIndicatorValueUiShape a sh:NodeShape ;
     sh:targetClass impactont:State ;
-    sh:property [
+    sh:property nias-ui:StateWithIndicatorValueUiShape-hasTemporalLocation ;
+    sh:property nias-ui:StateWithIndicatorValueUiShape-hasModality ;
+    sh:property nias-ui:StateWithIndicatorValueUiShape-isDefinedByIndicator ;
+    sh:property nias-ui:StateWithIndicatorValueUiShape-hasIndicatorValue .
+
+nias-ui:StateWithIndicatorValueUiShape-hasTemporalLocation a sh:PropertyShape ;
         sh:path impactont:hasTemporalLocation ;
         sh:node nias-ui:TimeInstantUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Temporal location" ;
-        ui:widget ui:subform ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:StateWithIndicatorValueUiShape-hasModality a sh:PropertyShape ;
         sh:path impactont:hasModality ;
         sh:in ( "counterfactual" "real" ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "State modality" ;
-        ui:widget ui:radio ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:StateWithIndicatorValueUiShape-isDefinedByIndicator a sh:PropertyShape ;
         sh:path impactont:isDefinedByIndicator ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Indicator definition IRI" ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:StateWithIndicatorValueUiShape-hasIndicatorValue a sh:PropertyShape ;
         sh:path impactont:hasIndicatorValue ;
         sh:node nias-ui:IndicatorValueUiShape ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Indicator value" ;
-        ui:widget ui:subform ;
-        ui:order 4 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:ImpactRequirementUiShape a sh:NodeShape ;
     sh:targetClass impactont:Impact ;
-    sh:property [
+    sh:property nias-ui:ImpactRequirementUiShape-impactIntentionality ;
+    sh:property nias-ui:ImpactRequirementUiShape-beneficialOrAdverse ;
+    sh:property nias-ui:ImpactRequirementUiShape-description ;
+    sh:property nias-ui:ImpactRequirementUiShape-monitored ;
+    sh:property nias-ui:ImpactRequirementUiShape-notMonitoredJustification ;
+    sh:property nias-ui:ImpactRequirementUiShape-additionalityJustification ;
+    sh:property nias-ui:ImpactRequirementUiShape-hasStateA ;
+    sh:property nias-ui:ImpactRequirementUiShape-hasStateB ;
+    sh:property nias-ui:ImpactRequirementUiShape-hasProvenance ;
+    sh:property nias-ui:ImpactRequirementUiShape-creditingPeriod ;
+    sh:property nias-ui:ImpactRequirementUiShape-monitoringPeriod ;
+    sh:property nias-ui:ImpactRequirementUiShape-dataParameterRequirement ;
+    sh:property nias-ui:ImpactRequirementUiShape-exAnteImpactEstimate .
+
+nias-ui:ImpactRequirementUiShape-impactIntentionality a sh:PropertyShape ;
         sh:path nias-o:impactIntentionality ;
         sh:in ( nias-cs:intentional nias-cs:unintentional ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Intentionality" ;
-        ui:widget ui:radio ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ImpactRequirementUiShape-beneficialOrAdverse a sh:PropertyShape ;
         sh:path nias-o:beneficialOrAdverse ;
         sh:in ( nias-cs:beneficial nias-cs:adverse ) ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Beneficial or adverse" ;
-        ui:widget ui:radio ;
-        ui:order 2 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ImpactRequirementUiShape-description a sh:PropertyShape ;
         sh:path schema:description ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Impact description" ;
-        ui:widget ui:textarea ;
-        ui:order 3 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ImpactRequirementUiShape-monitored a sh:PropertyShape ;
         sh:path nias-o:monitored ;
         sh:datatype xsd:boolean ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Monitored" ;
-        ui:widget ui:switch ;
-        ui:order 4 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ImpactRequirementUiShape-notMonitoredJustification a sh:PropertyShape ;
         sh:path nias-o:notMonitoredJustification ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "Not monitored justification" ;
-        ui:widget ui:textarea ;
-        ui:order 5 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ImpactRequirementUiShape-additionalityJustification a sh:PropertyShape ;
         sh:path nias-o:additionalityJustification ;
         sh:datatype xsd:string ;
-        sh:maxCount 1 ;
-        ui:label "Additionality justification" ;
-        ui:widget ui:textarea ;
-        ui:order 6 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ImpactRequirementUiShape-hasStateA a sh:PropertyShape ;
         sh:path impactont:hasStateA ;
         sh:node nias-ui:StateWithIndicatorValueUiShape ;
-        sh:maxCount 1 ;
-        ui:label "Baseline or counterfactual state" ;
-        ui:widget ui:subform ;
-        ui:order 7 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ImpactRequirementUiShape-hasStateB a sh:PropertyShape ;
         sh:path impactont:hasStateB ;
         sh:node nias-ui:StateWithIndicatorValueUiShape ;
-        sh:maxCount 1 ;
-        ui:label "Project or real state" ;
-        ui:widget ui:subform ;
-        ui:order 8 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ImpactRequirementUiShape-hasProvenance a sh:PropertyShape ;
         sh:path impactont:hasProvenance ;
         sh:datatype xsd:anyURI ;
-        sh:maxCount 99 ;
-        ui:label "Provenance resources" ;
-        ui:widget ui:chips ;
-        ui:order 9 ;
-    ] ;
-    sh:property [
+        sh:maxCount 99 .
+
+nias-ui:ImpactRequirementUiShape-creditingPeriod a sh:PropertyShape ;
         sh:path nias-o:creditingPeriod ;
         sh:node nias-ui:CreditingPeriodUiShape ;
-        sh:maxCount 1 ;
-        ui:label "Crediting period" ;
-        ui:widget ui:subform ;
-        ui:order 10 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ImpactRequirementUiShape-monitoringPeriod a sh:PropertyShape ;
         sh:path nias-o:monitoringPeriod ;
         sh:node nias-ui:DateTimeIntervalUiShape ;
-        sh:maxCount 99 ;
-        ui:label "Monitoring periods" ;
-        ui:widget ui:subform ;
-        ui:order 11 ;
-    ] ;
-    sh:property [
+        sh:maxCount 99 .
+
+nias-ui:ImpactRequirementUiShape-dataParameterRequirement a sh:PropertyShape ;
         sh:path nias-o:dataParameterRequirement ;
         sh:node nias-ui:DataParameterRequirementUiShape ;
-        sh:maxCount 99 ;
-        ui:label "Data and parameter requirements" ;
-        ui:widget ui:subform ;
-        ui:order 12 ;
-    ] ;
-    sh:property [
+        sh:maxCount 99 .
+
+nias-ui:ImpactRequirementUiShape-exAnteImpactEstimate a sh:PropertyShape ;
         sh:path nias-o:exAnteImpactEstimate ;
         sh:datatype xsd:decimal ;
-        sh:maxCount 1 ;
-        ui:label "Ex-ante impact estimate" ;
-        ui:widget ui:number ;
-        ui:order 13 ;
-    ] .
+        sh:maxCount 1 .
 
 nias-ui:ImpactClaimUiShape a sh:NodeShape ;
     sh:targetClass aiao:ImpactClaim ;
-    sh:property [
+    sh:property nias-ui:ImpactClaimUiShape-hasSubject ;
+    sh:property nias-ui:ImpactClaimUiShape-usesMethodology .
+
+nias-ui:ImpactClaimUiShape-hasSubject a sh:PropertyShape ;
         sh:path claimont:hasSubject ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-        ui:label "Project subject IRI" ;
-        ui:order 1 ;
-    ] ;
-    sh:property [
+        sh:maxCount 1 .
+
+nias-ui:ImpactClaimUiShape-usesMethodology a sh:PropertyShape ;
         sh:path nias-o:usesMethodology ;
         sh:datatype xsd:anyURI ;
         sh:minCount 1 ;
-        sh:maxCount 99 ;
-        ui:label "Methodology IRIs" ;
-        ui:widget ui:chips ;
-        ui:order 2 ;
-    ] .
+        sh:maxCount 99 .
