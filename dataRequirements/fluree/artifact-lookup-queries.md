@@ -207,7 +207,10 @@ Purpose: populate indicator selectors in PDD-B and monitoring report workflows.
 
 ## Methodologies By Knowledge Domain
 
-Purpose: populate methodology selectors by domain.
+Purpose: populate methodology selectors by domain. The link is the
+multi-valued `nias-o:requiresKnowledgeDomain` (methodology → domain
+concept), so a methodology appears under every domain it requires; the
+display label is `skos:prefLabel`.
 
 ```json
 {
@@ -215,9 +218,9 @@ Purpose: populate methodology selectors by domain.
   "from": "$FLUREE_LEDGER",
   "select": {
     "?methodology": [
+      "@id",
       "skos:prefLabel",
-      "dcterms:title",
-      "skos:broader",
+      "nias-o:requiresKnowledgeDomain",
       "skos:inScheme"
     ]
   },
@@ -225,7 +228,7 @@ Purpose: populate methodology selectors by domain.
     {
       "@id": "?methodology",
       "@type": "skos:Concept",
-      "skos:broader": {
+      "nias-o:requiresKnowledgeDomain": {
         "@id": "$knowledgeDomain"
       }
     }
