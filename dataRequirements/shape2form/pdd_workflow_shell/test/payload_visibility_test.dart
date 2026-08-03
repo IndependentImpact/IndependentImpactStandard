@@ -86,8 +86,7 @@ void main() {
     expect(find.text('Document schema IRI'), findsNothing);
   });
 
-  testWidgets(
-      'workflow submission panel starts collapsed and can be expanded',
+  testWidgets('workflow submission panel starts collapsed and can be expanded',
       (tester) async {
     tester.view.physicalSize = const Size(1400, 1000);
     tester.view.devicePixelRatio = 1;
