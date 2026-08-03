@@ -126,12 +126,9 @@ class _PddWorkflowShellPageState extends State<PddWorkflowShellPage> {
   Widget _buildForm(PddWorkflowStep step) {
     final draft = _drafts[step]!;
     final innerForm = switch (step) {
-      PddWorkflowStep.pddA =>
-        pdda.PddSectionAUiShapeFormWidget(initial: draft),
-      PddWorkflowStep.pddB =>
-        pddb.PddSectionBUiShapeFormWidget(initial: draft),
-      PddWorkflowStep.pddC =>
-        pddc.PddSectionCUiShapeFormWidget(initial: draft),
+      PddWorkflowStep.pddA => pdda.PddSectionAUiShapeFormWidget(initial: draft),
+      PddWorkflowStep.pddB => pddb.PddSectionBUiShapeFormWidget(initial: draft),
+      PddWorkflowStep.pddC => pddc.PddSectionCUiShapeFormWidget(initial: draft),
       PddWorkflowStep.reviewA =>
         pdda_review.PddSectionAValidationReviewUiShapeFormWidget(
           initial: draft,
@@ -562,8 +559,7 @@ class _IdentityFieldsPanel extends StatelessWidget {
             width: 180,
             child: Text(
               label,
-              style:
-                  textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
+              style: textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
             ),
           ),
           Expanded(
@@ -638,8 +634,7 @@ class _DocumentDetailsPanel extends StatelessWidget {
             width: 180,
             child: Text(
               label,
-              style:
-                  textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
+              style: textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
             ),
           ),
           Expanded(
@@ -707,8 +702,7 @@ class _WorkflowSubmissionPanel extends StatelessWidget {
     if (submittedBy != null) {
       entries.add(MapEntry('Submitted by', submittedBy));
     }
-    final recipient =
-        submission['${NiasTerm.base}workflowDocumentRecipient'];
+    final recipient = submission['${NiasTerm.base}workflowDocumentRecipient'];
     if (recipient != null) {
       entries.add(MapEntry('Recipient', recipient));
     }
@@ -745,8 +739,7 @@ class _WorkflowSubmissionPanel extends StatelessWidget {
             width: 180,
             child: Text(
               label,
-              style:
-                  textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
+              style: textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
             ),
           ),
           Expanded(
@@ -839,8 +832,7 @@ class _ReviewTargetPanel extends StatelessWidget {
             width: 180,
             child: Text(
               label,
-              style:
-                  textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
+              style: textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
             ),
           ),
           Expanded(

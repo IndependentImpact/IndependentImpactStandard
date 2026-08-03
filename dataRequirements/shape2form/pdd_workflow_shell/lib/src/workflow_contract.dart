@@ -572,7 +572,8 @@ class PddWorkflowState {
     );
     final topic = _firstMap(message?[NiasTerm.hederaInTopic]);
     final topicId = _stringValue(topic?[NiasTerm.hederaHasTopicId]);
-    final timestamp = _stringValue(message?[NiasTerm.hederaHasConsensusTimestamp]);
+    final timestamp =
+        _stringValue(message?[NiasTerm.hederaHasConsensusTimestamp]);
     if (topicId != null && timestamp != null) {
       return '$topicId-$timestamp';
     }
