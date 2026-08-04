@@ -205,6 +205,40 @@ Purpose: populate indicator selectors in PDD-B and monitoring report workflows.
 }
 ```
 
+## Approved Methodologies
+
+Purpose: populate the `nias-o:usesMethodology` picker on any capture form.
+The register is the approved methodologies only — `nias-o:approvalStatus
+nias-cs:approved` — so a proposed, surpassed, or deprecated methodology can
+never be offered for selection. Flat and searchable: knowledge domains are
+methodology-derived, not a filter on this list (see issue #157).
+
+Referenced by `ui:optionSource` on the `usesMethodology` field in the UI
+bundle overlays, and served by `shape2form serve-options`.
+
+```json
+{
+  "@context": "dataRequirements/fluree/context.jsonld",
+  "from": "$FLUREE_LEDGER",
+  "select": {
+    "?methodology": [
+      "@id",
+      "skos:prefLabel",
+      "skos:inScheme"
+    ]
+  },
+  "where": [
+    {
+      "@id": "?methodology",
+      "@type": "skos:Concept",
+      "nias-o:approvalStatus": {
+        "@id": "https://nova.org.za/novaimpactaccountingstandard/approved"
+      }
+    }
+  ]
+}
+```
+
 ## Methodologies By Knowledge Domain
 
 Purpose: populate methodology selectors by domain. The link is the
