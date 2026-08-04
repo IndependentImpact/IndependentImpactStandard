@@ -132,8 +132,8 @@ Tests:
 
 1. `riot --validate glossary/NovaImpactAccountingStandardOntology.ttl`
 2. `riot --validate glossary/ValidationVerificationStandard.ttl`
-3. `python -m unittest dataRequirements.tests.test_phase7_validation`
-4. `python -m unittest dataRequirements.tests.test_validation_verification_shapes`
+3. `python3 -m unittest dataRequirements.tests.test_phase7_validation`
+4. `python3 -m unittest dataRequirements.tests.test_validation_verification_shapes`
 
 ### Phase 2 - SHACL Requirement Pilot
 
@@ -152,9 +152,9 @@ End-of-phase criteria:
 Tests:
 
 1. `riot --validate dataRequirements/vvs-requirement-shapes.ttl`
-2. new `python -m unittest dataRequirements.tests.test_vvs_requirements`
-3. `python -m unittest dataRequirements.tests.test_pdd_workflow_shapes`
-4. `python -m unittest dataRequirements.tests.test_pdd_workflow_gate`
+2. new `python3 -m unittest dataRequirements.tests.test_vvs_requirements`
+3. `python3 -m unittest dataRequirements.tests.test_pdd_workflow_shapes`
+4. `python3 -m unittest dataRequirements.tests.test_pdd_workflow_gate`
 
 ### Phase 3 - Mapping Layer (PDD/DLR/MR)
 
@@ -197,7 +197,7 @@ End-of-phase criteria:
 
 Tests:
 
-1. `python -m unittest discover -s dataRequirements/tests`
+1. `python3 -m unittest discover -s dataRequirements/tests`
 2. optional CI summary report listing:
    - total active requirements,
    - requirements with shapes,

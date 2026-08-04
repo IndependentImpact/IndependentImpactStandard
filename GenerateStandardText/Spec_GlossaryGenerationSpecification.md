@@ -20,7 +20,7 @@ Keep SKOS Turtle files in `glossary/` as the canonical source and deterministica
 Single-file generator:
 
 ```bash
-python GenerateStandardText/tool/generate_skos_markdown.py \
+python3 GenerateStandardText/tool/generate_skos_markdown.py \
   --ttl <input.ttl> \
   --output <output.md> \
   --section-heading "## <Heading>" \

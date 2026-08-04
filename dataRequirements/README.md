@@ -37,5 +37,5 @@ dataRequirements/check-semantic-standard-release.sh
 For the broader unittest suite used in this repository:
 
 ```bash
-python -m unittest discover -s dataRequirements/tests -p 'test_*.py'
+python3 -m unittest discover -s dataRequirements/tests -p 'test_*.py'
 ```

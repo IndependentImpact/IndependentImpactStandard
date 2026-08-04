@@ -33,6 +33,12 @@ Concretely:
 
 5. **The Hashgraph ontology imports leave the core ontology** and become the binding profile's concern. Ontology terms describing ledger artefacts remain usable; they simply stop being a prerequisite of the Standard.
 
+6. **This decision binds the normative corpus, not the UI projection.** It applies to the SHACL in `dataRequirements/*.ttl` — the shapes that decide whether data conforms to the Standard. It does not apply to the shape2form UI overlays (`dataRequirements/shape2form/*.overlay.json`) or their generated annotation siblings, which are the presentation layer under shape2form's ADR-002 and ADR-003 and cannot alter validation semantics.
+
+   So a `ui:optionSource` may name a `sourceType` such as `"fluree"` and carry a query in that adapter's language without violating this ADR. Such an annotation says how a deployment's option server should find one of the Standard's own registers; it says nothing about what the Standard requires of an artefact. The test is whether removing the platform would leave the corpus still able to state what conforms, and an overlay has no bearing on that either way — a bundle compiles and validates without its annotations.
+
+   Connection details are still excluded from overlays, but on different grounds: shape2form's own rule that the endpoint and ledger are deployment configuration. That is why an annotated query template says `$FLUREE_LEDGER` rather than naming a ledger.
+
 ## Consequences
 
 **Good.** A conformance claim becomes a claim about content. The corpus can be validated with no ledger, no pinning service, and no network access, which makes review, testing and offline use straightforward. The division of responsibility stated in the Introduction becomes visible in the corpus rather than only in prose. Independent Impact's enforcement is unchanged, because the profile carries it. Should a second platform ever host the Standard, the work is to write a profile, not to fork the corpus.

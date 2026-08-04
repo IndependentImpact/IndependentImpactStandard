@@ -31,10 +31,17 @@ Check that committed files are up to date (CI mode):
 bash GenerateStandardText/generate_all.sh --check
 ```
 
+The script runs `python3`. Set `PYTHON` if you need a specific interpreter,
+for example inside a virtual environment:
+
+```bash
+PYTHON=.venv/bin/python bash GenerateStandardText/generate_all.sh --check
+```
+
 Generate a single file:
 
 ```bash
-python GenerateStandardText/tool/generate_skos_markdown.py \
+python3 GenerateStandardText/tool/generate_skos_markdown.py \
   --ttl glossary/NovaImpactAccountingStandardGlossary.ttl \
   --output GenerateStandardText/02-a-Glossary.md \
   --section-heading "## Glossary"
