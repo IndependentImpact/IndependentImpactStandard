@@ -5,7 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:StakeholderEngagementShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Stakeholder Engagement SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Stakeholder Engagement SHACL Shapes"@en ;
     dcterms:description "PDD section C stakeholder engagement shapes for the legacy PDD-XC workflow document."@en ;
     owl:imports nias-o:DocumentShapes,
         nias-o:ReportShapes .

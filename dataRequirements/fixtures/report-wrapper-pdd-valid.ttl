@@ -124,4 +124,4 @@
 
 <https://nova.org.za/novaimpactaccountingstandard/registry/nova-registry>
     a infocomm:CommunicationParty ;
-    rdfs:label "Nova Impact Accounting Standard Registry" .
+    rdfs:label "Nova Institute Impact Accounting Standard Registry" .

@@ -9,7 +9,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:LicenseShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - License SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - License SHACL Shapes"@en ;
     dcterms:description "Agent details, license application, license application review, issued agent license, and project registration request shapes."@en ;
     owl:imports nias-o:DocumentReferenceShapes,
         nias-o:DocumentShapes .

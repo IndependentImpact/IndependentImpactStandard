@@ -8,7 +8,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://nova.org.za/novaimpactaccountingstandard/mappings/pdd-anchor-definitions/> a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - PDD Anchor Definitions"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - PDD Anchor Definitions"@en ;
     dcterms:description "Canonical stable anchor definitions for the rendered Project Design Document body. These anchors are schema-level targets used to emit concrete artifact anchors for each PDD version and to link validation findings to exact PDD sections."@en .
 
 nias-o:pdd-section-a a nias-o:AnchorDefinition ;

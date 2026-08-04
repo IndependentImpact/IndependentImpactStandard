@@ -3,7 +3,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://nova.org.za/novaimpactaccountingstandard/mappings/dlr-anchor-definitions/> a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Data Lineage Report Anchor Definitions"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Data Lineage Report Anchor Definitions"@en ;
     dcterms:description "Canonical stable anchor definitions for Data Lineage Report evidence. These anchors are schema-level targets used to link verification findings to exact lineage steps and resource artifacts."@en .
 
 nias-o:dlr-package-summary a nias-o:AnchorDefinition ;

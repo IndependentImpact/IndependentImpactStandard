@@ -89,8 +89,12 @@ These are requirements, not final policy transactions:
 
 - Whether PDD validator assignment is represented as standard ontology data,
   platform application data, or both.
-- Whether conflict-of-interest rules are part of NIAS itself or an
-  Independent Impact operational policy.
+- Conflict-of-interest rules are part of NIAS itself. They govern who is
+  eligible to review a given artefact, and reviewer eligibility is something
+  the Standard determines (see the boundary set out in `01-a-Introduction.md`).
+  Enforcing them — refusing the write, or refusing to award the bounty seat —
+  is the platform's responsibility. The rule is NIAS's; the mechanism is
+  Independent Impact's.
 - Whether the PDD-CIR gate is best implemented as Fluree write policy, service
   preflight validation, or both.
 - How public/private/encrypted document visibility maps to VC-backed document

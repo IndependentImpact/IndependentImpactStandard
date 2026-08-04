@@ -1,7 +1,7 @@
 # Data requirements
 
 This directory contains the canonical data-validation and workflow requirements
-for the Nova Impact Accounting Standard.
+for the Nova Institute Impact Accounting Standard.
 
 ## What is here
 
@@ -37,5 +37,5 @@ dataRequirements/check-semantic-standard-release.sh
 For the broader unittest suite used in this repository:
 
 ```bash
-python -m unittest discover -s dataRequirements/tests -p 'test_*.py'
+python3 -m unittest discover -s dataRequirements/tests -p 'test_*.py'
 ```

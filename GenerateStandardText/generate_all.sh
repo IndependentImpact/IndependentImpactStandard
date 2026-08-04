@@ -13,8 +13,12 @@ TOOL="$REPO_ROOT/GenerateStandardText/tool/generate_skos_markdown.py"
 OUT="$REPO_ROOT/GenerateStandardText"
 GLOSSARY_DIR="$REPO_ROOT/glossary"
 
+# Many systems ship python3 without a bare `python`. Override with
+# PYTHON=/path/to/interpreter if you need a specific one.
+PYTHON="${PYTHON:-python3}"
+
 run_generator() {
-  python "$TOOL" \
+  "$PYTHON" "$TOOL" \
     --ttl "$1" \
     --output "$2" \
     --section-heading "$3" \

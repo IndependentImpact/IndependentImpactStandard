@@ -27,7 +27,7 @@ nias-cs:verification a nias-o:ReviewMandate,
     skos:topConceptOf nias-cs:ReviewMandateScheme .
 
 nias-cs:ReviewMandateScheme a skos:ConceptScheme ;
-    skos:definition "Controlled vocabulary declaring the two review mandates under the Nova Impact Accounting Standard: Validation (ex-ante formal compliance review of a Project Design Document) and Verification (ex-post review of the Data Lineage Report and Monitoring Report)." ;
+    skos:definition "Controlled vocabulary declaring the two review mandates under the Nova Institute Impact Accounting Standard: Validation (ex-ante formal compliance review of a Project Design Document) and Verification (ex-post review of the Data Lineage Report and Monitoring Report)." ;
     skos:hasTopConcept nias-cs:validation,
         nias-cs:verification ;
     skos:prefLabel "Review mandate concepts" .

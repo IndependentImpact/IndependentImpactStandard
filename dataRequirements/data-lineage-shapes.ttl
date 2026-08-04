@@ -7,7 +7,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:DataLineageShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Data Lineage SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Data Lineage SHACL Shapes"@en ;
     dcterms:description "Data lineage report shapes for raw, transferred, cleaned, and final dataset provenance."@en ;
     owl:imports nias-o:DocumentReferenceShapes,
         nias-o:DocumentShapes .

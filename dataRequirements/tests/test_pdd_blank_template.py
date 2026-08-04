@@ -34,7 +34,7 @@ class PddBlankTemplateTests(unittest.TestCase):
 
     def test_generated_blank_template_keeps_core_pdd_headings(self):
         rendered = self._render_template()
-        self.assertIn("# Nova Impact Accounting Standard", rendered)
+        self.assertIn("# Nova Institute Impact Accounting Standard", rendered)
         self.assertIn("## Project Design Document", rendered)
         self.assertIn("## Table Of Contents", rendered)
         self.assertIn("## Section A. Description Of Project", rendered)
@@ -47,7 +47,7 @@ class PddBlankTemplateTests(unittest.TestCase):
 
     def test_generated_blank_template_has_title_page_table(self):
         rendered = self._render_template()
-        self.assertNotIn("| Standard | Nova Impact Accounting Standard |", rendered)
+        self.assertNotIn("| Standard | Nova Institute Impact Accounting Standard |", rendered)
         self.assertNotIn("| Project title | _[required: project title]_ |", rendered)
         self.assertIn("| Methodology and version | _[required: methodology reference(s)]_ |", rendered)
         self.assertIn("\\tableofcontents", rendered)

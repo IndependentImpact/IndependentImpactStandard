@@ -7,7 +7,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:ReputationRulesShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - ReputationRules concept scheme SHACL shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - ReputationRules concept scheme SHACL shapes"@en ;
     dcterms:description "SHACL shapes validating the ReputationLifecycleTerm concept scheme defined in ReputationRules.ttl."@en .
 
 # ---------------------------------------------------------------------------

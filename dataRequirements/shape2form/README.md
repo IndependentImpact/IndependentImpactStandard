@@ -112,7 +112,7 @@ dataRequirements/shape2form/build-pdd-design.sh
 ```
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/pdd-design/schema \
   --build-dir /tmp/nias-shape2form/pdd-design/flutter \
   --preview-dir /tmp/nias-shape2form/pdd-design/preview \
@@ -150,7 +150,7 @@ dataRequirements/shape2form/build-validation-report.sh
 ```
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/validation-report/schema \
   --build-dir /tmp/nias-shape2form/validation-report/flutter \
   --preview-dir /tmp/nias-shape2form/validation-report/preview \
@@ -179,7 +179,7 @@ dataRequirements/shape2form/build-monitoring-report.sh
 ```
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/monitoring-report/schema \
   --build-dir /tmp/nias-shape2form/monitoring-report/flutter \
   --preview-dir /tmp/nias-shape2form/monitoring-report/preview \
@@ -212,7 +212,7 @@ dataRequirements/shape2form/build-verification-report.sh
 ```
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/verification-report/schema \
   --build-dir /tmp/nias-shape2form/verification-report/flutter \
   --preview-dir /tmp/nias-shape2form/verification-report/preview \
@@ -288,7 +288,7 @@ This generates a separate Monitoring Report Flutter form bundle:
 Preview it with:
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/monitoring-report/schema \
   --build-dir /tmp/nias-shape2form/monitoring-report/flutter \
   --preview-dir /tmp/nias-shape2form/monitoring-report/preview \
@@ -318,7 +318,7 @@ They write generated artifacts to activity-specific output roots:
 Override paths when needed:
 
 ```bash
-SHAPE2FORM_BIN=/Users/christiaanpauw/shape2form/shape2form \
+SHAPE2FORM_BIN=shape2form \
 OUT_ROOT=/tmp/nias-shape2form/validation-report \
 dataRequirements/shape2form/build-validation-report.sh
 ```
@@ -329,7 +329,7 @@ After running the relevant build script, launch the Flutter web preview from the
 generated schema and Dart files. Validation defaults to port `8081`:
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/validation-report/schema \
   --build-dir /tmp/nias-shape2form/validation-report/flutter \
   --preview-dir /tmp/nias-shape2form/validation-report/preview \
@@ -339,7 +339,7 @@ generated schema and Dart files. Validation defaults to port `8081`:
 Verification defaults to port `8082`:
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/verification-report/schema \
   --build-dir /tmp/nias-shape2form/verification-report/flutter \
   --preview-dir /tmp/nias-shape2form/verification-report/preview \
@@ -356,7 +356,7 @@ http://localhost:8081
 To keep the server in the terminal but avoid opening a browser automatically:
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/validation-report/schema \
   --build-dir /tmp/nias-shape2form/validation-report/flutter \
   --preview-dir /tmp/nias-shape2form/validation-report/preview \
@@ -368,7 +368,7 @@ To only generate the preview app and web build without starting the HTTP
 server:
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/validation-report/schema \
   --build-dir /tmp/nias-shape2form/validation-report/flutter \
   --preview-dir /tmp/nias-shape2form/validation-report/preview \
@@ -379,7 +379,7 @@ server:
 Use a different port if `8080` is already occupied:
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/validation-report/schema \
   --build-dir /tmp/nias-shape2form/validation-report/flutter \
   --preview-dir /tmp/nias-shape2form/validation-report/preview \
@@ -440,7 +440,7 @@ By default this writes generated PDD Design artifacts outside the repository:
 Override paths when needed:
 
 ```bash
-SHAPE2FORM_BIN=/Users/christiaanpauw/shape2form/shape2form \
+SHAPE2FORM_BIN=shape2form \
 OUT_ROOT=/tmp/nias-shape2form/pdd-design \
 dataRequirements/shape2form/build-pdd-design.sh
 ```
@@ -448,7 +448,7 @@ dataRequirements/shape2form/build-pdd-design.sh
 Preview the PDD Design forms:
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/pdd-design/schema \
   --build-dir /tmp/nias-shape2form/pdd-design/flutter \
   --preview-dir /tmp/nias-shape2form/pdd-design/preview \
@@ -471,7 +471,7 @@ repository:
 Override paths when needed:
 
 ```bash
-SHAPE2FORM_BIN=/Users/christiaanpauw/shape2form/shape2form \
+SHAPE2FORM_BIN=shape2form \
 OUT_ROOT=/tmp/nias-shape2form/pdd-workflow \
 dataRequirements/shape2form/build-pdd-workflow.sh
 ```
@@ -482,7 +482,7 @@ After running the combined PDD workflow build script, launch the Flutter web
 preview from the generated schema and Dart files:
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/pdd-workflow/schema \
   --build-dir /tmp/nias-shape2form/pdd-workflow/flutter \
   --preview-dir /tmp/nias-shape2form/pdd-workflow/preview \
@@ -492,7 +492,7 @@ preview from the generated schema and Dart files:
 To keep the server in the terminal but avoid opening a browser automatically:
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/pdd-workflow/schema \
   --build-dir /tmp/nias-shape2form/pdd-workflow/flutter \
   --preview-dir /tmp/nias-shape2form/pdd-workflow/preview \
@@ -504,7 +504,7 @@ To only generate the preview app and web build without starting the HTTP
 server:
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/pdd-workflow/schema \
   --build-dir /tmp/nias-shape2form/pdd-workflow/flutter \
   --preview-dir /tmp/nias-shape2form/pdd-workflow/preview \
@@ -515,7 +515,7 @@ server:
 Use a different port if `8080` is already occupied:
 
 ```bash
-/Users/christiaanpauw/shape2form/shape2form preview \
+shape2form preview \
   --schema-dir /tmp/nias-shape2form/pdd-workflow/schema \
   --build-dir /tmp/nias-shape2form/pdd-workflow/flutter \
   --preview-dir /tmp/nias-shape2form/pdd-workflow/preview \

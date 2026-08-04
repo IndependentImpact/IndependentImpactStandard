@@ -8,7 +8,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:CertificateShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Verified Impact Certificate SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Verified Impact Certificate SHACL Shapes"@en ;
     dcterms:description "Verified impact certificate issuance request, impact summary, and issued certificate shapes."@en ;
     owl:imports nias-o:DocumentReferenceShapes,
         nias-o:DocumentShapes .

@@ -7,7 +7,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:ArtifactAnchorShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Artifact Anchor SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Artifact Anchor SHACL Shapes"@en ;
     dcterms:description "Stable anchor definitions and artifact-version anchor instances for review, rendering, and linked-artifact traceability."@en .
 
 nias-o:AnchorKeyPropertyShape a sh:PropertyShape ;

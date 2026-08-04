@@ -1,0 +1,101 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix nias-o: <https://nova.org.za/novaimpactaccountingstandard/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+nias-o:IndependentImpactArtifactAnchoringShapes a owl:Ontology ;
+    dcterms:title "Independent Impact binding profile - artifact anchoring SHACL shapes"@en ;
+    dcterms:description "Platform binding profile per ADR-0001. Adds the constraints that hold when the Nova Institute Impact Accounting Standard is operated on the Independent Impact platform: submission anchors are Hedera topic IDs in shard.realm.num form, consensus timestamps are mandatory, and the derived event key and message URL follow Hedera mirror-node conventions. These constraints extend the shape IRIs declared in artifact-identity-contract-shapes.ttl; SHACL composes the two additively, so validating the core together with this profile yields the enforcement the corpus applied before the neutral/binding split."@en ;
+    dcterms:publisher <https://nova.org.za/> ;
+    owl:imports nias-o:ArtifactIdentityContractShapes .
+
+# The Independent Impact platform anchors every submitted artifact version on a
+# Hedera consensus topic. The core contract permits an anchor; this profile
+# requires one and fixes its syntax.
+nias-o:SubmittedArtifactIdentityShape
+    sh:property [
+        sh:path nias-o:submissionTopicId ;
+        sh:datatype xsd:string ;
+        sh:pattern "^\\d+\\.\\d+\\.\\d+$" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A submitted artifact version must identify exactly one Hedera topic ID."@en
+    ] ;
+    sh:property [
+        sh:path nias-o:submissionConsensusTimestamp ;
+        sh:datatype xsd:dateTimeStamp ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A submitted artifact version must identify exactly one submission consensus timestamp."@en
+    ] ;
+    # Both derivation rules accept either lexical form of a UTC
+    # xsd:dateTimeStamp ("...Z" and "...+00:00" denote the same instant, and
+    # RDF libraries differ on which they hand to str() — notably, running RDFS
+    # inference changes rdflib's answer). Comparing only one form makes
+    # conformance depend on the validator's configuration rather than on the
+    # data.
+    sh:sparql [
+        sh:message "submissionEventKey must equal submissionTopicId@submissionConsensusTimestamp when present."@en ;
+        sh:select """
+            PREFIX nias-o: <https://nova.org.za/novaimpactaccountingstandard/>
+            SELECT $this WHERE {
+                $this nias-o:submissionTopicId ?topicId ;
+                      nias-o:submissionConsensusTimestamp ?timestamp ;
+                      nias-o:submissionEventKey ?eventKey .
+                FILTER (
+                    str(?eventKey) != concat(str(?topicId), "@", str(?timestamp))
+                    && str(?eventKey) != concat(str(?topicId), "@", REPLACE(str(?timestamp), "[+]00:00$", "Z"))
+                )
+            }
+        """
+    ] ;
+    sh:sparql [
+        sh:message "submissionMessageUrl must resolve from submissionTopicId and submissionConsensusTimestamp when present."@en ;
+        sh:select """
+            PREFIX nias-o: <https://nova.org.za/novaimpactaccountingstandard/>
+            SELECT $this WHERE {
+                $this nias-o:submissionTopicId ?topicId ;
+                      nias-o:submissionConsensusTimestamp ?timestamp ;
+                      nias-o:submissionMessageUrl ?messageUrl .
+                FILTER (
+                    str(?messageUrl) != concat("/api/v1/topics/", str(?topicId), "/messages/", str(?timestamp))
+                    && str(?messageUrl) != concat("/api/v1/topics/", str(?topicId), "/messages/", REPLACE(str(?timestamp), "[+]00:00$", "Z"))
+                )
+            }
+        """
+    ] .
+
+nias-o:ReviewedArtifactIdentityShape
+    sh:property [
+        sh:path nias-o:reviewedSubmissionTopicId ;
+        sh:datatype xsd:string ;
+        sh:pattern "^\\d+\\.\\d+\\.\\d+$" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A review artifact must identify the reviewed submission topic ID."@en
+    ] ;
+    sh:property [
+        sh:path nias-o:reviewedSubmissionConsensusTimestamp ;
+        sh:datatype xsd:dateTimeStamp ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A review artifact must identify the reviewed submission consensus timestamp."@en
+    ] .
+
+nias-o:MonitoringArtifactIdentityShape
+    sh:property [
+        sh:path nias-o:alignedPddSubmissionTopicId ;
+        sh:datatype xsd:string ;
+        sh:pattern "^\\d+\\.\\d+\\.\\d+$" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A monitoring artifact must identify the aligned PDD submission topic ID."@en
+    ] ;
+    sh:property [
+        sh:path nias-o:alignedPddSubmissionConsensusTimestamp ;
+        sh:datatype xsd:dateTimeStamp ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "A monitoring artifact must identify the aligned PDD submission consensus timestamp."@en
+    ] .

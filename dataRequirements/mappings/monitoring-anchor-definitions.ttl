@@ -3,7 +3,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 <https://nova.org.za/novaimpactaccountingstandard/mappings/monitoring-anchor-definitions/> a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Monitoring Report Anchor Definitions"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Monitoring Report Anchor Definitions"@en ;
     dcterms:description "Canonical stable anchor definitions for the rendered Monitoring Report body. These anchors are schema-level targets used to emit concrete artifact anchors for each Monitoring Report version and to link validation findings to exact monitoring sections."@en .
 
 nias-o:monitoring-package-summary a nias-o:AnchorDefinition ;

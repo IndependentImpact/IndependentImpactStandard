@@ -45,8 +45,10 @@ vignettes/*.pdf
 # Local shell/dotenv overrides
 .env
 
-# pkgdown site
-docs/
+# pkgdown site — generated output only. The architecture decision register is
+# hand-authored and must be tracked.
+docs/*
+!docs/adrs/
 
 # translation temp files
 po/*~

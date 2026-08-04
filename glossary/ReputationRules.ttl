@@ -42,7 +42,7 @@ nias-cs:decay-floor a nias-o:ReputationLifecycleTerm,
     skos:topConceptOf nias-cs:ReputationLifecycleTerm .
 
 nias-cs:ReputationLifecycleTerm a skos:ConceptScheme ;
-    skos:definition "Controlled vocabulary of terms describing the lifecycle dynamics of an agent's Knowledge & Skills Reputation (KSR) on the Nova Impact Accounting Standard platform, including how reputation is gained, how it decays over time, and the parameters that govern that decay." ;
+    skos:definition "Controlled vocabulary of terms describing the lifecycle dynamics of an agent's Knowledge & Skills Reputation (KSR) on the Nova Institute Impact Accounting Standard platform, including how reputation is gained, how it decays over time, and the parameters that govern that decay." ;
     skos:hasTopConcept nias-cs:decay-floor,
         nias-cs:decay-rate,
         nias-cs:ksr-balance,

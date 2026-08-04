@@ -21,7 +21,7 @@ canonical NIAS semantic sources.
 ## Command
 
 ```bash
-python tooling/generate_glossary_markdown.py --help
+python3 tooling/generate_glossary_markdown.py --help
 
-python tooling/document-rendering/render_pdd_markdown.py --help
+python3 tooling/document-rendering/render_pdd_markdown.py --help
 ```

@@ -21,10 +21,14 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o: a owl:Ontology ;
-    rdfs:label "Nova Impact Accounting Standard Ontology"@en ;
-    rdfs:comment "Ontology for the Nova Impact Accounting Standard"@en ;
-    dcterms:title "Nova Impact Accounting Standard Ontology"@en ;
-    dcterms:description "Ontology for the Nova Impact Accounting Standard"@en ;
+    rdfs:label "Nova Institute Impact Accounting Standard Ontology"@en ;
+    rdfs:comment "Ontology for the Nova Institute Impact Accounting Standard"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard Ontology"@en ;
+    dcterms:description "Ontology for the Nova Institute Impact Accounting Standard"@en ;
+    dcterms:publisher <https://nova.org.za/> ;
+    dcterms:creator <https://nova.org.za/> ;
+    dcterms:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+    dcterms:rights "Copyright 2026 Nova Institute NPC. Licensed under the Apache License, Version 2.0."@en ;
     owl:imports <http://independentimpact.org/methont/methont.ttl/1.1.0> ;
     owl:imports <http://w3id.org/aiao> ;
     owl:imports <http://w3id.org/claimont> ;
@@ -32,6 +36,10 @@ nias-o: a owl:Ontology ;
     owl:imports <http://w3id.org/infocomm> ;
     owl:imports <https://hashgraphontology.xyz/consensus> ;
     owl:imports <https://hashgraphontology.xyz/core> .
+
+<https://nova.org.za/> a prov:Organization ;
+    rdfs:label "Nova Institute NPC"@en ;
+    skos:prefLabel "Nova Institute NPC"@en .
 
 data:Document rdfs:subClassOf infocomm:Information .
 
@@ -80,7 +88,7 @@ nias-o:LicenseScope a owl:Class ;
 nias-o:MethodologyApprovalStatus a owl:Class ;
     rdfs:label "MethodologyApprovalStatus"@en ;
     rdfs:subClassOf nias-o:OperationalVocabularyTerm ;
-    skos:definition "A controlled approval status for a methodology within the Nova Impact Accounting Standard."@en .
+    skos:definition "A controlled approval status for a methodology within the Nova Institute Impact Accounting Standard."@en .
 
 nias-o:PublicPrivateClassification a owl:Class ;
     rdfs:label "PublicPrivateClassification"@en ;
@@ -160,7 +168,7 @@ nias-o:ReputationLifecycleTerm a owl:Class ;
 nias-o:AgentLicense a owl:Class ;
     rdfs:label "AgentLicense"@en ;
     rdfs:subClassOf vcdm:VerifiableCredential ;
-    skos:definition "A license that allows a platform user to perform specialised actions on the Nova Impact Accounting Standard platform."@en .
+    skos:definition "A license that allows a platform user to perform specialised actions on the Nova Institute Impact Accounting Standard platform."@en .
 
 nias-o:CreditingPeriod a owl:Class ;
     rdfs:label "CreditingPeriod"@en ;
@@ -281,10 +289,19 @@ nias-o:PddSectionCStakeholderEngagement a owl:Class ;
         nias-o:PddSectionCReport ;
     skos:definition "A PDD section C report describing local stakeholder consultation modalities and comments."@en .
 
+nias-o:Participant a owl:Class ;
+    rdfs:label "Participant"@en ;
+    rdfs:subClassOf infocomm:CommunicationParty ;
+    owl:equivalentClass nias-o:PlatformUser ;
+    skos:definition "A party that participates, in any role, in an activity accounted for under this Standard."@en .
+
 nias-o:PlatformUser a owl:Class ;
     rdfs:label "PlatformUser"@en ;
     rdfs:subClassOf infocomm:CommunicationParty ;
-    skos:definition "An actor on the Nova Impact Accounting Standard platform."@en .
+    owl:deprecated true ;
+    owl:equivalentClass nias-o:Participant ;
+    dcterms:isReplacedBy nias-o:Participant ;
+    skos:definition "A party that participates, in any role, in an activity accounted for under this Standard. Deprecated in favour of nias-o:Participant: the name wrongly implies the class describes the users of a platform, and its former definition named the Standard itself as that platform. The Standard describes participants irrespective of the platform on which it is operated. Retained because existing data and shapes reference this class; new artefacts should use nias-o:Participant."@en .
 
 nias-o:ProjectListingApplication a owl:Class ;
     rdfs:label "ProjectListingApplication"@en ;
@@ -367,7 +384,7 @@ nias-o:createdBy a owl:ObjectProperty ;
     rdfs:label "createdBy"@en ;
     rdfs:domain aiao:Project ;
     rdfs:range nias-o:PlatformUser ;
-    skos:definition "The Nova Impact Accounting Standard platform user who created the project."@en .
+    skos:definition "The Nova Institute Impact Accounting Standard platform user who created the project."@en .
 
 nias-o:creditingPeriod a owl:ObjectProperty ;
     rdfs:label "creditingPeriod"@en ;
@@ -391,13 +408,13 @@ nias-o:dateCreated a owl:DatatypeProperty ;
     rdfs:label "dateCreated"@en ;
     rdfs:domain aiao:Project ;
     rdfs:range xsd:dateTime ;
-    skos:definition "The timestamp at which a project was created on the Nova Impact Accounting Standard platform."@en .
+    skos:definition "The timestamp at which a project was created on the Nova Institute Impact Accounting Standard platform."@en .
 
 nias-o:dateRegistered a owl:DatatypeProperty ;
     rdfs:label "dateRegistered"@en ;
     rdfs:domain nias-o:PlatformUser ;
     rdfs:range xsd:dateTime ;
-    skos:definition "The timestamp at which a user account was created on the Nova Impact Accounting Standard platform."@en .
+    skos:definition "The timestamp at which a user account was created on the Nova Institute Impact Accounting Standard platform."@en .
 
 nias-o:dataParameterRequirement a owl:ObjectProperty ;
     rdfs:label "dataParameterRequirement"@en ;
@@ -469,7 +486,7 @@ nias-o:hasAgentLicense a owl:ObjectProperty ;
     rdfs:label "hasAgentLicense"@en ;
     rdfs:domain nias-o:PlatformUser ;
     rdfs:range nias-o:AgentLicense ;
-    skos:definition "An Nova Impact Accounting Standard Agent License held by a platform user."@en .
+    skos:definition "An Nova Institute Impact Accounting Standard Agent License held by a platform user."@en .
 
 nias-o:hasVerifiableCredential a owl:ObjectProperty ;
     rdfs:label "hasVerifiableCredential"@en ;
@@ -570,7 +587,7 @@ nias-o:licenseNumber a owl:DatatypeProperty ;
     rdfs:label "licenseNumber"@en ;
     rdfs:domain nias-o:AgentLicense ;
     rdfs:range xsd:string ;
-    skos:definition "A unique string identifier for an Nova Impact Accounting Standard Agent License."@en .
+    skos:definition "A unique string identifier for an Nova Institute Impact Accounting Standard Agent License."@en .
 
 nias-o:licenseScope a owl:ObjectProperty ;
     rdfs:label "licenseScope"@en ;
@@ -578,7 +595,7 @@ nias-o:licenseScope a owl:ObjectProperty ;
     # classes which are defined later in this file (ordering is irrelevant in OWL).
     rdfs:domain [ owl:unionOf ( nias-o:AgentLicense nias-o:LicenseApplication nias-o:LicenseApplicationReview ) ] ;
     rdfs:range nias-o:LicenseScope ;
-    skos:definition "The set of actions that the holder of the license is allowed to perform on the Nova Impact Accounting Standard platform. Also used on license applications and reviews to record the scope applied for."@en .
+    skos:definition "The set of actions that the holder of the license is allowed to perform on the Nova Institute Impact Accounting Standard platform. Also used on license applications and reviews to record the scope applied for."@en .
 
 nias-o:locationShapefile a owl:ObjectProperty ;
     rdfs:label "locationShapefile"@en ;
@@ -1132,7 +1149,7 @@ nias-o:approvalStatus a owl:ObjectProperty ;
     rdfs:label "approvalStatus"@en ;
     rdfs:domain meth:Methodology ;
     rdfs:range nias-o:MethodologyApprovalStatus ;
-    skos:definition "The approval status of a methodology within the Nova Impact Accounting Standard (e.g., proposed, under evaluation, approved, rejected, surpassed, deprecated)."@en .
+    skos:definition "The approval status of a methodology within the Nova Institute Impact Accounting Standard (e.g., proposed, under evaluation, approved, rejected, surpassed, deprecated)."@en .
 
 nias-o:requiresKnowledgeDomain a owl:ObjectProperty ;
     rdfs:label "requiresKnowledgeDomain"@en ;

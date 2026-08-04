@@ -1,6 +1,6 @@
 # Semantic Web Artefact Hierarchy
 
-This document describes the full hierarchy of semantic web artefacts in the Nova Impact Accounting Standard (NIAS) corpus — which artefact uses which, the order in which they are defined, and the part of the process each one belongs to. It also provides a complete, deduplicated index of every `.ttl` file with its function, prerequisites and dependents.
+This document describes the full hierarchy of semantic web artefacts in the Nova Institute Impact Accounting Standard (NIAS) corpus — which artefact uses which, the order in which they are defined, and the part of the process each one belongs to. It also provides a complete, deduplicated index of every `.ttl` file with its function, prerequisites and dependents.
 
 ## Contents
 

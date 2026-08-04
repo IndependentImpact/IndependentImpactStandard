@@ -1,4 +1,4 @@
-# Nova Impact Accounting Standard
+# Nova Institute Impact Accounting Standard
 
 <!-- toc -->
 <!-- tocstop -->

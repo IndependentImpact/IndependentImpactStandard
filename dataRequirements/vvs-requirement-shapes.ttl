@@ -24,7 +24,7 @@
 # ---------------------------------------------------------------------------
 
 nias-o:VvsRequirementShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard — VVS Requirement SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard — VVS Requirement SHACL Shapes"@en ;
     dcterms:description "SHACL shapes implementing Phase 1-4 VVS requirements, including expanded PDD, DLR, and MR coverage beyond the initial pilot set."@en .
 
 # ---------------------------------------------------------------------------

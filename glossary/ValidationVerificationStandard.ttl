@@ -14,7 +14,7 @@
 # ---------------------------------------------------------------------------
 
 <https://nova.org.za/novaimpactaccountingstandard/vvs/> a owl:Ontology ;
-    rdfs:label "Nova Impact Accounting Standard — Validation & Verification Standard"@en ;
+    rdfs:label "Nova Institute Impact Accounting Standard — Validation & Verification Standard"@en ;
     dcterms:title "NIAS Validation & Verification Standard Requirements"@en ;
     dcterms:description "Requirement instances for the NIAS Validation & Verification Standard (VVS). Each resource carries a stable IRI, human-readable identifier, mandate, status, and links to the anchor artifact class at which the requirement is assessed."@en .
 

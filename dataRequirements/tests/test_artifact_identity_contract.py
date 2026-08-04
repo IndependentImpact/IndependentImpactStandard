@@ -11,6 +11,16 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 ARTIFACT_IDENTITY_CONTRACT_SHAPES = (
     REPO_ROOT / "dataRequirements/artifact-identity-contract-shapes.ttl"
 )
+# The identity contract is infrastructure-neutral per ADR-0001; the anchoring
+# constraints these tests exercise (mandatory Hedera topic IDs, consensus
+# timestamps, and the derived event key and message URL) live in the
+# Independent Impact binding profile. Both are loaded here so this file keeps
+# testing the enforcement that applies on the platform.
+# Neutral-core behaviour is covered by test_platform_binding_profile.py.
+INDEPENDENT_IMPACT_BINDING_PROFILE = (
+    REPO_ROOT
+    / "dataRequirements/bindings/independent-impact/artifact-anchoring-shapes.ttl"
+)
 PDD_ALPHA_FIXTURE = REPO_ROOT / "dataRequirements/document-rendering/fixtures/pdd-alpha-input.jsonld"
 MONITORING_FIXTURE = (
     REPO_ROOT / "dataRequirements/document-rendering/fixtures/monitoring-report-input.jsonld"
@@ -56,7 +66,9 @@ def _load_graph(paths):
 
 
 def _contract_shape_graph(shape, target):
-    graph = _load_graph([ARTIFACT_IDENTITY_CONTRACT_SHAPES])
+    graph = _load_graph(
+        [ARTIFACT_IDENTITY_CONTRACT_SHAPES, INDEPENDENT_IMPACT_BINDING_PROFILE]
+    )
     graph.add((shape, SH.targetNode, target))
     return graph
 

@@ -11,8 +11,8 @@
 # ---------------------------------------------------------------------------
 
 nias-kd: a owl:Ontology ;
-    dct:title "Nova Impact Accounting Standard — GHG Knowledge Domains"@en ;
-    dct:description "Knowledge domains required for the validation and verification of greenhouse gas (GHG) methodologies registered under the Nova Impact Accounting Standard."@en ;
+    dct:title "Nova Institute Impact Accounting Standard — GHG Knowledge Domains"@en ;
+    dct:description "Knowledge domains required for the validation and verification of greenhouse gas (GHG) methodologies registered under the Nova Institute Impact Accounting Standard."@en ;
     dct:issued "2026-05-14"^^xsd:date .
 
 # ---------------------------------------------------------------------------
@@ -21,7 +21,7 @@ nias-kd: a owl:Ontology ;
 
 nias-cs:GHGKnowledgeDomains a skos:ConceptScheme ;
     skos:prefLabel "GHG Knowledge Domains"@en ;
-    skos:definition "Controlled vocabulary of knowledge domains required for the validation and verification of GHG methodologies under the Nova Impact Accounting Standard. Validators and verifiers must demonstrate competence in the domains associated with each methodology."@en ;
+    skos:definition "Controlled vocabulary of knowledge domains required for the validation and verification of GHG methodologies under the Nova Institute Impact Accounting Standard. Validators and verifiers must demonstrate competence in the domains associated with each methodology."@en ;
     skos:hasTopConcept
         nias-kd:ghg-accounting ,
         nias-kd:mrv ,

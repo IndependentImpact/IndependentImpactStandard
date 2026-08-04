@@ -40,7 +40,7 @@ Controlled vocabulary indicating whether an impact will be monitored.
 
 ### Methodology approval status
 
-Controlled vocabulary describing the approval status of a methodology within the Nova Impact Accounting Standard.
+Controlled vocabulary describing the approval status of a methodology within the Nova Institute Impact Accounting Standard.
 
 | Term | Definition | IRI |
 | --- | --- | --- |
@@ -60,9 +60,9 @@ Controlled vocabulary indicating whether a data parameter will be monitored duri
 | Fixed ex-ante | Parameter or data point whose value is determined and fixed prior to the start of the crediting period. | https://nova.org.za/novaimpactaccountingstandard/fixed-ex-ante |
 | Monitored | Parameter or data point whose value is determined through ongoing monitoring during the crediting period. | https://nova.org.za/novaimpactaccountingstandard/monitored |
 
-### Nova Impact Accounting Standard license scopes
+### Nova Institute Impact Accounting Standard license scopes
 
-Controlled vocabulary of scopes for Nova Impact Accounting Standard Agent Licenses.
+Controlled vocabulary of scopes for Nova Institute Impact Accounting Standard Agent Licenses.
 
 | Term | Definition | IRI |
 | --- | --- | --- |

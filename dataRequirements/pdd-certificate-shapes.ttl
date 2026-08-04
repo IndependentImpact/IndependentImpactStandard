@@ -6,7 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:PddCertificateShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - PDD Certificate SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - PDD Certificate SHACL Shapes"@en ;
     dcterms:description "PDD certificate issuance request shapes for the legacy PDD-CIR workflow document."@en ;
     owl:imports nias-o:DocumentReferenceShapes,
         nias-o:DocumentShapes .

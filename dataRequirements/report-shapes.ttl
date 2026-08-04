@@ -15,7 +15,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:ReportShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Report Wrapper SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Report Wrapper SHACL Shapes"@en ;
     dcterms:description "Report wrapper shapes for PDD and monitoring report submissions. Implements Phase 5 of the NIAS SHACL migration by distinguishing the submitted document artifact, the workflow submission event, and the agent-authored report content layer."@en ;
     owl:imports nias-o:CommonShapes,
         nias-o:ImpactDeclarationShapes,

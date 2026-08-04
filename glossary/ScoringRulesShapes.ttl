@@ -7,7 +7,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:ScoringRulesShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - ScoringRules concept scheme SHACL shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - ScoringRules concept scheme SHACL shapes"@en ;
     dcterms:description "SHACL shapes validating the ReviewMandate, ScoringModelTerm, IndicatorQualityDimension, MethodologyQualityDimension, and InstrumentQualityDimension concept schemes defined in ScoringRules.ttl."@en .
 
 # ---------------------------------------------------------------------------

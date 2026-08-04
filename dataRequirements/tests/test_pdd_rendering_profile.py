@@ -137,7 +137,7 @@ class PddRenderingProfileTests(unittest.TestCase):
 
     def test_profile_body_resembles_conventional_pdd_outline(self):
         required_headings = [
-            "# Nova Impact Accounting Standard",
+            "# Nova Institute Impact Accounting Standard",
             "## Project Design Document",
             "## Table Of Contents",
             "## Section A. Description Of Project",

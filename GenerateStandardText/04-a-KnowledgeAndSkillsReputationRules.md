@@ -2,7 +2,7 @@
 
 ### Reputation lifecycle terms
 
-Controlled vocabulary of terms describing the lifecycle dynamics of an agent's Knowledge & Skills Reputation (KSR) on the Nova Impact Accounting Standard platform, including how reputation is gained, how it decays over time, and the parameters that govern that decay.
+Controlled vocabulary of terms describing the lifecycle dynamics of an agent's Knowledge & Skills Reputation (KSR) on the Nova Institute Impact Accounting Standard platform, including how reputation is gained, how it decays over time, and the parameters that govern that decay.
 
 | Term | Definition | IRI |
 | --- | --- | --- |

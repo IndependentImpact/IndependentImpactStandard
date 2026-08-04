@@ -12,7 +12,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:DocumentShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Document SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Document SHACL Shapes"@en ;
     dcterms:description "Document metadata, document schema, workflow submission, and Hedera consensus evidence shapes for NIAS SHACL migration Phase 3."@en ;
     owl:imports nias-o:CommonShapes,
         nias-o:DocumentReferenceShapes .

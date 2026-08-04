@@ -7,7 +7,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:PrincipleShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Principle concept scheme SHACL shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Principle concept scheme SHACL shapes"@en ;
     dcterms:description "SHACL shapes validating the ImpactPrinciple and AccountingPrinciple concept schemes defined in Principle.ttl."@en .
 
 # ---------------------------------------------------------------------------

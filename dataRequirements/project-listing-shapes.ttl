@@ -14,7 +14,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:ProjectListingShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Project Listing SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Project Listing SHACL Shapes"@en ;
     dcterms:description "Project listing application shapes for the legacy PLA workflow document."@en ;
     owl:imports nias-o:DocumentShapes .
 
