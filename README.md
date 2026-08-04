@@ -1,6 +1,8 @@
-# Nova Impact Accounting Standard
+# Nova Institute Impact Accounting Standard
 
-On the [Nova Impact Accounting Standard](https://nova.org.za/novaimpactaccountingstandard), a standard provides the following artefacts:
+The [Nova Institute Impact Accounting Standard](https://nova.org.za/novaimpactaccountingstandard) (NIAS) is published by the Nova Institute NPC and operates as a standard on the [Independent Impact](https://independentimpact.org/) platform. Independent Impact hosts many standards; NIAS is one of them. This repository holds the standard itself — the normative, machine-readable corpus that Nova Institute owns and maintains.
+
+A standard operating on the platform provides the following artefacts:
 
 * A **glossary** in the form of a `skos:ConceptScheme` with its terms, definitions and taxonomies.
 * A list of relevant **indicators** (expressed in terms of the Indicator Ontology), as a `skos:ConceptScheme`

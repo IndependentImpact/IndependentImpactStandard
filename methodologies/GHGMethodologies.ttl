@@ -15,8 +15,8 @@
 # ---------------------------------------------------------------------------
 
 ghg-m: a owl:Ontology ;
-    dct:title "Nova Impact Accounting Standard — Approved GHG Methodologies"@en ;
-    dct:description "Approved greenhouse gas (GHG) methodologies registered under the Nova Impact Accounting Standard. Each methodology is drawn from the UNFCCC Clean Development Mechanism (CDM) methodology library and is typed as meth:Methodology (Methodology Ontology). Approval statuses use nias-cs:MethodologyApprovalStatus, indicators reference nias-cs:GHGIndicators, and knowledge domains reference nias-cs:GHGKnowledgeDomains."@en ;
+    dct:title "Nova Institute Impact Accounting Standard — Approved GHG Methodologies"@en ;
+    dct:description "Approved greenhouse gas (GHG) methodologies registered under the Nova Institute Impact Accounting Standard. Each methodology is drawn from the UNFCCC Clean Development Mechanism (CDM) methodology library and is typed as meth:Methodology (Methodology Ontology). Approval statuses use nias-cs:MethodologyApprovalStatus, indicators reference nias-cs:GHGIndicators, and knowledge domains reference nias-cs:GHGKnowledgeDomains."@en ;
     dct:issued "2026-05-14"^^xsd:date ;
     owl:imports <http://independentimpact.org/methont/methont.ttl/1.1.0> ;
     owl:imports <http://independentimpact.org/methodology/vocab/context> ;
@@ -30,7 +30,7 @@ ghg-m: a owl:Ontology ;
 
 nias-cs:GHGMethodologies a skos:ConceptScheme ;
     skos:prefLabel "Approved GHG Methodologies"@en ;
-    skos:definition "Concept scheme listing all greenhouse gas methodologies approved under the Nova Impact Accounting Standard, drawn from the UNFCCC CDM methodology library."@en ;
+    skos:definition "Concept scheme listing all greenhouse gas methodologies approved under the Nova Institute Impact Accounting Standard, drawn from the UNFCCC CDM methodology library."@en ;
     skos:scopeNote "The initial NIAS methodology catalogue uses meth:hasVersion \"NIAS-2026-05-14\" to identify the NIAS catalogue snapshot. Source CDM methodology version numbers should be added when they are curated from source documents."@en ;
     skos:hasTopConcept
         # Large-scale (ACM)

@@ -14,7 +14,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:CommonShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Common SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Common SHACL Shapes"@en ;
     dcterms:description "Reusable SHACL shapes for NIAS data requirements during the SHACL migration."@en ;
     owl:imports nias-o: .
 

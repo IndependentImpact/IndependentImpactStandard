@@ -12,7 +12,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:ImpactDeclarationShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Impact Declaration SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Impact Declaration SHACL Shapes"@en ;
     dcterms:description "PDD-B impact declaration shapes for NIAS SHACL migration Phase 3."@en ;
     owl:imports nias-o:CommonShapes .
 

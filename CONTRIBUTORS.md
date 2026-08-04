@@ -1,6 +1,6 @@
 # Contributors
 
-Thank you to everyone who has contributed to the Nova Impact Accounting Standard.
+Thank you to everyone who has contributed to the Nova Institute Impact Accounting Standard.
 
 ## How to Contribute
 

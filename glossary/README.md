@@ -1,6 +1,6 @@
 # Glossary
 
-This directory contains the canonical Nova Impact Accounting Standard semantic
+This directory contains the canonical Nova Institute Impact Accounting Standard semantic
 vocabulary in Turtle (`.ttl`) files.
 
 ## What is here

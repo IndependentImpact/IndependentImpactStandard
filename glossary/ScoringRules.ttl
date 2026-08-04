@@ -21,7 +21,7 @@ nias-cs:verification a nias-o:ReviewMandate,
     skos:topConceptOf nias-cs:ReviewMandate .
 
 nias-cs:ReviewMandate a skos:ConceptScheme ;
-    skos:definition "Controlled vocabulary distinguishing the two types of review mandate under the Nova Impact Accounting Standard: validation (ex-ante design review) and verification (ex-post implementation review)." ;
+    skos:definition "Controlled vocabulary distinguishing the two types of review mandate under the Nova Institute Impact Accounting Standard: validation (ex-ante design review) and verification (ex-post implementation review)." ;
     skos:hasTopConcept nias-cs:validation,
         nias-cs:verification ;
     skos:prefLabel "Review mandate" .
@@ -71,7 +71,7 @@ nias-cs:reputation-weighting a nias-o:ScoringModelTerm,
     skos:topConceptOf nias-cs:ScoringModelTerm .
 
 nias-cs:ScoringModelTerm a skos:ConceptScheme ;
-    skos:definition "Controlled vocabulary of terms used in the Nova Impact Accounting Standard activity scoring model, including score types, scoring units, expert thresholds, and reputation-weighted adjustments." ;
+    skos:definition "Controlled vocabulary of terms used in the Nova Institute Impact Accounting Standard activity scoring model, including score types, scoring units, expert thresholds, and reputation-weighted adjustments." ;
     skos:hasTopConcept nias-cs:act-sco,
         nias-cs:expert-threshold,
         nias-cs:reputation-weighting,

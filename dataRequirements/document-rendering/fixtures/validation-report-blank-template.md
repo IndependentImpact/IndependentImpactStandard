@@ -1,7 +1,7 @@
 ---
 profile: nias-validation-report-rendering-profile
 profileVersion: 0.1.0
-standard: Nova Impact Accounting Standard
+standard: Nova Institute Impact Accounting Standard
 documentType: Validation Report
 formatVersion: 0.1.0
 canonicalDataAuthority: SHACL
@@ -24,7 +24,7 @@ renderedDocumentType: Validation Report
 reportType: validation
 ---
 
-# Nova Impact Accounting Standard
+# Nova Institute Impact Accounting Standard
 
 ## Validation Report
 

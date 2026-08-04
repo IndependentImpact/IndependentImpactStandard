@@ -42,7 +42,7 @@ class PddFilledRenderingTests(unittest.TestCase):
 
     def test_filled_rendering_includes_pdd_sections_and_labels(self):
         rendered = self._render_filled()
-        self.assertIn("# Nova Impact Accounting Standard", rendered)
+        self.assertIn("# Nova Institute Impact Accounting Standard", rendered)
         self.assertIn("## Project Design Document", rendered)
         self.assertIn("## Table Of Contents", rendered)
         self.assertNotIn("| Project title | PDD Alpha Mangrove Restoration |", rendered)

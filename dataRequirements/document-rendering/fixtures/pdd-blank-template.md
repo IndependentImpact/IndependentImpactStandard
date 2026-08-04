@@ -1,7 +1,7 @@
 ---
 profile: nias-pdd-rendering-profile
 profileVersion: 0.1.0
-standard: Nova Impact Accounting Standard
+standard: Nova Institute Impact Accounting Standard
 documentType: Project Design Document
 formatVersion: 0.1.0
 canonicalDataAuthority: SHACL
@@ -23,7 +23,7 @@ sidecarOutputs:
   - pdd.validation.json
 ---
 
-# Nova Impact Accounting Standard
+# Nova Institute Impact Accounting Standard
 
 ## Project Design Document
 

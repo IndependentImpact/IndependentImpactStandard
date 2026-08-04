@@ -12,6 +12,8 @@
       ],
       "dcterms:identifier": "nias-semantic-standard-1.0.0",
       "dcterms:title": "NIAS Semantic Standard Release Package 1.0.0",
+      "dcterms:publisher": { "@id": "https://nova.org.za/" },
+      "dcterms:license": { "@id": "https://www.apache.org/licenses/LICENSE-2.0" },
       "nias:versionLabel": "1.0.0",
       "nias:releaseArtifact": [
         { "@id": "https://nova.org.za/novaimpactaccountingstandard/releases/1.0.0/artifacts/core-ontology" },

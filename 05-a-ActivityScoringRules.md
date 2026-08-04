@@ -40,6 +40,6 @@ A few final notes are in order to conclude the overview:
 
 The Independent Impact platform acknowledges a set list of impact and activity aspects by default. Activity owners are encouraged to provide information for their activities and impacts for as many of these aspects as possible. The platform provides an extensive list of guiding questions to aid activity owners in doing so. 
 
-Each of the aforementioned aspects is reviewable. For the default impact and activity aspects, reviewers are equipped with a rigorous set of questions to assist them in evaluating those aspects according to the Independent Impact principles. 
+Each of the aforementioned aspects is reviewable. For the default impact and activity aspects, reviewers are equipped with a rigorous set of questions to assist them in evaluating those aspects according to the principles set out in this Standard. 
 
 The full list of default impact and activity aspects and their definitions, along with their guiding questions and their reviewer questions per mandate (validation/verification), are given in Appendix TTT. A positive reviewer response to a review question will grant the impact or activity either (maximum) one validation point or (maximum) one verification point. The current maximum validation score possible is 83 points, while the current maximum verification score is 70 points. 

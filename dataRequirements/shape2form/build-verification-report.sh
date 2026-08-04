@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 . "$ROOT_DIR/dataRequirements/shape2form/load-env.sh"
 load_nias_env "$ROOT_DIR"
-SHAPE2FORM_BIN="${SHAPE2FORM_BIN:-/Users/christiaanpauw/shape2form/shape2form}"
+SHAPE2FORM_BIN="${SHAPE2FORM_BIN:-shape2form}"
 OUT_BASE="${NIAS_TMP_DIR:-/tmp}"
 OUT_BASE="${OUT_BASE%/}"
 OUT_ROOT="${OUT_ROOT:-$OUT_BASE/nias-shape2form/verification-report}"

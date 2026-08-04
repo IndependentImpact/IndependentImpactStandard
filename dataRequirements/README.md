@@ -1,7 +1,7 @@
 # Data requirements
 
 This directory contains the canonical data-validation and workflow requirements
-for the Nova Impact Accounting Standard.
+for the Nova Institute Impact Accounting Standard.
 
 ## What is here
 

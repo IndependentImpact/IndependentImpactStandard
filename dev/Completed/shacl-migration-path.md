@@ -2,7 +2,7 @@
 
 This note captures a practical migration path for turning the legacy
 `reference/` JSON-LD-producing R functions into SHACL data requirements that
-use the local Nova Impact Accounting Standard ontology, the local concept schemes, and the
+use the local Nova Institute Impact Accounting Standard ontology, the local concept schemes, and the
 AIA ontology suite:
 
 - AIAO: `http://w3id.org/aiao#`

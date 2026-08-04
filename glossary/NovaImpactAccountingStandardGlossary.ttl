@@ -223,11 +223,11 @@ nias-cs:YesNo a skos:ConceptScheme ;
     skos:prefLabel "Yes/no values" .
 
 nias-cs:LicenseScope a skos:ConceptScheme ;
-    skos:definition "Controlled vocabulary of scopes for Nova Impact Accounting Standard Agent Licenses." ;
+    skos:definition "Controlled vocabulary of scopes for Nova Institute Impact Accounting Standard Agent Licenses." ;
     skos:hasTopConcept nias-cs:mr-verifier,
         nias-cs:pdd-validator,
         nias-cs:project-developer ;
-    skos:prefLabel "Nova Impact Accounting Standard license scopes" .
+    skos:prefLabel "Nova Institute Impact Accounting Standard license scopes" .
 
 nias-cs:AuthProof a skos:ConceptScheme ;
     skos:definition "Controlled vocabulary describing how document authenticity is proven." ;
@@ -330,7 +330,7 @@ nias-cs:deprecated a nias-o:MethodologyApprovalStatus,
     skos:topConceptOf nias-cs:MethodologyApprovalStatus .
 
 nias-cs:MethodologyApprovalStatus a skos:ConceptScheme ;
-    skos:definition "Controlled vocabulary describing the approval status of a methodology within the Nova Impact Accounting Standard." ;
+    skos:definition "Controlled vocabulary describing the approval status of a methodology within the Nova Institute Impact Accounting Standard." ;
     skos:hasTopConcept nias-cs:approved,
         nias-cs:deprecated,
         nias-cs:proposed,

@@ -51,7 +51,7 @@ Controlled vocabulary of quality dimensions used to assess the fitness-for-purpo
 
 ### Review mandate
 
-Controlled vocabulary distinguishing the two types of review mandate under the Nova Impact Accounting Standard: validation (ex-ante design review) and verification (ex-post implementation review).
+Controlled vocabulary distinguishing the two types of review mandate under the Nova Institute Impact Accounting Standard: validation (ex-ante design review) and verification (ex-post implementation review).
 
 | Term | Definition | IRI |
 | --- | --- | --- |
@@ -60,7 +60,7 @@ Controlled vocabulary distinguishing the two types of review mandate under the N
 
 ### Scoring model terms
 
-Controlled vocabulary of terms used in the Nova Impact Accounting Standard activity scoring model, including score types, scoring units, expert thresholds, and reputation-weighted adjustments.
+Controlled vocabulary of terms used in the Nova Institute Impact Accounting Standard activity scoring model, including score types, scoring units, expert thresholds, and reputation-weighted adjustments.
 
 | Term | Definition | IRI |
 | --- | --- | --- |

@@ -6,7 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:ReviewShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Review SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Review SHACL Shapes"@en ;
     dcterms:description "Generic and specialized document review shapes for validation and verification workflow screens."@en ;
     owl:imports nias-o:ArtifactAnchorShapes,
         nias-o:DocumentShapes .

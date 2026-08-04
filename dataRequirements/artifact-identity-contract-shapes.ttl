@@ -6,7 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 nias-o:ArtifactIdentityContractShapes a owl:Ontology ;
-    dcterms:title "Nova Impact Accounting Standard - Artifact Identity Contract SHACL Shapes"@en ;
+    dcterms:title "Nova Institute Impact Accounting Standard - Artifact Identity Contract SHACL Shapes"@en ;
     dcterms:description "Role-specific identity contracts for submitted artifacts, reviewed artifacts, monitoring report alignment, and verification DLR linkage. These shapes are applied to known artifact-role nodes rather than every data:Document."@en ;
     owl:imports nias-o:DocumentShapes,
         nias-o:ReviewShapes .
