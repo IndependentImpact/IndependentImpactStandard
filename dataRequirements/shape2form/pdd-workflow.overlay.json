@@ -120,7 +120,13 @@
   "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBReportContentUiShape|https://nova.org.za/novaimpactaccountingstandard/usesMethodology": {
     "label": "Report methodology IRIs",
     "order": 3,
-    "widget": "https://shape2form.dev/vocab/ui#chips"
+    "widget": "https://shape2form.dev/vocab/ui#chips",
+    "optionSource": {
+      "sourceType": "fluree",
+      "valuePath": "@id",
+      "labelPath": "skos:prefLabel",
+      "query": "{ \"from\": \"$FLUREE_LEDGER\", \"@context\": {\"skos\": \"http://www.w3.org/2004/02/skos/core#\"}, \"where\": {\"@id\": \"?m\", \"@type\": \"skos:Concept\", \"https://nova.org.za/novaimpactaccountingstandard/approvalStatus\": {\"@id\": \"https://nova.org.za/novaimpactaccountingstandard/approved\"}}, \"select\": {\"?m\": [\"@id\", \"skos:prefLabel\"]} }"
+    }
   },
   "https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBUiShape|https://nova.org.za/novaimpactaccountingstandard/reportContent": {
     "label": "PDD Section B content",

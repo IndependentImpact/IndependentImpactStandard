@@ -76,7 +76,8 @@
 <https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBReportContentUiShape-usesMethodology>
   ui:label "Report methodology IRIs" ;
   ui:order 5 ;
-  ui:widget <https://shape2form.dev/vocab/ui#chips> .
+  ui:widget <https://shape2form.dev/vocab/ui#chips> ;
+  ui:optionSource [ ui:sourceType "fluree" ; ui:valuePath "@id" ; ui:labelPath "skos:prefLabel" ; ui:query "{ \"from\": \"$FLUREE_LEDGER\", \"@context\": {\"skos\": \"http://www.w3.org/2004/02/skos/core#\"}, \"where\": {\"@id\": \"?m\", \"@type\": \"skos:Concept\", \"https://nova.org.za/novaimpactaccountingstandard/approvalStatus\": {\"@id\": \"https://nova.org.za/novaimpactaccountingstandard/approved\"}}, \"select\": {\"?m\": [\"@id\", \"skos:prefLabel\"]} }" ] .
 
 <https://nova.org.za/novaimpactaccountingstandard/shape2form/PddSectionBUiShape-authProof>
   ui:label "Authenticity proof" ;

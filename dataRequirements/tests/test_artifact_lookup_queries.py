@@ -28,6 +28,9 @@ REGISTER_DATA = {
     "Indicator Concepts": [
         REPO_ROOT / "indicators/GHGIndicators.ttl",
     ],
+    "Approved Methodologies": [
+        REPO_ROOT / "methodologies/GHGMethodologies.ttl",
+    ],
     "Methodologies By Knowledge Domain": [
         REPO_ROOT / "methodologies/GHGMethodologies.ttl",
         REPO_ROOT / "knowledgeDomains/GHGKnowledgeDomains.ttl",

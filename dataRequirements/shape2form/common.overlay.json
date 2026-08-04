@@ -114,7 +114,13 @@
   "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactClaimUiShape|https://nova.org.za/novaimpactaccountingstandard/usesMethodology": {
     "label": "Methodology IRIs",
     "order": 2,
-    "widget": "https://shape2form.dev/vocab/ui#chips"
+    "widget": "https://shape2form.dev/vocab/ui#chips",
+    "optionSource": {
+      "sourceType": "fluree",
+      "valuePath": "@id",
+      "labelPath": "skos:prefLabel",
+      "query": "{ \"from\": \"$FLUREE_LEDGER\", \"@context\": {\"skos\": \"http://www.w3.org/2004/02/skos/core#\"}, \"where\": {\"@id\": \"?m\", \"@type\": \"skos:Concept\", \"https://nova.org.za/novaimpactaccountingstandard/approvalStatus\": {\"@id\": \"https://nova.org.za/novaimpactaccountingstandard/approved\"}}, \"select\": {\"?m\": [\"@id\", \"skos:prefLabel\"]} }"
+    }
   },
   "https://nova.org.za/novaimpactaccountingstandard/shape2form/ImpactRequirementUiShape|http://w3id.org/impactont#hasProvenance": {
     "label": "Provenance resources",

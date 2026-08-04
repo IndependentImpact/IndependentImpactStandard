@@ -15,6 +15,17 @@ compiles alone into a usable, plain form. Presentation lives beside it:
 - `<bundle>-annotations.ttl` — machine-generated from the overlay
   (`shape2form generate-annotations`); never hand-edit, regenerate.
 
+Register-backed fields declare their register in the overlay
+(`ui:optionSource`): which register, and how to read a row
+(`valuePath`/`labelPath`) — but **never where it lives**. Endpoint and
+ledger are deployment configuration: the query template says
+`$FLUREE_LEDGER` and `shape2form serve-options` resolves it from
+`--ledger`/`FLUREE_LEDGER`, so the same annotation works against any
+deployment's ledger. Query templates live in
+`dataRequirements/fluree/artifact-lookup-queries.md` and are grounded
+against the real register TTLs by
+`dataRequirements/tests/test_artifact_lookup_queries.py`.
+
 Authoring rules for new shapes: **name your property shapes**
 (`nias-ui:ShapeName-pathLocal` — `shape2form lint` nudges strays and
 `shape2form skolemize` migrates); keep `sh:description` on every field (it
